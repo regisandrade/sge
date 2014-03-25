@@ -49,8 +49,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '123';
+$db['default']['username'] = 'sge';
+$db['default']['password'] = 'sge123';
 $db['default']['database'] = 'sge';
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';

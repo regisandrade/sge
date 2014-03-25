@@ -7,19 +7,19 @@ $this->load->library('session');
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <title>SGE - <?php echo $config->empresa;?></title>
-<link href="<?php echo base_url()?>/public/css/main.css" rel="stylesheet" type="text/css" />
-<!--[if IE 8]><link href="<?php echo base_url()?>/public/css/ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
-<!--[if IE 9]><link href="<?php echo base_url()?>/public/css/ie9.css" rel="stylesheet" type="text/css" /><![endif]-->
+<link href="<?php echo base_url()?>public/css/main.css" rel="stylesheet" type="text/css" />
+<!--[if IE 8]><link href="<?php echo base_url()?>public/css/ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
+<!--[if IE 9]><link href="<?php echo base_url()?>public/css/ie9.css" rel="stylesheet" type="text/css" /><![endif]-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 
-<script type="text/javascript" src="<?php echo base_url()?>/public/js/plugins/forms/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>public/js/plugins/forms/jquery.uniform.min.js"></script>
 
-<script type="text/javascript" src="<?php echo base_url()?>/public/js/files/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>public/js/files/bootstrap.min.js"></script>
 
-<script type="text/javascript" src="<?php echo base_url()?>/public/js/files/login.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>public/js/files/login.js"></script>
 
 </head>
 
@@ -28,7 +28,7 @@ $this->load->library('session');
 	<!-- Fixed top -->
 	<div id="top">
 		<div class="fixed">
-			<a href="index.php" title="" class="logo"><img src="<?php echo base_url()?>/public/img/logo.png" alt="" /></a>
+			<a href="index.php" title="" class="logo"><img src="<?php echo base_url()?>public/img/<?php echo $config->logo;?>" alt="" /></a>
 			<!-- <ul class="top-menu">
 				<li class="dropdown">
 					<a class="login-top" data-toggle="dropdown"></a>
@@ -61,22 +61,32 @@ $this->load->library('session');
             </div>
         </div>
         <div class="well">
-            <form action="index.html" class="row-fluid">
+            <form action="<?php echo base_url('index.php')?>/usuario/entrar" class="row-fluid" method="POST">
                 <div class="control-group">
                     <label class="control-label">Usuário</label>
-                    <div class="controls"><input class="span12" type="text" name="regular" placeholder="usuário" /></div>
+                    <div class="controls"><input class="span12" type="text" name="usuario" placeholder="usuário" /></div>
                 </div>
                 
                 <div class="control-group">
                     <label class="control-label">Senha:</label>
-                    <div class="controls"><input class="span12" type="password" name="pass" placeholder="senha" /></div>
+                    <div class="controls"><input class="span12" type="password" name="senha" placeholder="senha" /></div>
                 </div>
-
+                <?php
+                if (isset($msg)) {
+                ?>
                 <div class="control-group">
-                    <div class="controls"><label class="checkbox inline"><input type="checkbox" name="checkbox1" class="styled" value="" checked="checked">Relembrar senha</label></div>
+                    <div class="controls">
+                        <label class="alert-error"><?php echo $msg;?></label>
+                    </div>
                 </div>
+                <?php
+                }
+                ?>
+                <!-- <div class="control-group">
+                    <div class="controls"><label class="checkbox inline"><input type="checkbox" name="checkbox1" class="styled" value="" checked="checked">Relembrar senha</label></div>
+                </div> -->
 
-                <div class="login-btn"><input type="submit" value="Entrar" class="btn btn-danger btn-block" /></div>
+                <div class="login-btn"><input type="submit" value="ENTRAR" class="btn btn-danger btn-block" /></div>
             </form>
         </div>
     </div>
