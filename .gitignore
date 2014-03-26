@@ -4,4 +4,4 @@
 */cache/*
 */cache/!index.html
 
-config.php
+/config/config.php
