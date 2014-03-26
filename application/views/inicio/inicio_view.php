@@ -6,7 +6,7 @@ $this->load->library('session');
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-<title>SGE - <?php echo $config->empresa;?></title>
+<title>SGE :-: <?php echo $config->empresa;?></title>
 <link href="<?php echo base_url()?>public/css/main.css" rel="stylesheet" type="text/css" />
 <!--[if IE 8]><link href="<?php echo base_url()?>public/css/ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
 <!--[if IE 9]><link href="<?php echo base_url()?>public/css/ie9.css" rel="stylesheet" type="text/css" /><![endif]-->
@@ -28,7 +28,7 @@ $this->load->library('session');
 	<!-- Fixed top -->
 	<div id="top">
 		<div class="fixed">
-			<a href="index.php" title="" class="logo"><img src="<?php echo base_url()?>public/img/<?php echo $config->logo;?>" alt="" /></a>
+			<a href="<?php echo base_url()?>" title="" class="logo"><img src="<?php echo base_url()?>public/img/<?php echo $config->logo;?>" alt="" /></a>
 			<!-- <ul class="top-menu">
 				<li class="dropdown">
 					<a class="login-top" data-toggle="dropdown"></a>
@@ -61,7 +61,7 @@ $this->load->library('session');
             </div>
         </div>
         <div class="well">
-            <form action="<?php echo base_url('index.php')?>/usuario/entrar" class="row-fluid" method="POST">
+            <form action="<?php echo base_url('index.php')?>/usuarios/entrar" class="row-fluid" method="POST">
                 <div class="control-group">
                     <label class="control-label">Usuário</label>
                     <div class="controls"><input class="span12" type="text" name="usuario" placeholder="usuário" /></div>
@@ -76,7 +76,7 @@ $this->load->library('session');
                 ?>
                 <div class="control-group">
                     <div class="controls">
-                        <label class="alert-error"><?php echo $msg;?></label>
+                        <p class="text-error"><?php echo $msg;?></p>
                     </div>
                 </div>
                 <?php

@@ -17,12 +17,13 @@ class Usuarios_model extends CI_Model {
 
 		// Run the query
 		$query = $this->db->get('usuarios');
-		#echo ">>> ".$this->db->last_query();;
+		#echo ">>> ".$this->db->last_query(); exit;
 		// Let's check if there are any results
 
 		if($query->num_rows == 1) {
 			// If there is a user, then create session data
 			$row = $query->row();
+			#print_r($row);exit;
 			$data = array(
 						'us_id' => $row->us_id,
 						'us_nome' => $row->us_nome,

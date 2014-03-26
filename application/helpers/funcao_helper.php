@@ -102,11 +102,10 @@ function base_admin($s = ''){
 	}
 
 function verifica_usuario_logado(){
-	 if(!(isset($_SESSION['logadminxli'])&&$_SESSION['logadminxli']!=false)){
-		 redirect(base_admin('usuarios/entrar'));
-		 }
-	 
+	if(!(isset($_SESSION['logadminxli'])&&$_SESSION['logadminxli']!=false)){
+		redirect(base_admin('usuarios/entrar'));
 	}
+}
 
 function alias($url,$alias=''){
 	$ci =& get_instance();
@@ -144,7 +143,7 @@ function permissao($modulo,$acao){
 function view_admin($view,$data=array()){
 	$ci =& get_instance();
 	$ci->load->view($ci->config->config['folder_admin'].'/'.$view,$data);
-	}
+}
 	
 
 function get_user(){
