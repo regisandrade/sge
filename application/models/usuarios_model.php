@@ -34,7 +34,8 @@ class Usuarios_model extends CI_Model {
 						'us_permissao' => $row->us_permissao,
 						'us_tipo' => $row->us_tipo,
 						'us_ativo' => $row->us_ativo,
-						'us_time' => $row->us_time
+						'us_time' => $row->us_time,
+						'logadminxli'=> true
 			        );
 			$this->session->set_userdata($data);
 			

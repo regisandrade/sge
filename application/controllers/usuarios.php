@@ -60,7 +60,7 @@ class Usuarios extends CI_Controller {
 		}
 
 		$data['pagina'] = 'usuarios/form_usuario';
-		$this->load->view('inicio/home_view',$data);
+		view_sistema('inicio/home_view',$data);
 	}
 
 	public function entrar() {
@@ -79,7 +79,7 @@ class Usuarios extends CI_Controller {
 
 	function logout() {
 		$this->session->sess_destroy();
-		redirect(base_url());
+		redirect('/');
  	}
 
 

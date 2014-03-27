@@ -140,9 +140,9 @@ function permissao($modulo,$acao){
 		}
 	}
 
-function view_admin($view,$data=array()){
+function view_sistema($view,$data=array()){
 	$ci =& get_instance();
-	$ci->load->view($ci->config->config['folder_admin'].'/'.$view,$data);
+	$ci->load->view($view,$data);
 }
 	
 
@@ -166,8 +166,8 @@ function valida_fields($table,$fields){
 			if($f != "" && $f != NULL){
 			 $new_dados[$k] = $f;
 			}
-			}
 		}
+	}
 	return $new_dados;	
 	}
 

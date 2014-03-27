@@ -1,7 +1,10 @@
 <?php 
-verifica_usuario_logado();
-$sessionSge = $_SESSION['logadminxli'];
-echo '<pre>'; print_r($_SESSION['logadminxli']); echo '</pre>';
+$this->load->library('session');
+//verifica_usuario_logado();
+
+# Definindo constantes
+define('ID_USUARIO', $this->session->userdata('us_id'));
+define('NOME_USUARIO', $this->session->userdata('us_nome'));
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -71,9 +74,9 @@ echo '<pre>'; print_r($_SESSION['logadminxli']); echo '</pre>';
 		<div class="fixed">
 			<ul class="top-menu">
 				<li class="dropdown">
-					<a class="user-menu" data-toggle="dropdown"><span><?php echo $sessionSge->us_nome; ?> <b class="caret"></b></span></a>
+					<a class="user-menu" data-toggle="dropdown"><span><?php echo NOME_USUARIO; ?> <b class="caret"></b></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="<?php echo base_url('index.php')?>/usuarios/form_usuario/<?php echo $sessionSge->us_id; ?>" title=""><i class="icon-user"></i>Dados</a></li>
+						<li><a href="<?php echo base_url('index.php')?>/usuarios/form_usuario/<?php echo ID_USUARIO; ?>" title=""><i class="icon-user"></i>Dados</a></li>
 						<li><a href="<?php echo base_url('index.php')?>/usuarios/logout" title=""><i class="icon-remove"></i>Logout</a></li>
 					</ul>
 				</li>
@@ -184,11 +187,11 @@ echo '<pre>'; print_r($_SESSION['logadminxli']); echo '</pre>';
 			    <!-- /breadcrumbs line -->
 
 				<?php
-				echo '>>> '.$pagina;
+				//echo '>>> '.$pagina;
 				if(isset($pagina)){
-					$this->load->view(base_url('index.php').'/'.$pagina."_view");
-				}else {
-					echo '<h1>aqui</h1>';
+					$this->load->view("{$pagina}_view");
+				}else{
+					$this->load->view("inicio/meio_view");
 				}
 				?>
 
