@@ -5,16 +5,23 @@ $this->load->library('session');
 # Definindo constantes
 define('ID_USUARIO', $this->session->userdata('us_id'));
 define('NOME_USUARIO', $this->session->userdata('us_nome'));
+
+echo doctype('html5');
 ?>
-<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<?php
+$metas = array(
+		 array('name' => 'Content-type', 'content' => 'text/html; charset=utf-8'),
+		 array('name' => 'viewport', 'content' => 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+	);
+echo meta($metas);
+?>
 <title>SGE :-: <?php echo $config->empresa;?></title>
-<link href="<?php echo base_url()?>public/css/main.css" rel="stylesheet" type="text/css" />
-<!--[if IE 8]><link href="css/ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<?php echo link_tag(base_url().'public/css/main.css') . "\n"; ?>
+<!-- <?php echo link_tag(base_url().'public/css/main.css'); ?> -->
+<!--[if IE 8]><?php echo link_tag(base_url().'public/css/ie8.css'); ?><![endif]-->
+<?php echo link_tag('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700') . "\n"; ?>
 
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
@@ -187,7 +194,7 @@ define('NOME_USUARIO', $this->session->userdata('us_nome'));
 			    <!-- /breadcrumbs line -->
 
 				<?php
-				//echo '>>> '.$pagina;
+				echo '>>>'.$pagina;
 				if(isset($pagina)){
 					$this->load->view("{$pagina}_view");
 				}else{
