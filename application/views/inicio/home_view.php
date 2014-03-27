@@ -194,7 +194,6 @@ echo meta($metas);
 			    <!-- /breadcrumbs line -->
 
 				<?php
-				echo '>>>'.$pagina;
 				if(isset($pagina)){
 					$this->load->view("{$pagina}_view");
 				}else{
