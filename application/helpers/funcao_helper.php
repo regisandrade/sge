@@ -1,22 +1,5 @@
 <?php
 
-function imagensLightBox($texto){
-	       $textoOriginal = $texto;
-		   $textoRetorno = $texto;
-		   preg_match_all('/(<img([^>]+)?>)/',$texto,$imagensDoTexto);
-	       $imagensDoTexto = isset($imagensDoTexto[0])?$imagensDoTexto[0]:array();
-		   
-		   foreach($imagensDoTexto as $imagem){
-			    $attImagem = simplexml_load_string($imagem);
-			    $htmlLightBox = "<a data-lightbox=\"imagem-1\" href='".$attImagem['src']."'>";
-				$htmlLightBox .= $imagem;
-				$htmlLightBox .= "</a>";
-				$textoRetorno = str_ireplace($imagem,$htmlLightBox,$textoRetorno);
-			}
-		   
-		  echo $textoRetorno;
-}
-
 function set_alert($tipo,$msg){
 	 $_SESSION['notificacao'][] = array('tipo'=>$tipo,'msg'=>$msg);
 	}
@@ -29,29 +12,6 @@ function zerar_alert(){
 	 $_SESSION['notificacao'] = array();
 	}
 
-function definiu_senha(){
-	$ci =& get_instance();
-	$ja = $ci->db
-		 ->where('cfp_servidor_senha',get_servidor()->cpf_servidor)
-		 ->get('senha_servidor')->num_rows;
-	if($ja==0){
-		redirect(alias('servidor/nova_senha'));exit;
-		}	 
-	}
-
-function autenticar_servidor(){
-	 if(!isset($_SESSION['servidor']) || $_SESSION['servidor']==false){
-		 redirect(alias('servidor/login'));
-		 }
-	}
-
-function set_servidor($s){
-	 $_SESSION['servidor'] = $s;
-	}
-
-function get_servidor(){
-	return isset($_SESSION['servidor'])?$_SESSION['servidor']:false;
-	}
 
 function dataUSA($data){
 	list($d,$m,$y) = @explode('/',$data);
@@ -102,8 +62,8 @@ function base_admin($s = ''){
 	}
 
 function verifica_usuario_logado(){
-	if(!(isset($_SESSION['logadminxli'])&&$_SESSION['logadminxli']!=false)){
-		redirect(base_admin('usuarios/entrar'));
+	if($this->session->userdata('logadminxli') !== false){
+		redirect('/');
 	}
 }
 
@@ -145,10 +105,17 @@ function view_sistema($view,$data=array()){
 	$ci->load->view($view,$data);
 }
 	
+function get_user_tipo(){
+	$CI =& get_instance();
+    $CI->load->library('session');
+	return $CI->session->userdata('us_tipo');
+}
 
 function get_user(){
-	return $_SESSION['logadminxli'];
-	}
+	$CI =& get_instance();
+    $CI->load->library('session');
+	return $CI->session->userdata('us_id');
+}
 
 function gerar_link($mostrar_para = array(1), $url = '', $texto = '', $attr = ''){
 	 if(in_array(get_user()->us_tipo,$mostrar_para)){

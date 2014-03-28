@@ -20,7 +20,7 @@ class Usuarios extends CI_Controller {
 
 		$data['config'] = $this->conf->getConfiguracao();
 
-		/*if(count($_POST)){
+		if(count($_POST)){
 			$data['dados'] = valida_fields('usuarios',$_POST);
 		}else{
 			if($this->uri->segment(3)){
@@ -57,7 +57,7 @@ class Usuarios extends CI_Controller {
 				$data['dados'] = $user_array[0];
 				$data['error'] = 'Alterado com sucesso!';
 			}
-		}*/
+		}
 
 		$data['pagina'] = 'usuarios/form_usuario';
 		view_sistema('inicio/home_view',$data);
