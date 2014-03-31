@@ -79,10 +79,11 @@ echo meta($metas);
 	<div id="top">
 		<div class="fixed">
 			<ul class="top-menu">
+				<li><a class="fullview"></a></li>
 				<li class="dropdown">
 					<a class="user-menu" data-toggle="dropdown"><span><?php echo NOME_USUARIO; ?> <b class="caret"></b></span></a>
 					<ul class="dropdown-menu">
-						<li><a href="<?php echo base_url('index.php')?>/usuarios/form_usuario/<?php echo ID_USUARIO; ?>" title=""><i class="icon-user"></i>Dados</a></li>
+						<li><a href="<?php echo base_url('index.php')?>/usuarios/form_usuario/<?php echo ID_USUARIO; ?>" title=""><i class="icon-user"></i>Dados do usuário</a></li>
 						<li><a href="<?php echo base_url('index.php')?>/usuarios/logout" title=""><i class="icon-remove"></i>Sair</a></li>
 					</ul>
 				</li>

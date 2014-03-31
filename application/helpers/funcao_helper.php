@@ -36,7 +36,7 @@ function dataHora ()
 	return strftime("%d de %B de %Y", strtotime( date('Y-m-d') ));
 }
 
-function set_menu($menu='',$sub=''){
+/*function set_menu($menu='',$sub=''){
 	 $objMenu = new stdClass;
 	 $objMenu->menu = $menu;
 	 $objMenu->sub = $sub;
@@ -54,7 +54,7 @@ function get_menu(){
 		 return $objMenu;
 		 }
 	 
-	}	
+	}*/	
  
 function base_admin($s = ''){
 	$ci =& get_instance();

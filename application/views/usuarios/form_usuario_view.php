@@ -1,7 +1,8 @@
 <?php 
+$this->load->helper('modulos_helper.php');
 echo br(); 
 ?>
-<h5 class="widget-name"><i class="icon-th-list"></i>Dados do usuário</h5>
+<h5 class="widget-name"><i class="icon-th-list"></i><?php echo ($this->uri->segment(3) ? 'Dados do usuário' : 'Novo usuário'); ?></h5>
 <?php
 echo isset($error)?"<br><div class=\"alert alert-success\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\"></button>{$error}</div>":"";
 ?>
@@ -98,14 +99,21 @@ echo isset($error)?"<br><div class=\"alert alert-success\"><button class=\"close
 			<label class="control-label">Permissão do usuário:</label>
 			<div class="controls">
 				<?php
-				echo "<pre>"; print_r($this); exit;
 				$permissao = json_decode($dados['us_permissao']);
-				foreach($this->config->config['modulos'] as $modulo => $descricao){
+				foreach(modulos() as $modulo => $descricao){
+					//echo "<pre>"; print_r($modulo); echo "</pre>";
 				?>
 					<strong><?php echo $descricao?>: </strong>
-					<label class="checkbox inline"><div class="checker" id="uniform-inlineCheckbox8"><span><input type="checkbox" name="us_permissao[<?php echo $modulo?>][adicionar]" <?php echo isset($permissao->{$modulo}->adicionar)?'checked':''?> value="1" class="styled" style="opacity: 0;"></span></div>Adicionar</label>
-					<label class="checkbox inline"><div class="checker" id="uniform-inlineCheckbox8"><span><input type="checkbox" name="us_permissao[<?php echo $modulo?>][editar]" <?php echo isset($permissao->{$modulo}->editar)?'checked':''?> value="1" class="styled" style="opacity: 0;"></span></div>Editar</label>
-					<label class="checkbox inline"><div class="checker" id="uniform-inlineCheckbox8"><span><input type="checkbox" name="us_permissao[<?php echo $modulo?>][remover]" <?php echo isset($permissao->{$modulo}->remover)?'checked':''?> value="1" class="styled" style="opacity: 0;"></span></div>Excluir</label>
+					<label class="checkbox inline">
+						<input type="checkbox" name="us_permissao[<?php echo $modulo?>][adicionar]" <?php echo isset($permissao->{$modulo}->adicionar)?'checked':''?> value="1">Adicionar
+					</label>
+					<label class="checkbox inline">
+						<input type="checkbox" name="us_permissao[<?php echo $modulo?>][editar]" <?php echo isset($permissao->{$modulo}->editar)?'checked':''?> value="1">Editar
+					</label>
+					<label class="checkbox inline">
+						<input type="checkbox" name="us_permissao[<?php echo $modulo?>][remover]" <?php echo isset($permissao->{$modulo}->remover)?'checked':''?> value="1">Excluir
+					</label>
+					<br>
 				<?php }?>
 			</div>
 		</div>
@@ -116,6 +124,7 @@ echo isset($error)?"<br><div class=\"alert alert-success\"><button class=\"close
 		</div>
 	</div>
 </fieldset>
+<?php echo br(2); ?>
 <script type="text/javascript">
 	$(function(){
 		$("#us_tipo").val(<?php echo $dados['us_tipo']?>);

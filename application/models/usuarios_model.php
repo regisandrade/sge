@@ -46,5 +46,9 @@ class Usuarios_model extends CI_Model {
 		return false;
     }
 
+    public function getUsuarios() {
+    	return $this->db->get("usuarios")->result();;
+    }
+
 
 }

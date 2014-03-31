@@ -82,6 +82,17 @@ class Usuarios extends CI_Controller {
 		redirect('/');
  	}
 
+ 	function listarUsuarios() {
+ 		$data['config'] = $this->conf->getConfiguracao();
+ 		
+ 		# carrega modelo
+		$this->load->model('Usuarios_model','usu',TRUE);
+		$data['resultado'] = $this->usu->getUsuarios();
+
+		$data['pagina'] = 'usuarios/listar_usuarios';
+ 		view_sistema('inicio/home_view',$data);
+ 	}
+
 
 }
 
