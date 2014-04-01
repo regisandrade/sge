@@ -5,7 +5,9 @@ class Usuarios extends CI_Controller {
 	function __construct(){
         parent::__construct();
 
+        # carrega modelo
         $this->load->model('Configuracao_model','conf',TRUE);
+		$this->load->model('Usuarios_model','usu',TRUE);
     }
 
 	public function index($msg)
@@ -24,38 +26,42 @@ class Usuarios extends CI_Controller {
 			$data['dados'] = valida_fields('usuarios',$_POST);
 		}else{
 			if($this->uri->segment(3)){
-				$user_array = $this->db->where('us_id',$this->uri->segment(3))->get('usuarios')->result_array();
-				#echo ">>> ".$this->db->last_query();
-				$data['dados'] = $user_array[0];
+				$user_array = $this->usu->getUsuario($this->uri->segment(3));
+				$data['dados'] = $user_array;
 			}else{
 				$data['dados'] = array('us_id'=>0,'us_nome'=>'','us_estado'=>'','us_permissao'=>'','us_cidade'=>'','us_email'=>'','us_telefone'=>'','us_tipo'=>'','us_ativo'=>1);
 			}
 		}
-
-		if(isset($_POST['us_nome']) && $_POST['us_email']!=""){
+		if(isset($_POST['us_nome']) && $_POST['us_email'] != ""){
 			$senha_descript = $_POST['senha'];
-			if($_POST['senha']!=""){
+			if($_POST['senha'] != ""){
 				$_POST['us_pw'] = sha1($_POST['senha']);
 			}
+
 			//Editar ou Inserir
-			if($_POST['us_id']==0){
-				if(!$this->email_exists($_POST['us_email'])){
+			if(empty($_POST['us_id'])){
+				#echo "<pre>1212"; print_r($_POST); echo "</pre>";
+				if(!$this->usu->emailExiste($_POST['us_email'])){
 					$_POST['us_permissao'] = json_encode($_POST['us_permissao']);
-					$this->db->insert('usuarios',valida_fields('usuarios',$_POST));
+					$this->usu->addUsuario($_POST);
 					$data['dados'] = array('us_id'=>'','us_nome'=>'','us_estado'=>'','us_cidade'=>'','us_email'=>'','us_telefone'=>'','us_tipo'=>'','us_ativo'=>1);
-					$data['error'] = 'Cadastrado com sucesso!';
+					$data['msg'] = 'Cadastrado com sucesso!';
 				}else{
-					$data['error'] = 'E-mail já existe';
+					$data['msg'] = 'E-mail já existe';
 				}
 			}else{
 				//Alterar
 				if(isset($_POST['us_permissao'])){
 					$_POST['us_permissao'] = json_encode($_POST['us_permissao']);
 				}
-				$this->db->where('us_id',$this->uri->segment(4))->update('usuarios',valida_fields('usuarios',$_POST));
-				$user_array = $this->db->where('us_id',$this->uri->segment(4))->get('usuarios')->result_array();
-				$data['dados'] = $user_array[0];
-				$data['error'] = 'Alterado com sucesso!';
+				$retorno = $this->usu->updateUsuario($_POST['us_id'], $_POST);
+				if ($retorno) {
+					$data['dados'] = $this->usu->getUsuario($_POST['us_id']);
+					$data['msg'] = 'Alterado com sucesso!';
+				} else {
+					$data['dados'] = array('us_id'=>'','us_nome'=>'','us_estado'=>'','us_cidade'=>'','us_email'=>'','us_telefone'=>'','us_tipo'=>'','us_ativo'=>1);
+					$data['msg'] = 'Erro ao alterar usuário!';
+				}
 			}
 		}
 
@@ -64,9 +70,6 @@ class Usuarios extends CI_Controller {
 	}
 
 	public function entrar() {
-		# carrega modelo
-		$this->load->model('Usuarios_model','usu',TRUE);
-
 		# Validar
         $result = $this->usu->validate();
         if (! $result) {
@@ -84,15 +87,11 @@ class Usuarios extends CI_Controller {
 
  	function listarUsuarios() {
  		$data['config'] = $this->conf->getConfiguracao();
- 		
- 		# carrega modelo
-		$this->load->model('Usuarios_model','usu',TRUE);
 		$data['resultado'] = $this->usu->getUsuarios();
 
 		$data['pagina'] = 'usuarios/listar_usuarios';
  		view_sistema('inicio/home_view',$data);
  	}
-
 
 }
 

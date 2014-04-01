@@ -46,9 +46,59 @@ class Usuarios_model extends CI_Model {
 		return false;
     }
 
+    /**
+    * Retorno todos os usuários no banco
+    */
     public function getUsuarios() {
     	return $this->db->get("usuarios")->result();;
     }
 
+    /**
+    * Retorno um usuário
+    */
+    public function getUsuario($_id) {
+    	return $this->db->where('us_id', $_id)->get('usuarios')->row();
+    }
+
+    /**
+    * Adicionar usuário
+    */
+    public function addUsuario($dados = array()) {
+		$retorno = $this->db->insert('usuarios', valida_fields('usuarios',$dados));
+
+		if ($retorno) {
+			return true;
+		} else {
+			return false;
+		}
+		
+    }
+
+    /**
+    * Alterar usuário
+    */
+    public function updateUsuario($id, $dados = array()) {
+		$retorno = $this->db->where('us_id',$id)->update('usuarios',valida_fields('usuarios',$dados));
+		#echo ">>> <pre>".print_r($this->db->last_query()); exit;
+		if ($retorno) {
+			return true;
+		} else {
+			return false;
+		}
+    }
+
+    /**
+    * Deletar usuário
+    */
+    public function deleteUsuario() {
+
+    }
+
+    /**
+    * verificar se o e-mail existe
+    */
+    public function emailExiste($_email) {
+    	return $this->db->where('us_email', $_email)->get('usuarios')->row();
+    }
 
 }
