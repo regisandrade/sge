@@ -14,6 +14,7 @@ echo isset($error)?"<br><div class=\"alert alert-success\"><button class=\"close
 			<table class="table table-striped table-bordered dataTable" id="data-table" aria-describedby="data-table_info">
 				<thead>
 					<tr role="row">
+						<th>Ações</th>
 						<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="#: activate to sort column descending">#</th>
 						<th class="sorting" role="columnheader" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-label="Nome: activate to sort column ascending">Nome</th>
 						<th class="sorting" role="columnheader" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-label="e-Mail: activate to sort column ascending">e-Mail</th>
@@ -27,6 +28,16 @@ echo isset($error)?"<br><div class=\"alert alert-success\"><button class=\"close
 					foreach ($resultado as $dado) {
 					?>
 						<tr class="<?php (++$count%2 ? "odd" : "even") ?>">
+							<td>
+								<ul class="table-controls">
+									<li>
+										<a title="" class="btn tip" href="#" data-original-title="Editar"><i class="icon-pencil"></i></a>
+									</li>
+									<li>
+										<a title="" class="btn tip" href="#" data-original-title="Excluir"><i class="icon-remove"></i></a>
+									</li>
+								</ul>
+							</td>
 							<td class=" sorting_1"><?php echo $dado->us_id?></td>
 							<td class=" "><?php echo $dado->us_nome?></td>
 							<td class=" "><?php echo $dado->us_email?></td>
