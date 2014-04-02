@@ -11,7 +11,8 @@ function getMenu() {
 				  'Usuários' => 
 				  		array('Lista de usuários'=>'usuarios/listarUsuarios',
 				  			  'Novo usuários'=>'usuarios/form_usuario'),
-				  'Sair' => 'caminho');
+		  		  'Sair' => 
+				  		array('Sair'=>'usuarios/logout'));
 
 	return $menu;
 }

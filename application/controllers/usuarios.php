@@ -21,6 +21,17 @@ class Usuarios extends CI_Controller {
 	public function form_usuario(){
 
 		$data['config'] = $this->conf->getConfiguracao();
+		
+		$obj = new StdClass;
+		$obj->us_id = '';
+		$obj->us_nome = '';
+		$obj->us_estado = '';
+		$obj->us_cidade = '';
+		$obj->us_email = '';
+		$obj->us_telefone = '';
+		$obj->us_tipo = '';
+		$obj->us_ativo = 1;
+
 
 		if(count($_POST)){
 			$data['dados'] = valida_fields('usuarios',$_POST);
@@ -29,37 +40,56 @@ class Usuarios extends CI_Controller {
 				$user_array = $this->usu->getUsuario($this->uri->segment(3));
 				$data['dados'] = $user_array;
 			}else{
-				$data['dados'] = array('us_id'=>0,'us_nome'=>'','us_estado'=>'','us_permissao'=>'','us_cidade'=>'','us_email'=>'','us_telefone'=>'','us_tipo'=>'','us_ativo'=>1);
+				$data['dados'] = $obj;			
 			}
 		}
-		if(isset($_POST['us_nome']) && $_POST['us_email'] != ""){
-			$senha_descript = $_POST['senha'];
-			if($_POST['senha'] != ""){
-				$_POST['us_pw'] = sha1($_POST['senha']);
-			}
 
+		if(isset($_POST['us_nome']) && $_POST['us_email'] != ""){
+			$senha_descript = $_POST['us_pw'];
+			if($_POST['us_pw'] != ""){
+				$_POST['us_pw'] = sha1($_POST['us_pw']);
+			}
+		/*echo "<pre>1212"; print_r($_POST); print_r($data); echo "</pre>";
+		die('aqui');*/
 			//Editar ou Inserir
 			if(empty($_POST['us_id'])){
-				#echo "<pre>1212"; print_r($_POST); echo "</pre>";
+				
 				if(!$this->usu->emailExiste($_POST['us_email'])){
-					$_POST['us_permissao'] = json_encode($_POST['us_permissao']);
-					$this->usu->addUsuario($_POST);
-					$data['dados'] = array('us_id'=>'','us_nome'=>'','us_estado'=>'','us_cidade'=>'','us_email'=>'','us_telefone'=>'','us_tipo'=>'','us_ativo'=>1);
-					$data['msg'] = 'Cadastrado com sucesso!';
+					if(isset($_POST['us_permissao']))
+						$_POST['us_permissao'] = json_encode($_POST['us_permissao']);
+					
+					# Gravar dados
+					if($this->usu->addUsuario($_POST))
+						$data['msg'] = 'Cadastrado com sucesso!';
+					else
+						$data['msg'] = 'Erro no cadastro!';
+					
+					$data['dados'] = $obj;
 				}else{
-					$data['msg'] = 'E-mail já existe';
+					$data['msg'] = 'Este e-mail já existe, tenet outro';
+
+					$obj->us_id = '';
+					$obj->us_nome = $_POST['us_nome'];
+					$obj->us_estado = $_POST['us_estado'];
+					$obj->us_cidade = $_POST['us_cidade'];
+					$obj->us_email = '';
+					$obj->us_telefone = $_POST['us_telefone'];
+					$obj->us_ativo = 1;
+					$data['dados'] = $obj;
 				}
+				/*echo "<pre>1212"; print_r($_POST); echo "</pre>";
+				die('aqui');*/
 			}else{
 				//Alterar
-				if(isset($_POST['us_permissao'])){
+				if(isset($_POST['us_permissao']))
 					$_POST['us_permissao'] = json_encode($_POST['us_permissao']);
-				}
+				
 				$retorno = $this->usu->updateUsuario($_POST['us_id'], $_POST);
 				if ($retorno) {
 					$data['dados'] = $this->usu->getUsuario($_POST['us_id']);
 					$data['msg'] = 'Alterado com sucesso!';
 				} else {
-					$data['dados'] = array('us_id'=>'','us_nome'=>'','us_estado'=>'','us_cidade'=>'','us_email'=>'','us_telefone'=>'','us_tipo'=>'','us_ativo'=>1);
+					$data['dados'] = $obj;
 					$data['msg'] = 'Erro ao alterar usuário!';
 				}
 			}

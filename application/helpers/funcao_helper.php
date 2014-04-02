@@ -136,7 +136,7 @@ function valida_fields($table,$fields){
 		}
 	}
 	return $new_dados;	
-	}
+}
 
 function tipo_usuario($str){
 	switch($str){

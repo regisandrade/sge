@@ -4,7 +4,7 @@ echo br();
 ?>
 <h5 class="widget-name"><i class="icon-th-list"></i><?php echo ($this->uri->segment(3) ? 'Dados do usuário' : 'Novo usuário'); ?></h5>
 <?php
-echo isset($error)?"<br><div class=\"alert alert-success\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\"></button>{$error}</div>":"";
+echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\"></button>{$msg}</div>":"";
 ?>
 <form name="form1" id="validate" method="post" action='<?php echo base_url('index.php') ?>/usuarios/form_usuario/<?php echo $this->uri->segment(3); ?>' class="form-horizontal">
 <input name="us_id" type="hidden" value="<?php echo $this->uri->segment(3)?>">
@@ -21,7 +21,7 @@ echo isset($error)?"<br><div class=\"alert alert-success\"><button class=\"close
 		<div class="control-group">
 			<label class="control-label">Estado:</label>
 			<div class="controls">
-			<select name="estado" class="styled" style="opacity: 0;">
+			<select name="us_estado" class="styled" style="opacity: 0;">
 					<option selected="" value="">UF</option>
 					<option value="AC" <?php echo ($dados->us_estado == 'AC' ? 'selected="true"' : '') ?>>Acre</option>
 					<option value="AL" <?php echo ($dados->us_estado == 'AL' ? 'selected="true"' : '') ?>>Alagoas</option>
@@ -71,11 +71,11 @@ echo isset($error)?"<br><div class=\"alert alert-success\"><button class=\"close
 		</div>
 		<div class="control-group">
 			<label class="control-label">Senha do usuário:</label>
-			<div class="controls"><input type="password" name="senha" class="input-medium" <?php if($dados->us_id==0){?>class="validate[required]"<?php }?> maxlength="20"></div>
+			<div class="controls"><input type="password" name="us_pw" class="input-medium" <?php if($dados->us_id==0){?>class="validate[required]"<?php }?> maxlength="20"></div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">Repetir senha do usuário:</label>
-			<div class="controls"><input type="password" name="senha2" class="input-medium" <?php if($dados->us_id==0){?>class="validate[required,equals[id_senha]]"<?php }?> maxlength="20"></div>
+			<div class="controls"><input type="password" name="senha2" class="input-medium" <?php if($dados->us_id==0){?>class="validate[required,equals[us_pw]]"<?php }?> maxlength="20"></div>
 		</div>
 		<?php if(get_user_tipo() == 1){?>
 		<div class="control-group">

@@ -65,13 +65,8 @@ class Usuarios_model extends CI_Model {
     */
     public function addUsuario($dados = array()) {
 		$retorno = $this->db->insert('usuarios', valida_fields('usuarios',$dados));
-
-		if ($retorno) {
-			return true;
-		} else {
-			return false;
-		}
-		
+		#echo ">>> <pre>".print_r($this->db->last_query()); exit;
+		return ($retorno ? true : false);
     }
 
     /**
@@ -98,7 +93,8 @@ class Usuarios_model extends CI_Model {
     * verificar se o e-mail existe
     */
     public function emailExiste($_email) {
-    	return $this->db->where('us_email', $_email)->get('usuarios')->row();
+    	$retorno = $this->db->where('us_email', $_email)->get('usuarios')->row();
+    	return ($retorno ? true : false);
     }
 
 }
