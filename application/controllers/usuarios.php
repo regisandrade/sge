@@ -123,6 +123,21 @@ class Usuarios extends CI_Controller {
  		view_sistema('inicio/home_view',$data);
  	}
 
+ 	function deleteUsuario() {
+ 		$data['config'] = $this->conf->getConfiguracao();
+
+ 		if ($this->usu->deleteUsuario($this->uri->segment(3))) {
+ 			$data['msg'] = "Registro excluído com sucesso.";
+ 		} else {
+ 			$data['msg'] = "Erro ao tentar excluir o registro.";
+ 		}
+
+ 		$data['resultado'] = $this->usu->getUsuarios();
+
+		$data['pagina'] = 'usuarios/listar_usuarios';
+ 		view_sistema('inicio/home_view',$data);
+ 	}
+
 }
 
 /* End of file welcome.php */

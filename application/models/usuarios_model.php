@@ -72,8 +72,8 @@ class Usuarios_model extends CI_Model {
     /**
     * Alterar usuário
     */
-    public function updateUsuario($id, $dados = array()) {
-		$retorno = $this->db->where('us_id',$id)->update('usuarios',valida_fields('usuarios',$dados));
+    public function updateUsuario($_id, $dados = array()) {
+		$retorno = $this->db->where('us_id',$_id)->update('usuarios',valida_fields('usuarios',$dados));
 		#echo ">>> <pre>".print_r($this->db->last_query()); exit;
 		if ($retorno) {
 			return true;
@@ -85,8 +85,9 @@ class Usuarios_model extends CI_Model {
     /**
     * Deletar usuário
     */
-    public function deleteUsuario() {
-
+    public function deleteUsuario($_id) {
+		$retorno = $this->db->where('us_id', $_id)->delete('usuarios');
+		return ($retorno ? true : false);
     }
 
     /**

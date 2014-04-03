@@ -3,7 +3,7 @@ echo br();
 ?>
 <h5 class="widget-name"><i class="icon-columns"></i></i>Lista de usuários</h5>
 <?php
-echo isset($error)?"<br><div class=\"alert alert-success\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\"></button>{$error}</div>":"";
+echo isset($msg)?"<br><div class=\"alert alert-success\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\"></button>{$msg}</div>":"";
 
 ?>
 
@@ -31,10 +31,10 @@ echo isset($error)?"<br><div class=\"alert alert-success\"><button class=\"close
 							<td>
 								<ul class="table-controls">
 									<li>
-										<a title="" class="btn tip" href="#" data-original-title="Editar"><i class="icon-pencil"></i></a>
+										<a title="" class="btn tip" href="<?php echo base_url('index.php')?>/usuarios/form_usuario/<?php echo $dado->us_id; ?>" data-original-title="Editar"><i class="icon-pencil"></i></a>
 									</li>
 									<li>
-										<a title="" class="btn tip" href="#" data-original-title="Excluir"><i class="icon-remove"></i></a>
+										<a title="" class="btn tip" href="<?php echo base_url('index.php')?>/usuarios/deleteUsuario/<?php echo $dado->us_id; ?>" data-original-title="Excluir"><i class="icon-remove"></i></a>
 									</li>
 								</ul>
 							</td>
