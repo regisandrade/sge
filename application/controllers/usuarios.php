@@ -13,7 +13,6 @@ class Usuarios extends CI_Controller {
 	public function index($msg)
 	{
 		$data['config'] = $this->conf->getConfiguracao();
-		
 		$data['msg'] = $msg;
 		$this->load->view('inicio/inicio_view',$data);
 	}

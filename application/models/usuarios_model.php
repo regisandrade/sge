@@ -94,7 +94,8 @@ class Usuarios_model extends CI_Model {
     * verificar se o e-mail existe
     */
     public function emailExiste($_email) {
-    	$retorno = $this->db->where('us_email', $_email)->get('usuarios')->row();
+    	#$this->db->escape($name)
+    	$retorno = $this->db->where('us_email', $this->db->escape($_email))->get('usuarios')->row();
     	return ($retorno ? true : false);
     }
 
