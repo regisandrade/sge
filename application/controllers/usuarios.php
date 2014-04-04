@@ -29,6 +29,7 @@ class Usuarios extends CI_Controller {
 		$obj->us_email = '';
 		$obj->us_telefone = '';
 		$obj->us_tipo = '';
+		$obj->us_permissao = '';
 		$obj->us_ativo = 1;
 
 

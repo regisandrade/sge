@@ -65,7 +65,7 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 			<label class="control-label">E-mail:</label>
 			<div class="controls">
 				<div class="input-prepend">
-					<span class="add-on">@</span><input name="us_email" id="prependedInput" type="email" class="validate[required] input-xlarge" value="<?php echo $dados->us_email?>">
+					<span class="add-on">@</span><input name="us_email" id="prependedInput" type="email" class="validate[required,custom[email]] input-xlarge" value="<?php echo $dados->us_email?>">
 				</div>
 			</div>
 		</div>

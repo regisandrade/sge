@@ -56,7 +56,7 @@ echo meta($metas);
 <script type="text/javascript" src="<?php echo base_url()?>public/js/plugins/forms/jquery.select2.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>public/js/plugins/forms/jquery.listbox.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>public/js/plugins/forms/jquery.validation.js"></script>
-<script type="text/javascript" src="<?php echo base_url()?>public/js/plugins/forms/jquery.validationEngine-en.js"></script>
+<script type="text/javascript" src="<?php echo base_url()?>public/js/plugins/forms/jquery.validationEngine-pt_BR.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>public/js/plugins/forms/jquery.form.wizard.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>public/js/plugins/forms/jquery.form.js"></script>
 
