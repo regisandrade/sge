@@ -110,6 +110,7 @@ class Controle extends CI_Controller{
 	}
 
 	public function add(){
+		$data['config'] = $this->conf->getConfiguracao();
 		$data['info'] = $this->info;
 
 		$data['pagina'] = 'generic/add';
@@ -117,6 +118,7 @@ class Controle extends CI_Controller{
 		}
 
 	public function editar(){
+		$data['config'] = $this->conf->getConfiguracao();
 		$data['info'] = $this->info;
 		$data['pagina'] = 'generic/editar';
 		view_admin('home_view',$data);

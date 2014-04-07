@@ -239,8 +239,8 @@ class Modulos extends CI_Controller{
 			'id'=>array('type'=>'pk','label'=>'Nº'),
 			'nome'=>array('type'=>'varchar','size'=>200,'label'=>'Nome'),
 			'qtdeHoras'=>array('type'=>'varchar','size'=>40,'label'=>'Carga Horária'),
-			'dataInicio'=>array('type'=>'date','size'=>200,'label'=>'Dt. Início'),
-			'dataFim'=>array('type'=>'date','size'=>200,'label'=>'Dt. Fim'),
+			'dataInicio'=>array('type'=>'date','size'=>200,'label'=>'Data Inicial'),
+			'dataFim'=>array('type'=>'date','size'=>200,'label'=>'Data Final'),
 			'status'=>array('type'=>'varchar','size'=>1,'label'=>'Status'),
 			'flagMba'=>array('type'=>'varchar','size'=>1,'label'=>'MBA?'),
 		);
