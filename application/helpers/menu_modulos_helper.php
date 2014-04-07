@@ -7,7 +7,7 @@ function getMenu() {
 							  'Avisos' => 'caminho',
 							  'Cronogramas' => 'caminho',
 							  'Currículos' => 'caminho',
-							  'Cursos' => 'caminho',
+							  'Cursos' => 'generic/modulos/cursos',
 							  'Depoimentos' => 'caminho',
 							  'Disciplinas' => 'caminho',
 							  'Material de apoio' => 'caminho',
@@ -32,11 +32,12 @@ function getMenu() {
 				  		array('Lista de usuários'=>'usuarios/listarUsuarios',
 				  			  'Novo usuários'=>'usuarios/form_usuario'),
 				  'Site' =>  
-						array('Configuração' => 'modulo/configuracao',
-							  'Banners' => 'modulo/banners',
-							  'Empresa' => 'caminho',
-							  'Fotos' => 'caminho',
-							  'Notícias' => 'caminho'),
+						array('Configuração' => 'generic/modulos/configuracao',
+							  'Descriçoes dos Cursos' => 'generic/modulos/descricaoCursos',
+							  'Banners' => 'generic/modulos/banners',
+							  'Empresa' => 'generic/modulos/empresa',
+							  'Fotos' => 'generic/modulos/galerias',
+							  'Notícias' => 'generic/modulos/noticias'),
 		  		  'Sair' => 
 				  		array('Sair'=>'usuarios/logout'));
 

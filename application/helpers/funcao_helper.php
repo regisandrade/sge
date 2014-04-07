@@ -58,8 +58,13 @@ function get_menu(){
  
 function base_admin($s = ''){
 	$ci =& get_instance();
-	return base_url('index.php/'.$ci->config->config['folder_admin'].'/'.$s);
-	}
+	return base_url('index.php/generic/'.$s);
+}
+
+function view_admin($view,$data=array()){
+	$ci =& get_instance();
+	$ci->load->view('inicio/'.$view,$data);
+}
 
 function verifica_usuario_logado(){
 	if($this->session->userdata('logadminxli') !== false){
