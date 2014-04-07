@@ -8,7 +8,16 @@ echo isset($msg)?"<br><div class=\"alert alert-success\"><button class=\"close\"
 ?>
 
 <div class="widget">
-	<div class="navbar"><div class="navbar-inner"><h6>Usuários</h6></div></div>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<h6>Usuários</h6>
+			<ul class="navbar-icons">
+				<li><a title="" class="tip" href="<?php echo base_url('index.php')?>/usuarios/form_usuario" data-original-title="Adicionar novo usuário"><i class="icon-plus"></i></a></li>
+				<li><a title="" class="tip" href="<?php echo base_url('index.php')?>/usuarios/listarUsuarios" data-original-title="Listar usuários"><i class="icon-reorder"></i></a></li>
+				<!-- <li><a title="" class="tip" href="#" data-original-title="Parameters"><i class="icon-cogs"></i></a></li> -->
+			</ul>
+		</div>
+	</div>
 	<div class="table-overflow">
 		<div id="data-table_wrapper" class="dataTables_wrapper" role="grid">
 			<table class="table table-striped table-bordered dataTable" id="data-table" aria-describedby="data-table_info">
@@ -42,7 +51,7 @@ echo isset($msg)?"<br><div class=\"alert alert-success\"><button class=\"close\"
 							<td class=" "><?php echo $dado->us_nome?></td>
 							<td class=" "><?php echo $dado->us_email?></td>
 							<td class=" "><?php echo $dado->us_telefone?></td>
-							<td class=" "><?php echo $dado->us_tipo?></td>
+							<td class=" "><?php echo tipo_usuario($dado->us_tipo);?></td>
 						</tr>
 					<?php
 					}

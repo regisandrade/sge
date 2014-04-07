@@ -9,6 +9,16 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 <form name="form1" id="validate" method="post" action='<?php echo base_url('index.php') ?>/usuarios/form_usuario/<?php echo $this->uri->segment(3); ?>' class="form-horizontal">
 <input name="us_id" type="hidden" value="<?php echo $this->uri->segment(3)?>">
 <fieldset>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<h6>Usuário</h6>
+			<ul class="navbar-icons">
+				<li><a title="" class="tip" href="<?php echo base_url('index.php')?>/usuarios/form_usuario" data-original-title="Adicionar novo usuário"><i class="icon-plus"></i></a></li>
+				<li><a title="" class="tip" href="<?php echo base_url('index.php')?>/usuarios/listarUsuarios" data-original-title="Listar usuários"><i class="icon-reorder"></i></a></li>
+				<!-- <li><a title="" class="tip" href="#" data-original-title="Parameters"><i class="icon-cogs"></i></a></li> -->
+			</ul>
+		</div>
+	</div>
 	<div class="well">
 		<div class="control-group">
 			<label class="control-label">Nome:</label>

@@ -17,7 +17,7 @@
 
 		    <!-- Main navigation -->
 		    <ul class="navigation widget">
-		    	<li class="active"><a href="" title=""><i class="icon-home"></i>Dashboard</a></li>
+		    	<li class="active"><a href="<?php echo base_url('index.php')?>/inicio/home" title=""><i class="icon-home"></i>Administração</a></li>
 				<?php
 				foreach (getMenu() as $key => $menu) {
 					# Nivel 1

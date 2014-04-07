@@ -724,9 +724,9 @@ $(function() {
 		"sPaginationType": "full_numbers",
 		"sDom": '<"datatable-header"fl>t<"datatable-footer"ip>',
 		"oLanguage": {
-			"sSearch": "<span>Filter records:</span> _INPUT_",
-			"sLengthMenu": "<span>Show entries:</span> _MENU_",
-			"oPaginate": { "sFirst": "First", "sLast": "Last", "sNext": ">", "sPrevious": "<" }
+			"sSearch": "<span>Filtrar registros:</span> _INPUT_",
+			"sLengthMenu": "<span>Mostrars:</span> _MENU_",
+			"oPaginate": { "sFirst": "Primeiro", "sLast": "Último", "sNext": ">", "sPrevious": "<" }
 		}
     });
 
@@ -737,9 +737,9 @@ $(function() {
 		"sPaginationType": "full_numbers",
 		"sDom": '<"datatable-header"fl>t<"datatable-footer"ip>',
 		"oLanguage": {
-			"sSearch": "<span>Filter records:</span> _INPUT_",
-			"sLengthMenu": "<span>Show entries:</span> _MENU_",
-			"oPaginate": { "sFirst": "First", "sLast": "Last", "sNext": ">", "sPrevious": "<" }
+			"sSearch": "<span>Filtrar registros:</span> _INPUT_",
+			"sLengthMenu": "<span>Mostrars:</span> _MENU_",
+			"oPaginate": { "sFirst": "Primeiro", "sLast": "Último", "sNext": ">", "sPrevious": "<" }
 		},
 		"aoColumnDefs": [
 	      { "bSortable": false, "aTargets": [ 0, 4 ] }
