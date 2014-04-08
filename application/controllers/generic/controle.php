@@ -126,7 +126,6 @@ class Controle extends CI_Controller{
 		}
 
 	public function ordem(){
-
 		$this->db->where($this->pk,$this->uri->segment(4))->update($this->table,array(
 		'ordem'=>$_GET['direcao']
 		));
@@ -171,14 +170,13 @@ class Controle extends CI_Controller{
 		}
 
 	public function excluir(){
-
 		if(!permissao($this->modulo,'remover')){
-			 redirect(base_admin('controle/listar'));exit;
-	     }
-
-		 $this->db->where($this->pk,$this->uri->segment(4))->delete($this->table);
-		 redirect(base_admin('controle/listar'));
+			redirect(base_admin('controle/listar'));
+			exit;
 		}
 
+		$this->db->where($this->pk,$this->uri->segment(4))->delete($this->table);
+			redirect(base_admin('controle/listar/msgid/3'));
+		}
 
-	}
+} // Fim da classe

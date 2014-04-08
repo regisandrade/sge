@@ -71,6 +71,8 @@ echo meta($metas);
 <script type="text/javascript" src="<?php echo base_url()?>public/js/charts/chart2.js"></script>
 <script type="text/javascript" src="<?php echo base_url()?>public/js/charts/chart3.js"></script>
 
+<script type="text/javascript" src="<?php echo base_url()?>public/js/generic.js"></script>
+
 </head>
 
 <body>

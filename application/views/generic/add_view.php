@@ -116,7 +116,7 @@ echo br();
   ?>
     <div class="form-actions">
       <button class="btn btn-primary" type="submit">Gravar</button>
-      <button class="btn btn-danger" type="button">Cancelar</button>
+      <button class="btn btn-danger btnVoltar" type="button" caminho="<?php echo base_admin('controle/listar')?>">Cancelar</button>
     </div>
   </div>
 </fieldset>
