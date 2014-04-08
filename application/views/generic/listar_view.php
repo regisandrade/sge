@@ -12,7 +12,7 @@ echo isset($msg)?"<br><div class=\"alert alert-success\"><button class=\"close\"
       <h6>[Modulo]</h6>
       <ul class="navbar-icons">
         <li><a title="" class="tip" href="<?php echo base_admin('controle/add')?>" data-original-title="Adicionar novo usuário"><i class="icon-plus"></i></a></li>
-        <li><a title="" class="tip" href="<?php echo base_url('index.php')?>/usuarios/listarUsuarios" data-original-title="Listar usuários"><i class="icon-reorder"></i></a></li>
+        <li><a title="" class="tip" href="<?php echo base_admin('controle/listar')?>" data-original-title="Listar usuários"><i class="icon-reorder"></i></a></li>
         <!-- <li><a title="" class="tip" href="#" data-original-title="Parameters"><i class="icon-cogs"></i></a></li> -->
       </ul>
     </div>

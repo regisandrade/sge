@@ -4,19 +4,20 @@
   exit;
 }*/
 
-//$this->load->helper('modulos_helper.php');
+#$this->load->helper('modulos_helper.php');
+#echo "<pre>"; print_r($_SESSION); echo "</pre>";
 echo br(); 
 ?>
 <h5 class="widget-name"><i class="icon-th-list"></i><?php echo ucfirst($info['modulo']); ?></h5>
-<form name="form1" id="validate" method="post" action='<?php echo base_url('index.php') ?>/usuarios/form_usuario/<?php echo $this->uri->segment(3); ?>' class="form-horizontal">
-<input name="us_id" type="hidden" value="<?php echo $this->uri->segment(3)?>">
+<form name="form1" id="validate" method="post" action='<?php echo base_admin('controle/salvar_novo')?>' class="form-horizontal">
+<input name="us_id" type="hidden" value="<?php echo $this->session->userdata('us_id'); ?>">
 <fieldset>
   <div class="navbar">
     <div class="navbar-inner">
       <h6><?php echo ucfirst($info['modulo']); ?></h6>
       <ul class="navbar-icons">
-        <li><a title="" class="tip" href="<?php echo base_url('index.php')?>/usuarios/form_usuario" data-original-title="Adicionar novo usuário"><i class="icon-plus"></i></a></li>
-        <li><a title="" class="tip" href="<?php echo base_url('index.php')?>/usuarios/listarUsuarios" data-original-title="Listar usuários"><i class="icon-reorder"></i></a></li>
+        <li><a title="" class="tip" href="<?php echo base_admin('controle/add')?>" data-original-title="Adicionar novo usuário"><i class="icon-plus"></i></a></li>
+        <li><a title="" class="tip" href="<?php echo base_admin('controle/listar')?>" data-original-title="Listar usuários"><i class="icon-reorder"></i></a></li>
         <!-- <li><a title="" class="tip" href="#" data-original-title="Parameters"><i class="icon-cogs"></i></a></li> -->
       </ul>
     </div>

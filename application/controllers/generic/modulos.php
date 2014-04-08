@@ -340,7 +340,8 @@ class Modulos extends CI_Controller{
 
 			$SQL_TABLE .= "ordem integer default 1,";
 			$SQL_TABLE .= "insert_data datetime default '0000-00-00 00:00:00',";
-			$SQL_TABLE .= "update_data datetime default '0000-00-00 00:00:00');";
+			$SQL_TABLE .= "update_data datetime default '0000-00-00 00:00:00',";
+			$SQL_TABLE .= "us_id integer not null);";
 
 			$this->db->query($SQL_TABLE);
 

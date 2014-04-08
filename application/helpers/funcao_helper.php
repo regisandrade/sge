@@ -18,6 +18,11 @@ function dataUSA($data){
 	return "$y-$m-$d";
 }
 
+function dataBd($data){
+	list($d,$m,$y) = @explode('-',$data);
+	return "$y-$m-$d";
+}
+
 function is_date($data){
 	$date = @explode('-',$data);
 	if(count($date)==3){

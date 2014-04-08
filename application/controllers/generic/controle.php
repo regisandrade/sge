@@ -58,7 +58,7 @@ class Controle extends CI_Controller{
 			}
 			}
 
-		redirect(base_admin('generic/listar'));
+		redirect(base_admin('listar'));
 
 		}
 
@@ -130,7 +130,7 @@ class Controle extends CI_Controller{
 		$this->db->where($this->pk,$this->uri->segment(4))->update($this->table,array(
 		'ordem'=>$_GET['direcao']
 		));
-		redirect(base_admin('generic/listar'));
+		redirect(base_admin('controle/listar'));
 		}
 
 	public function salvar_novo(){
@@ -138,18 +138,25 @@ class Controle extends CI_Controller{
 		 $_POST['update_data'] = date('Y-m-d H:i:s');
 
 		 if($this->pai!=0){
-			 $_POST['id_pai'] = $this->pai;
-			 }
-
-		 $this->db->insert($this->table,$_POST);
-
-		if(isset($_GET['aplicar'])&&$_GET['aplicar']=='sim'){
-		 redirect(base_admin('generic/add/'));
-		 }else{
-			 redirect(base_admin('generic/listar'));
-			 }
-
+			$_POST['id_pai'] = $this->pai;
 		}
+		# Verificar datas
+		if ($_POST['dataInicio']) {
+			$_POST['dataInicio'] = dataBd($_POST['dataInicio']);
+		}
+		if ($_POST['dataFim']) {
+			$_POST['dataFim'] = dataBd($_POST['dataFim']);
+		}
+
+		$this->db->insert($this->table,$_POST);
+		#echo "<pre>"; print_r($_POST);
+		#echo ">>> ".$this->db->last_query(); exit;
+		if(isset($_GET['aplicar'])&&$_GET['aplicar']=='sim'){
+			redirect(base_admin('controle/add'));
+		}else{
+			redirect(base_admin('controle/listar'));
+		}
+	}
 
 	public function salvar_update(){
 		 $_POST['update_data'] = date('Y-m-d H:i:s');
@@ -157,20 +164,20 @@ class Controle extends CI_Controller{
 		 $this->db->where($this->pk,$this->uri->segment(4))->update($this->table,$_POST);
 
 		 if(isset($_GET['aplicar'])&&$_GET['aplicar']=='sim'){
-		 redirect(base_admin('generic/editar/'.$this->uri->segment(4)));
+		 redirect(base_admin('editar/'.$this->uri->segment(4)));
 		 }else{
-			 redirect(base_admin('generic/listar'));
+			 redirect(base_admin('controle/listar'));
 			 }
 		}
 
 	public function excluir(){
 
 		if(!permissao($this->modulo,'remover')){
-			 redirect(base_admin('generic/listar'));exit;
+			 redirect(base_admin('controle/listar'));exit;
 	     }
 
 		 $this->db->where($this->pk,$this->uri->segment(4))->delete($this->table);
-		 redirect(base_admin('generic/listar'));
+		 redirect(base_admin('controle/listar'));
 		}
 
 
