@@ -1,7 +1,7 @@
 <?php 
 echo br(); 
 ?>
-<h5 class="widget-name"><i class="icon-columns"></i></i>Lista de [nome do modulo]</h5>
+<h5 class="widget-name"><i class="icon-columns"></i></i>Listar <?php echo ucfirst($info['modulo']); ?></h5>
 <?php
 echo isset($msg)?"<br><div class=\"alert alert-success\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\"></button>{$msg}</div>":"";
 ?>
@@ -9,10 +9,10 @@ echo isset($msg)?"<br><div class=\"alert alert-success\"><button class=\"close\"
 <div class="widget">
   <div class="navbar">
     <div class="navbar-inner">
-      <h6>[Modulo]</h6>
+      <h6><?php echo ucfirst($info['modulo']); ?></h6>
       <ul class="navbar-icons">
-        <li><a title="" class="tip" href="<?php echo base_admin('controle/add')?>" data-original-title="Adicionar novo usuário"><i class="icon-plus"></i></a></li>
-        <li><a title="" class="tip" href="<?php echo base_admin('controle/listar')?>" data-original-title="Listar usuários"><i class="icon-reorder"></i></a></li>
+        <li><a title="" class="tip" href="<?php echo base_admin('controle/add')?>" data-original-title="Cadastrar <?php echo ucfirst($info['modulo']); ?>"><i class="icon-plus"></i></a></li>
+        <li><a title="" class="tip" href="<?php echo base_admin('controle/listar')?>" data-original-title="Listar <?php echo ucfirst($info['modulo']); ?>"><i class="icon-reorder"></i></a></li>
         <!-- <li><a title="" class="tip" href="#" data-original-title="Parameters"><i class="icon-cogs"></i></a></li> -->
       </ul>
     </div>
