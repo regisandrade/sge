@@ -20,6 +20,7 @@
 		'<campo_chave_primaria>'=>array('type'=>'pk','label'=>'<label_ou_nome_campo>'),
 		'<campo_imagem>'=>array('type'=>'img','label'=>'<label_ou_nome_campo>'),
 		'<campo_varchar>'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'<label_ou_nome_campo>'),
+		'<campo_enum>'=>array('type'=>'enum','valor'=>'"SIM","NAO"',DEFAULT=>'SIM','label'=>'<label_ou_nome_campo>'),
 		'<campo_texto_simples>'=>array('type'=>'text','label'=>'<label_ou_nome_campo>'),
 		'<campo_texto_rico_ckeditor>'=>array('type'=>'text','ckeditor'=>1,'label'=>'<label_ou_nome_campo>'),
 		'<campo_data>'=>array('type'=>'date','notnull'=>0,'label'=>'<label_ou_nome_campo>'),
@@ -237,13 +238,14 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo']['fields'] =
 		array(
 			'id'=>array('type'=>'pk','label'=>'Nº'),
-			'nome'=>array('type'=>'varchar','size'=>200,'label'=>'Nome'),
-			'qtdeHoras'=>array('type'=>'varchar','size'=>40,'label'=>'Carga Horária'),
-			'dataInicio'=>array('type'=>'date','size'=>200,'label'=>'Data Inicial'),
-			'dataFim'=>array('type'=>'date','size'=>200,'label'=>'Data Final'),
-			'status'=>array('type'=>'varchar','size'=>1,'label'=>'Status'),
-			'flagMba'=>array('type'=>'varchar','size'=>1,'label'=>'MBA?'),
+			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>1,'label'=>'Nome','class'=>'input-xxlarge'),
+			'qtdeHoras'=>array('type'=>'varchar','size'=>10,'notnull'=>1, 'label'=>'Carga Horária','class'=>'input-small'),
+			'dataInicio'=>array('type'=>'date','size'=>10,'label'=>'Data Inicial'),
+			'dataFim'=>array('type'=>'date','size'=>10,'label'=>'Data Final'),
+			'status'=>array('type'=>'enum','valor'=>'"Ativo","Inativo"', 'DEFAULT' => 'Ativo', 'notnull'=>1, 'label'=>'Status'),
+			'flagMba'=>array('type'=>'enum','valor'=>'"Sim","Não"', 'DEFAULT' => 'Sim', 'notnull'=>1, 'label'=>'MBA'),
 		);
+
 		//Instalando o modulo
 		$this->install();
 		//ir para controlador
@@ -280,12 +282,13 @@ class Modulos extends CI_Controller{
 
     /*INSTALL MODULO NÃO MEXER*/
 	public function install(){
-
+		
 		if(!$this->db->table_exists($_SESSION['modulo']['table'])){
+			
 			$SQL_TABLE = "CREATE TABLE ".$_SESSION['modulo']['table']."(";
 
 			foreach($_SESSION['modulo']['fields'] as $field => $f){
-
+				
 				//PRIMARY KEY
 				if($f['type']=='pk'){
 					$SQL_TABLE .= $field." integer not null auto_increment primary key,";
@@ -297,38 +300,43 @@ class Modulos extends CI_Controller{
 					$SQL_TABLE .= $field." varchar(".$f['size'].") {$null},";
 					}
 
-				//VARCHAR
+				//ENUM
+				if($f['type']=='enum'){
+					$SQL_TABLE .= $field." enum(".$f['valor'].") not null DEFAULT '".$f['DEFAULT']."',";
+					}
+
+				//IMG
 				if($f['type']=='img'){
 					$SQL_TABLE .= $field." varchar(200),";
 					}
 
-				//VARCHAR
+				//DATE
 				if($f['type']=='date'){
 					$null = isset($f['notnull'])?'':' not null';
 					$SQL_TABLE .= $field." date $null,";
 					}
 
-				//VARCHAR
+				//DATETIME
 				if($f['type']=='datetime'){
 					$null = isset($f['notnull'])?'':' not null';
 					$SQL_TABLE .= $field." datetime $null,";
 					}
 
-				//VARCHAR
+				//FK
 				if($f['type']=='fk'){
 					$SQL_TABLE .= $field." integer default 0,";
 					}
 
-				//VARCHAR
+				//TEXT
 				if($f['type']=='text'){
 					$null = isset($f['notnull'])?'':' not null';
 					$SQL_TABLE .= $field." text $null,";
 					}
-				}
-
+			}
+			
 			if(isset($_SESSION['modulo']['pai'])){
 				$SQL_TABLE .= "id_pai integer default 0,";
-				}
+			}
 
 			$SQL_TABLE .= "ordem integer default 1,";
 			$SQL_TABLE .= "insert_data datetime default '0000-00-00 00:00:00',";
@@ -336,11 +344,12 @@ class Modulos extends CI_Controller{
 
 			$this->db->query($SQL_TABLE);
 
+			#echo "<pre>"; print_r($SQL_TABLE); exit;
 
 			//echo "Tabela <b>".$_SESSION['modulo']['table']."</b> criada<br>";
 			}else{
-				//echo "Ja existe a tabela <b>".$_SESSION['modulo']['table']."</b><br>";
-				}
+				echo "Ja existe a tabela <b>".$_SESSION['modulo']['table']."</b><br>";
+			}
 
 		}
 

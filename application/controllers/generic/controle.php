@@ -69,35 +69,36 @@ class Controle extends CI_Controller{
 
 		//Verifica se há algum filtro no array
 		if(isset($_SESSION['filtros'])&&count($_SESSION['filtros'])>0){
-			 foreach($_SESSION['filtros'] as $filto){
+			foreach($_SESSION['filtros'] as $filto){
 
-				  if($filto['type']=='pk'){
-					   $this->db->where($filto['field'],$filto['val']);
-					  }
+				if($filto['type']=='pk'){
+					$this->db->where($filto['field'],$filto['val']);
+				}
 
-				  if($filto['type']=='varchar'){
-					  $this->db->like($filto['field'],$filto['val']);
-					  }
+				if($filto['type']=='varchar'){
+					$this->db->like($filto['field'],$filto['val']);
+				}
 
-				  if($filto['type']=='fk'){
-					  $this->db->where($filto['field'],$filto['val']);
-					  }
+				if($filto['type']=='fk'){
+					$this->db->where($filto['field'],$filto['val']);
+				}
 
-				 }
 			}
+		}
 
 		//Verifica se é uma extensão
 		if($this->pai!=0){
 			$this->db->where('id_pai',$this->pai);
 		}
 
-
+		#echo "<pre>"; print_r($this); exit;
 		$dados = $this->db
 					  ->order_by("ordem",'DESC')
 					  ->order_by($this->pk,'DESC')
 					  ->get($this->table)
 					  ->result_array();
-					  //echo ">>> ".$this->db->last_query(); exit;
+		#echo ">>> ".$this->db->last_query(); exit;
+					  
 		/*$this->load->library('paginacao');
 		$this->paginacao->por_pagina(10);
 		$data['dados'] = $this->paginacao->rows($dados);

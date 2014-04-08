@@ -97,7 +97,7 @@ function alias($url,$alias=''){
 	}
 
 function permissao($modulo,$acao){
-	if(get_user()->us_tipo==2){
+	if(get_user()->us_tipo == 2){
 	$permissao = json_decode(get_user()->us_permissao);
 	return isset($permissao->$modulo->$acao);
 	}else{

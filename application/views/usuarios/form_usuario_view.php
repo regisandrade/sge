@@ -140,6 +140,7 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 		</div>
 	</div>
 </fieldset>
+</form>
 <?php echo br(2); ?>
 <script type="text/javascript">
 	$(function(){

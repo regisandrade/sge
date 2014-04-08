@@ -1,19 +1,19 @@
 <?php
-if(!permissao($info['modulo'],'adicionar')){
+/*if(!permissao($info['modulo'],'adicionar')){
   echo "<div class=\"alert alert-error\" style=\"margin-top: 16px;\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button><strong>Atenção!</strong> Você não tem permissão para adicionar".$info['modulo']."</div>";
   exit;
-}
+}*/
 
-$this->load->helper('modulos_helper.php');
+//$this->load->helper('modulos_helper.php');
 echo br(); 
 ?>
-<h5 class="widget-name"><i class="icon-th-list"></i>[Modulo]</h5>
+<h5 class="widget-name"><i class="icon-th-list"></i><?php echo ucfirst($info['modulo']); ?></h5>
 <form name="form1" id="validate" method="post" action='<?php echo base_url('index.php') ?>/usuarios/form_usuario/<?php echo $this->uri->segment(3); ?>' class="form-horizontal">
 <input name="us_id" type="hidden" value="<?php echo $this->uri->segment(3)?>">
 <fieldset>
   <div class="navbar">
     <div class="navbar-inner">
-      <h6>Usuário</h6>
+      <h6><?php echo ucfirst($info['modulo']); ?></h6>
       <ul class="navbar-icons">
         <li><a title="" class="tip" href="<?php echo base_url('index.php')?>/usuarios/form_usuario" data-original-title="Adicionar novo usuário"><i class="icon-plus"></i></a></li>
         <li><a title="" class="tip" href="<?php echo base_url('index.php')?>/usuarios/listarUsuarios" data-original-title="Listar usuários"><i class="icon-reorder"></i></a></li>
@@ -43,9 +43,9 @@ echo br();
       if($f['type']=='varchar'){
     ?>
       <div class="control-group">
-        <label class="control-label">?php echo $f['label']?>:</label>
+        <label class="control-label"><?php echo $f['label']?>:</label>
         <div class="controls">
-          <input type="text" name="<?php echo $field?>" <?php if(isset($f['notnull'])){echo "class='validate[required]'";}?> style="width:50%" maxlength="<?php echo $f['size']?>"></div>
+          <input type="text" name="<?php echo $field?>" class="<?php echo $f['class'] . (isset($f['notnull']) ? ' validate[required]': '') ?>" maxlength="<?php echo $f['size']?>"></div>
       </div>
     <?php 
       }
@@ -79,21 +79,45 @@ echo br();
       }
       if($f['type']=='date'){
     ?>
-    <div class="control-group">
-      <label class="control-label"><?php echo $f['label']?>:</label>
-      <div class="controls"><input type="text" class="datepicker validate[required]" style="width:120px" name="<?php echo $field?>" value="<?php echo date('Y-m-d')?>" /></div>
-    </div>
+      <div class="control-group">
+        <label class="control-label"><?php echo $f['label']?>:</label>
+        <div class="controls"><input type="text" class="datepicker validate[required]" name="<?php echo $field?>" value="" /></div>
+      </div>
     <?php 
       }
-      if($f['type']=='text'){?>
-    <div class="control-group">
-      <label class="control-label"><?php echo $f['label']?>:</label>
-      <div class="controls"><textarea <?php echo isset($f['ckeditor'])?'class="texto"':''?> style="width:50%" name="<?php echo $field?>"></textarea></div>
-    </div>
-  <?php 
+      if($f['type']=='text'){
+    ?>
+      <div class="control-group">
+        <label class="control-label"><?php echo $f['label']?>:</label>
+        <div class="controls"><textarea <?php echo isset($f['ckeditor'])?'class="texto"':''?> style="width:50%" name="<?php echo $field?>"></textarea></div>
+      </div>
+    <?php 
+      }
+      if($f['type']=='enum'){
+        $valores = explode(",", str_replace('"', '', $f['valor']));
+    ?>
+      <div class="control-group">
+        <label class="control-label"><?php echo $f['label']?>:</label>
+          <div class="controls">
+            <select tabindex="-1" name="<?php echo $field?>" class="select select2-offscreen <?php if(isset($f['notnull'])){echo "validate[required]";}?>" data-placeholder="Selecionar">
+                <option value=""></option> 
+                <?php
+                foreach ($valores as $valor) {
+                  echo "<option value=\"".$valor."\">".$valor."</option> ";
+                }
+                ?> 
+            </select>
+          </div>
+      </div>
+    <?php
       }
     }
   ?>
+    <div class="form-actions">
+      <button class="btn btn-primary" type="submit">Gravar</button>
+      <button class="btn btn-danger" type="button">Cancelar</button>
+    </div>
   </div>
 </fieldset>
 </form>
+<?php echo br(); ?>
