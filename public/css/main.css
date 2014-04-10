@@ -50,16 +50,40 @@ textarea { overflow: auto; vertical-align: top; }
 .hide-sidebar { margin-left: -253px; }
 .clean { background-position: -253px 0; }
 body {
-  -webkit-transition: background-position ease-in-out 0.1s;
-     -moz-transition: background-position ease-in-out 0.1s;
-       -o-transition: background-position ease-in-out 0.1s;
-          transition: background-position ease-in-out 0.1s;
+    -webkit--webkit-transition: background-position ease-in-out 0.1s;
+    -moz-transition: background-position ease-in-out 0.1s;
+    -ms-transition: background-position ease-in-out 0.1s;
+    -o-transition: background-position ease-in-out 0.1s;
+    -moz--webkit-transition: background-position ease-in-out 0.1s;
+    -moz-transition: background-position ease-in-out 0.1s;
+    -ms-transition: background-position ease-in-out 0.1s;
+    -o-transition: background-position ease-in-out 0.1s;
+    -o--webkit-transition: background-position ease-in-out 0.1s;
+    -moz-transition: background-position ease-in-out 0.1s;
+    -ms-transition: background-position ease-in-out 0.1s;
+    -o-transition: background-position ease-in-out 0.1s;
+    -webkit-transition: background-position ease-in-out 0.1s;
+    -moz-transition: background-position ease-in-out 0.1s;
+    -ms-transition: background-position ease-in-out 0.1s;
+    -o-transition: background-position ease-in-out 0.1s;
 }
 #sidebar, #content > .wrapper {
-  -webkit-transition: margin ease-in-out 0.1s;
-     -moz-transition: margin ease-in-out 0.1s;
-       -o-transition: margin ease-in-out 0.1s;
-          transition: margin ease-in-out 0.1s;
+    -webkit--webkit-transition: margin ease-in-out 0.1s;
+    -moz-transition: margin ease-in-out 0.1s;
+    -ms-transition: margin ease-in-out 0.1s;
+    -o-transition: margin ease-in-out 0.1s;
+    -moz--webkit-transition: margin ease-in-out 0.1s;
+    -moz-transition: margin ease-in-out 0.1s;
+    -ms-transition: margin ease-in-out 0.1s;
+    -o-transition: margin ease-in-out 0.1s;
+    -o--webkit-transition: margin ease-in-out 0.1s;
+    -moz-transition: margin ease-in-out 0.1s;
+    -ms-transition: margin ease-in-out 0.1s;
+    -o-transition: margin ease-in-out 0.1s;
+    -webkit-transition: margin ease-in-out 0.1s;
+    -moz-transition: margin ease-in-out 0.1s;
+    -ms-transition: margin ease-in-out 0.1s;
+    -o-transition: margin ease-in-out 0.1s;
 }
 
 
@@ -85,12 +109,32 @@ body {
 .hide-text { font: 0/0 a; color: transparent; text-shadow: none; background-color: transparent; border: 0; }
 .input-block-level { display: block; width: 100%; min-height: 30px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-.fade { opacity: 0; filter: alpha(opacity=0);
-  -webkit-transition: opacity 0.15s linear;
-     -moz-transition: opacity 0.15s linear;
-       -o-transition: opacity 0.15s linear;
-          transition: opacity 0.15s linear;
+.fade {
+    -webkit-opacity: 0 -webkit-filter: alpha(opacity=0);
+    -moz-opacity: 0 -webkit-filter: alpha(opacity=0);
+    -ms-opacity: 0 -webkit-filter: alpha(opacity=0);
+    -o-opacity: 0 -webkit-filter: alpha(opacity=0);
+    -moz-filter: alpha(opacity=0);
+    -ms-filter: alpha(opacity=0);
+    -o-filter: alpha(opacity=0);
+    -webkit--webkit-transition: opacity 0.15s linear;
+    -moz-transition: opacity 0.15s linear;
+    -ms-transition: opacity 0.15s linear;
+    -o-transition: opacity 0.15s linear;
+    -moz--webkit-transition: opacity 0.15s linear;
+    -moz-transition: opacity 0.15s linear;
+    -ms-transition: opacity 0.15s linear;
+    -o-transition: opacity 0.15s linear;
+    -o--webkit-transition: opacity 0.15s linear;
+    -moz-transition: opacity 0.15s linear;
+    -ms-transition: opacity 0.15s linear;
+    -o-transition: opacity 0.15s linear;
+    -webkit-transition: opacity 0.15s linear;
+    -moz-transition: opacity 0.15s linear;
+    -ms-transition: opacity 0.15s linear;
+    -o-transition: opacity 0.15s linear;
 }
+
 .fade.in { opacity: 1; filter: alpha(opacity=100); }
 
 .close { float: right; font-size: 16px; line-height: 16px; color: #000000; opacity: 0.2; filter: alpha(opacity=20); }

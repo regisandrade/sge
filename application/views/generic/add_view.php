@@ -1,8 +1,11 @@
 <?php
-/*if(!permissao($info['modulo'],'adicionar')){
-  echo "<div class=\"alert alert-error\" style=\"margin-top: 16px;\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button><strong>Atenção!</strong> Você não tem permissão para adicionar".$info['modulo']."</div>";
+if(!permissao($info['modulo'],'adicionar')){
+  echo "<div class=\"alert alert-error\">
+          <button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>
+          Você não tem permissão para <strong>Cadastrar</strong> no módulo ".$info['modulo']."
+        </div>";
   exit;
-}*/
+}
 
 #$this->load->helper('modulos_helper.php');
 #echo "<pre>"; print_r($_SESSION); echo "</pre>";

@@ -102,30 +102,38 @@ function alias($url,$alias=''){
 	}
 
 function permissao($modulo,$acao){
-	if(get_user()->us_tipo == 2){
-	$permissao = json_decode(get_user()->us_permissao);
-	return isset($permissao->$modulo->$acao);
+	if(get_user_tipo() == 2){
+		$permissao = json_decode(get_user_permissao());
+		return isset($permissao->$modulo->$acao);
 	}else{
 		return true;
-		}
 	}
+}
 
 function view_sistema($view,$data=array()){
 	$ci =& get_instance();
 	$ci->load->view($view,$data);
 }
 	
+function get_user(){
+	$CI =& get_instance();
+	$CI->load->library('session');
+	return $CI->session->userdata('us_id');
+}
+
 function get_user_tipo(){
 	$CI =& get_instance();
     $CI->load->library('session');
 	return $CI->session->userdata('us_tipo');
 }
 
-function get_user(){
+function get_user_permissao(){
 	$CI =& get_instance();
-    $CI->load->library('session');
-	return $CI->session->userdata('us_id');
+	$CI->load->library('session');
+	return $CI->session->userdata('us_permissao');
 }
+
+
 
 function gerar_link($mostrar_para = array(1), $url = '', $texto = '', $attr = ''){
 	 if(in_array(get_user()->us_tipo,$mostrar_para)){

@@ -120,6 +120,8 @@ class Controle extends CI_Controller{
 
 	public function editar(){
 		$data['config'] = $this->conf->getConfiguracao();
+		$data['dados']  = $this->db->where($this->pk,$this->uri->segment(4))->get($this->table)->row();
+
 		$data['info'] = $this->info;
 		$data['pagina'] = 'generic/editar';
 		view_admin('home_view',$data);
@@ -158,16 +160,24 @@ class Controle extends CI_Controller{
 	}
 
 	public function salvar_update(){
-		 $_POST['update_data'] = date('Y-m-d H:i:s');
+		$_POST['update_data'] = date('Y-m-d H:i:s');
 
-		 $this->db->where($this->pk,$this->uri->segment(4))->update($this->table,$_POST);
-
-		 if(isset($_GET['aplicar'])&&$_GET['aplicar']=='sim'){
-		 redirect(base_admin('editar/'.$this->uri->segment(4)));
-		 }else{
-			 redirect(base_admin('controle/listar'));
-			 }
+		# Verificar datas
+		if ($_POST['dataInicio']) {
+			$_POST['dataInicio'] = dataBd($_POST['dataInicio']);
 		}
+		if ($_POST['dataFim']) {
+			$_POST['dataFim'] = dataBd($_POST['dataFim']);
+		}
+		
+		$this->db->where($this->pk,$this->uri->segment(4))->update($this->table,$_POST);
+
+		if(isset($_GET['aplicar'])&&$_GET['aplicar']=='sim'){
+			redirect(base_admin('editar/'.$this->uri->segment(4)));
+		}else{
+			redirect(base_admin('controle/listar'));
+		}
+	}
 
 	public function excluir(){
 		if(!permissao($this->modulo,'remover')){
