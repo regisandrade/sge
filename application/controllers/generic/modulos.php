@@ -55,20 +55,20 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo']['fields'] =
 		array(
 		'id_configuracao'=>array('type'=>'pk','label'=>'N°'),
-		'empresa'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'Empresa'),
-		'slogan'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'Slogan'),
+		'empresa'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'Empresa','class'=>'input-xxlarge'),
+		'slogan'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'Slogan','class'=>'input-xlarge'),
 		'descricao'=>array('type'=>'text','size'=>200,'notnull'=>0,'label'=>'Descrição'),
-		'email'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'E-mail'),
+		'email'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'E-mail','class'=>'input-xlarge'),
 		'endereco'=>array('type'=>'text','label'=>'Endereço'),
-		'telefone_1'=>array('type'=>'varchar','size'=>15,'notnull'=>0,'label'=>'Telefone 1'),
-		'telefone_2'=>array('type'=>'varchar','size'=>15,'notnull'=>1,'label'=>'Telefone 2'),
-		'facebook'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'Facebook'),
-		'twitter'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'Twitter'),
-		'linkedin'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'LinkedIn'),
-		'meta_descricao'=>array('type'=>'text','label'=>'Meta Descrição'),
-		'latitude_endereco'=>array('type'=>'text','label'=>'Latitude'),
-		'longitude_endereco'=>array('type'=>'text','label'=>'Longitude'),
-
+		'telefone_1'=>array('type'=>'varchar','size'=>15,'notnull'=>0,'label'=>'Telefone 1','class'=>'input-medium'),
+		'telefone_2'=>array('type'=>'varchar','size'=>15,'notnull'=>1,'label'=>'Telefone 2','class'=>'input-medium'),
+		'facebook'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'Facebook','class'=>'input-xlarge'),
+		'twitter'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'Twitter','class'=>'input-xlarge'),
+		'linkedin'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'LinkedIn','class'=>'input-xlarge'),
+		'meta_descricao'=>array('type'=>'varchar','size'=>200,'label'=>'Meta Descrição','class'=>'input-xxlarge'),
+		'latitude_endereco'=>array('type'=>'varchar','size'=>20,'label'=>'Latitude','class'=>'input-medium'),
+		'longitude_endereco'=>array('type'=>'varchar','size'=>20,'label'=>'Longitude','class'=>'input-medium'),
+		'logo'=>array('type'=>'img','size'=>100,'label'=>'Logo','class'=>'input-xxlarge'),
 		);
 		//Instalando o modulo
 		$this->install();
@@ -89,8 +89,8 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo']['fields'] =
 		array(
 		'id_noticia'=>array('type'=>'pk','label'=>'Nº'),
-		'titulo'=>array('type'=>'varchar','size'=>200,'label'=>'Titulo'),
-		'texto'=>array('type'=>'text','ckeditor'=>1,'label'=>'Texto'),
+		'titulo'=>array('type'=>'varchar','size'=>200,'label'=>'Título','class'=>'input-xxlarge'),
+		'texto'=>array('type'=>'text','ckeditor'=>0,'label'=>'Notícia'),
 		);
 		//Instalando o modulo
 		$this->install();
@@ -156,8 +156,8 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo']['fields'] =
 		array(
 		'id_empresa'=>array('type'=>'pk','label'=>'Nº'),
-		'titulo'=>array('type'=>'varchar','size'=>200,'label'=>'Titulo'),
-		'texto'=>array('type'=>'text','ckeditor'=>1,'label'=>'Texto'),
+		'titulo'=>array('type'=>'varchar','size'=>200,'label'=>'Título','class'=>'input-xxlarge'),
+		'texto'=>array('type'=>'text','ckeditor'=>0,'label'=>'Conteúdo'),
 		);
 		//Instalando o modulo
 		$this->install();
@@ -178,8 +178,8 @@ class Modulos extends CI_Controller{
 		array(
 		'id_banners'=>array('type'=>'pk','label'=>'Nº'),
 		'imagem'=>array('type'=>'img','label'=>'Imagem'),
-		'titulo'=>array('type'=>'varchar','size'=>200,'label'=>'Titulo'),
-		'link'=>array('type'=>'varchar','size'=>200,'label'=>'Link'),
+		'titulo'=>array('type'=>'varchar','size'=>200,'label'=>'Titulo','notnull'=>1,'class'=>'input-xxlarge'),
+		'link'=>array('type'=>'varchar','size'=>200,'label'=>'Link','class'=>'input-xxlarge'),
 		);
 		//Instalando o modulo
 		$this->install();
@@ -201,24 +201,24 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo']['fields'] =
 		array(
 			'id_descricao_curso'=>array('type'=>'pk','label'=>'Nº'),
-			'codg_curso_descricao'=>array('type'=>'fk','table_fk'=>'curso','fk_id'=>'Codg_Curso','fk_text'=>'Nome','label'=>'Curso'),
+			'codg_curso_descricao'=>array('type'=>'fk','table_fk'=>'curso','fk_id'=>'id','fk_text'=>'nome','label'=>'Curso','notnull'=>1),
 			//'nome'=>array('type'=>'varchar','size'=>200,'label'=>'Nome'),
-			'apresentacao'=>array('type'=>'text','ckeditor'=>1,'label'=>'Apresentação'),
-			'publico'=>array('type'=>'text','ckeditor'=>1,'label'=>'Público Alvo'),
-			'datas'=>array('type'=>'text','ckeditor'=>1,'label'=>'Datas Importantes'),
-			'inscricao'=>array('type'=>'text','ckeditor'=>1,'label'=>'Inscrição'),
-			'avaliacao'=>array('type'=>'text','ckeditor'=>1,'label'=>'Avaliação'),
-			'disciplinas'=>array('type'=>'text','ckeditor'=>1,'label'=>'Disciplinas'),
-			'metodologia'=>array('type'=>'text','ckeditor'=>1,'label'=>'Matodologia'),
-			'certificados'=>array('type'=>'text','ckeditor'=>1,'label'=>'Certificados'),
-			'duracao'=>array('type'=>'text','ckeditor'=>1,'label'=>'Duração do Curso'),
-			'numeroVagas'=>array('type'=>'text','ckeditor'=>1,'label'=>'Número de Vagas'),
-			'coordenacaogeral'=>array('type'=>'text','ckeditor'=>1,'label'=>'Coordenação Geral'),
-			'coordenacaoacademica'=>array('type'=>'text','ckeditor'=>1,'label'=>'Coordenação Acadêmica'),
-			'horario'=>array('type'=>'text','ckeditor'=>1,'label'=>'Horário das Aulas'),
-			'processo'=>array('type'=>'text','ckeditor'=>1,'label'=>'Processo Seletivo'),
-			'corpoDocente'=>array('type'=>'text','ckeditor'=>1,'label'=>'Corpo Docente'),
-			'informacoes'=>array('type'=>'text','ckeditor'=>1,'label'=>'Informações'),
+			'apresentacao'=>array('type'=>'text','ckeditor'=>1,'label'=>'Apresentação','notnull'=>1),
+			'publico'=>array('type'=>'text','ckeditor'=>1,'label'=>'Público Alvo','notnull'=>1),
+			'datas'=>array('type'=>'text','ckeditor'=>1,'label'=>'Datas Importantes','notnull'=>1),
+			'inscricao'=>array('type'=>'text','ckeditor'=>1,'label'=>'Inscrição','notnull'=>1),
+			'avaliacao'=>array('type'=>'text','ckeditor'=>1,'label'=>'Avaliação','notnull'=>1),
+			'disciplinas'=>array('type'=>'text','ckeditor'=>1,'label'=>'Disciplinas','notnull'=>1),
+			'metodologia'=>array('type'=>'text','ckeditor'=>1,'label'=>'Matodologia','notnull'=>1),
+			'certificados'=>array('type'=>'text','ckeditor'=>1,'label'=>'Certificados','notnull'=>1),
+			'duracao'=>array('type'=>'text','ckeditor'=>1,'label'=>'Duração do Curso','notnull'=>1),
+			'numeroVagas'=>array('type'=>'text','ckeditor'=>1,'label'=>'Número de Vagas','notnull'=>1),
+			'coordenacaogeral'=>array('type'=>'text','ckeditor'=>1,'label'=>'Coordenação Geral','notnull'=>1),
+			'coordenacaoacademica'=>array('type'=>'text','ckeditor'=>1,'label'=>'Coordenação Acadêmica','notnull'=>1),
+			'horario'=>array('type'=>'text','ckeditor'=>1,'label'=>'Horário das Aulas','notnull'=>1),
+			'processo'=>array('type'=>'text','ckeditor'=>1,'label'=>'Processo Seletivo','notnull'=>1),
+			'corpoDocente'=>array('type'=>'text','ckeditor'=>1,'label'=>'Corpo Docente','notnull'=>1),
+			'informacoes'=>array('type'=>'text','ckeditor'=>1,'label'=>'Informações','notnull'=>1),
 		);
 		//Instalando o modulo
 		$this->install();

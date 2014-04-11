@@ -27,33 +27,61 @@ echo br();
   <div class="well">
     <?php 
     foreach($info['fields'] as $field => $f){
+
       if($f['type']=='img'){
         $nome_itens = $dados->$field;
         if(strpos($nome_itens,'.png')||strpos($nome_itens,'.jpeg')||strpos($nome_itens,'.JPG')||strpos($nome_itens,'.jpg')||strpos($nome_itens,'.gif')){
           $src = $dados->$field;
         }else if(strpos($nome_itens,'.zip') || strpos($nome_itens,'.rar')){
-          $src = 'arquivoadmin/imagem/rar-icon.png';
+          $src = 'arquivos/imagem/rar-icon.png';
         }else if(strpos($nome_itens,'.pdf')){
-          $src = 'arquivoadmin/imagem/pdf-icon.png';
+          $src = 'arquivos/imagem/pdf-icon.png';
         }else if(strpos($nome_itens,'.doc')||strpos($nome_itens,'.docx')){
-          $src = 'arquivoadmin/imagem/word-icon.png';
+          $src = 'arquivos/imagem/word-icon.png';
         }else if(strpos($nome_itens,'.xls')||strpos($nome_itens,'.xlsx')){
-          $src = 'arquivoadmin/imagem/excel-icon.png';
+          $src = 'arquivos/imagem/excel-icon.png';
         }
     ?>
-    <input type="hidden" id="rece_imagem_<?php echo $field?>" name="<?php echo $dados->$field?>" />
     <div class="control-group">
       <label class="control-label"><?php echo $f['label']?>:</label>
       <div class="controls">
-        <input type="hidden" id="rece_imagem_<?php echo $field?>" name="<?php echo $field?>"  />
+        <input type="hidden" id="rece_imagem_<?php echo $field?>" name="<?php echo $field?>" value="<?php echo $dados->$field?>" />
         <a style="font-size:13px;" onclick="return abrir_gerenciador('#img_<?php echo $field?>','#rece_imagem_<?php echo $field?>')"  href="javascript:void(0)">
-        <img id="img_<?php echo $field?>" style="max-width:70px; max-height:70px;"
-             src="<?php echo base_url($src)?>" />
+        <img id="img_<?php echo $field?>" style="max-width:70px; max-height:70px;" src="<?php echo base_url().'public/img/'.$src?>" />
         </a><br />
         <a style="font-size:13px;" onclick="return abrir_gerenciador('#img_<?php echo $field?>','#rece_imagem_<?php echo $field?>')"  href="javascript:void(0)">Enviar</a>
       </div>
     </div>
     <?php 
+      }
+      if($f['type']=='fk'){
+    ?>
+      <div class="control-group">
+        <label class="control-label"><?php echo $f['label']?>:</label>
+        <div class="controls">
+          <select class="select select2-offscreen <?php echo (isset($f['notnull']) ? ' validate[required]' : '') ?>" name="<?php echo $field?>">
+            <option value="<?php echo isset($f['notnull'])?'':'0';?>">--Selecione--</option>
+            <?php
+            if(isset($info['where_fk'])){
+              $this->db->where($info['where_fk']);
+            }
+            if(isset($info['order_fk'])){
+              $this->db->order_by($info['order_fk']);
+            }
+            $table_fks = $this->db
+                            ->get($f['table_fk'])
+                            ->result_array();
+
+            $this->output->enable_profiler(TRUE);
+            foreach($table_fks as $fk){
+            echo "<pre>"; print_r($fk); print_r($f); print_r($dados); echo "</pre>"; exit;
+            ?>
+            <option <?php echo $dados->$field == $fk[$f['fk_id']]?'selected':''?> value="<?php echo $fk[$f['fk_id']]?>"><?php echo $fk[$f['fk_text']]?></option>
+            <?php }?>
+          </select>
+        </div>
+      </div>
+    <?php
       }
       if($f['type']=='varchar'){
     ?>
@@ -95,27 +123,9 @@ echo br();
     ?>
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
-        <div class="controls"><textarea <?php echo isset($f['ckeditor'])?'class="texto"':''?> style="width:50%" name="<?php echo $field?>"><?php echo $dados->$field?></textarea></div>
+        <div class="controls"><textarea rows="10" cols="100" class="<?php echo (isset($f['ckeditor']) ? ' texto' : '') . (isset($f['notnull']) ? ' validate[required]': '') ?>" name="<?php echo $field?>"><?php echo $dados->$field?></textarea></div>
       </div>
     <?php 
-      }
-      if($f['type']=='enum'){
-        $valores = explode(",", str_replace('"', '', $f['valor']));
-    ?>
-      <div class="control-group">
-        <label class="control-label"><?php echo $f['label']?>:</label>
-          <div class="controls">
-            <select tabindex="-1" name="<?php echo $field?>" class="select select2-offscreen <?php if(isset($f['notnull'])){echo "validate[required]";}?>" data-placeholder="Selecionar">
-                <option value=""></option> 
-                <?php
-                foreach ($valores as $valor) {
-                  echo "<option value=\"".$valor."\">".$valor."</option> ";
-                }
-                ?> 
-            </select>
-          </div>
-      </div>
-    <?php
       }
     }
   ?>

@@ -30,7 +30,6 @@ echo br();
     foreach($info['fields'] as $field => $f){
       if($f['type']=='img'){
     ?>
-    <input type="hidden" id="rece_imagem_<?php echo $field?>" name="<?php echo $field?>" />
     <div class="control-group">
       <label class="control-label"><?php echo $f['label']?>:</label>
       <div class="controls">
@@ -53,12 +52,13 @@ echo br();
       </div>
     <?php 
       }
+      #echo "<pre>"; print_r($f); echo "</pre>";
       if($f['type']=='fk'){
     ?>
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
         <div class="controls">
-          <select class="styled <?php if(isset($f['notnull'])){echo "validate[required]";}?>" name="<?php echo $field?>">
+          <select class="select select2-offscreen <?php echo $f['class'] . (isset($f['notnull']) ? ' validate[required]' : '') ?>" name="<?php echo $field?>">
             <option value="<?php echo isset($f['notnull'])?'':'0';?>">--Selecione--</option>
             <?php
             if(isset($info['where_fk'])){
@@ -73,6 +73,7 @@ echo br();
 
             $this->output->enable_profiler(TRUE);
             foreach($table_fks as $fk){
+              #echo "<pre>"; print_r($fk); print_r($f); echo "</pre>"; exit;
             ?>
             <option value="<?php echo $fk[$f['fk_id']]?>"><?php echo $fk[$f['fk_text']]?></option>
             <?php }?>
@@ -85,7 +86,7 @@ echo br();
     ?>
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
-        <div class="controls"><input type="text" class="datepicker validate[required]" name="<?php echo $field?>" value="" /></div>
+        <div class="controls"><input type="text" class="datepicker validate[required]" name="<?php echo $field?>" /></div>
       </div>
     <?php 
       }
@@ -93,7 +94,7 @@ echo br();
     ?>
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
-        <div class="controls"><textarea <?php echo isset($f['ckeditor'])?'class="texto"':''?> style="width:50%" name="<?php echo $field?>"></textarea></div>
+        <div class="controls"><textarea rows="10" cols="100" class="<?php echo (isset($f['ckeditor']) ? ' texto' : '') . (isset($f['notnull']) ? ' validate[required]': '') ?>" name="<?php echo $field?>"></textarea></div>
       </div>
     <?php 
       }

@@ -104,6 +104,7 @@ class Controle extends CI_Controller{
 		$data['dados'] = $this->paginacao->rows($dados);
 		$data['links'] = $this->paginacao->links();*/
 
+		#echo "<pre>"; print_r($this->info); echo "</pre>"; exit;
 		$data['dados'] = $dados;
 		$data['info'] = $this->info;
 		$data['pagina'] = 'generic/listar';
@@ -171,7 +172,7 @@ class Controle extends CI_Controller{
 		}
 		
 		$this->db->where($this->pk,$this->uri->segment(4))->update($this->table,$_POST);
-
+		#echo ">>> ".$this->db->last_query(); exit;
 		if(isset($_GET['aplicar'])&&$_GET['aplicar']=='sim'){
 			redirect(base_admin('editar/'.$this->uri->segment(4)));
 		}else{

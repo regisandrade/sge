@@ -25,6 +25,54 @@
  * @link		http://codeigniter.com/user_guide/helpers/url_helper.html
  */
 
+if(!function_exists('get_link')) {
+	function get_link($url,$text,$attr=''){
+		$ci =& get_instance();
+		$index = '';
+
+		if(!isset($ci->config->config['url_amigavel'])){
+			$index = $ci->config->config['index_page']."/";
+		}else{
+			if($ci->config->config['url_amigavel']===TRUE){
+				$index = '';
+			}else{
+				$index = $ci->config->config['index_page']."/";
+			}
+		}
+		$link_gerado = 	"<a $attr href='".base_url($index.$url)."'>$text</a>";
+		return $link_gerado; 
+	}
+}
+
+
+if(!function_exists('get_view')){
+	function get_view($class,$metodo,$sufix=''){
+		return strtolower($class)."/".strtolower($class)."_".strtolower(str_ireplace($class.'::','',$metodo)).$sufix;
+	}
+}
+	
+	
+if(!function_exists('get_view_principal')){
+	function get_view_principal(){
+		$ci =& get_instance();
+		return $ci->router->routes["default_controller"].'/'.$ci->router->routes["default_controller"].'_index_view';
+	}
+}
+
+
+
+function texto($texto, $limite,$re = '') {
+	//Retira tags HTML	
+	$texto = strip_tags($texto);
+
+	//Verifica se deve cortar o texto
+
+	if(strlen($texto) > $limite) {
+		$texto = substr($texto, 0, strrpos(substr($texto, 0, $limite), ' ')).$re;
+	}
+	return $texto; 
+}
+
 // ------------------------------------------------------------------------
 
 /**

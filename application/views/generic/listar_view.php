@@ -108,7 +108,7 @@ if ($this->uri->segment(5)) {
 
           if($f['type']=='text'){
           	echo texto($d[$field],100);
-          	}
+          }
 
           ?>
             </td>
