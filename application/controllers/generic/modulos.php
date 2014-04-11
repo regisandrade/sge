@@ -19,7 +19,7 @@
 		array(
 		'<campo_chave_primaria>'=>array('type'=>'pk','label'=>'<label_ou_nome_campo>'),
 		'<campo_imagem>'=>array('type'=>'img','label'=>'<label_ou_nome_campo>'),
-		'<campo_varchar>'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'<label_ou_nome_campo>'),
+		'<campo_varchar>'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'<label_ou_nome_campo>','class'=>'<nome_class>'),
 		'<campo_enum>'=>array('type'=>'enum','valor'=>'"SIM","NAO"',DEFAULT=>'SIM','label'=>'<label_ou_nome_campo>'),
 		'<campo_texto_simples>'=>array('type'=>'text','label'=>'<label_ou_nome_campo>'),
 		'<campo_texto_rico_ckeditor>'=>array('type'=>'text','ckeditor'=>1,'label'=>'<label_ou_nome_campo>'),
@@ -55,19 +55,19 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo']['fields'] =
 		array(
 		'id_configuracao'=>array('type'=>'pk','label'=>'N°'),
-		'empresa'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'Empresa','class'=>'input-xxlarge'),
+		'empresa'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'Empresa','class'=>'input-xxlarge'),
 		'slogan'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'Slogan','class'=>'input-xlarge'),
 		'descricao'=>array('type'=>'text','size'=>200,'notnull'=>0,'label'=>'Descrição'),
-		'email'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'E-mail','class'=>'input-xlarge'),
-		'endereco'=>array('type'=>'text','label'=>'Endereço'),
-		'telefone_1'=>array('type'=>'varchar','size'=>15,'notnull'=>0,'label'=>'Telefone 1','class'=>'input-medium'),
-		'telefone_2'=>array('type'=>'varchar','size'=>15,'notnull'=>1,'label'=>'Telefone 2','class'=>'input-medium'),
+		'email'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'E-mail','class'=>'input-xlarge'),
+		'endereco'=>array('type'=>'text','notnull'=>1,'label'=>'Endereço'),
+		'telefone_1'=>array('type'=>'varchar','size'=>15,'notnull'=>1,'label'=>'Telefone 1','class'=>'input-medium'),
+		'telefone_2'=>array('type'=>'varchar','size'=>15,'notnull'=>0,'label'=>'Telefone 2','class'=>'input-medium'),
 		'facebook'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'Facebook','class'=>'input-xlarge'),
 		'twitter'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'Twitter','class'=>'input-xlarge'),
 		'linkedin'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'LinkedIn','class'=>'input-xlarge'),
 		'meta_descricao'=>array('type'=>'varchar','size'=>200,'label'=>'Meta Descrição','class'=>'input-xxlarge'),
-		'latitude_endereco'=>array('type'=>'varchar','size'=>20,'label'=>'Latitude','class'=>'input-medium'),
-		'longitude_endereco'=>array('type'=>'varchar','size'=>20,'label'=>'Longitude','class'=>'input-medium'),
+		'latitude_endereco'=>array('type'=>'varchar','size'=>20,'notnull'=>1,'label'=>'Latitude','class'=>'input-medium'),
+		'longitude_endereco'=>array('type'=>'varchar','size'=>20,'notnull'=>1,'label'=>'Longitude','class'=>'input-medium'),
 		'logo'=>array('type'=>'img','size'=>100,'label'=>'Logo','class'=>'input-xxlarge'),
 		);
 		//Instalando o modulo
@@ -89,8 +89,8 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo']['fields'] =
 		array(
 		'id_noticia'=>array('type'=>'pk','label'=>'Nº'),
-		'titulo'=>array('type'=>'varchar','size'=>200,'label'=>'Título','class'=>'input-xxlarge'),
-		'texto'=>array('type'=>'text','ckeditor'=>0,'label'=>'Notícia'),
+		'titulo'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'Título','class'=>'input-xxlarge'),
+		'texto'=>array('type'=>'text','ckeditor'=>0,'notnull'=>1,'label'=>'Notícia'),
 		);
 		//Instalando o modulo
 		$this->install();
@@ -111,7 +111,7 @@ class Modulos extends CI_Controller{
 		array(
 		'id_galeria'=>array('type'=>'pk','label'=>'Nº'),
 		//'imagem'=>array('type'=>'img','label'=>'Imagem Capa'),
-		'titulo'=>array('type'=>'varchar','size'=>200,'label'=>'Título'),
+		'titulo'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'Título','class'=>'input-xxlarge'),
 		);
 		//Instalando o modulo
 		$this->install();
@@ -156,8 +156,8 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo']['fields'] =
 		array(
 		'id_empresa'=>array('type'=>'pk','label'=>'Nº'),
-		'titulo'=>array('type'=>'varchar','size'=>200,'label'=>'Título','class'=>'input-xxlarge'),
-		'texto'=>array('type'=>'text','ckeditor'=>0,'label'=>'Conteúdo'),
+		'titulo'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'Título','class'=>'input-xxlarge'),
+		'texto'=>array('type'=>'text','ckeditor'=>0,'notnull'=>1,'label'=>'Conteúdo'),
 		);
 		//Instalando o modulo
 		$this->install();
@@ -240,8 +240,8 @@ class Modulos extends CI_Controller{
 			'id'=>array('type'=>'pk','label'=>'Nº'),
 			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>1,'label'=>'Nome','class'=>'input-xxlarge'),
 			'qtdeHoras'=>array('type'=>'varchar','size'=>10,'notnull'=>1, 'label'=>'Carga Horária','class'=>'input-small'),
-			'dataInicio'=>array('type'=>'date','size'=>10,'label'=>'Data Inicial'),
-			'dataFim'=>array('type'=>'date','size'=>10,'label'=>'Data Final'),
+			'dataInicio'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data Inicial'),
+			'dataFim'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data Final'),
 			'status'=>array('type'=>'enum','valor'=>'"Ativo","Inativo"', 'DEFAULT' => 'Ativo', 'notnull'=>1, 'label'=>'Status'),
 			'flagMba'=>array('type'=>'enum','valor'=>'"Sim","Não"', 'DEFAULT' => 'Sim', 'notnull'=>1, 'label'=>'MBA'),
 		);
@@ -264,7 +264,6 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo']['fields'] =
 
 		array(
-
 		 'id_instalacao'=>array('type'=>'pk','label'=>'Nº'),
 		 'titulo'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'Titulo'),
 		 'resumo'=>array('type'=>'text','size'=>200,'label'=>'Introdução'),

@@ -45,11 +45,14 @@ if ($this->uri->segment(5)) {
             foreach($info['fields'] as $field => $f){
               if($f['type']=='varchar'||$f['type']=='img'||$f['type']=='fk'||$f['type']=='date'||($f['type']=='text'&&!isset($f['ckeditor']))){
             ?>
-              <th valign="top" <?php echo $f['type']=='date'?'width="100px"':''?>><?php echo $f['label']?></th>
+              <th <?php echo $f['type']=='date'?'width="100px"':''?>><?php echo $f['label']?></th>
             <?php 
               }
             }
             ?>
+            <?php foreach($info['extensao'] as $extensao => $name_extensao){?>
+              <th>&nbsp;</th>
+            <?php }?>
           </tr>
         </thead>
         <tbody role="alert" aria-live="polite" aria-relevant="all">
@@ -115,7 +118,7 @@ if ($this->uri->segment(5)) {
           <?php }}?>
 
           <?php foreach($info['extensao'] as $extensao => $name_extensao){?>
-          <td class=" "><a class="btn btn-primary" href="<?php echo base_admin('modulos/'.$extensao.'/?pai='.$d[$info['pk']])?>"><?php echo $name_extensao?></a></td>
+          <td class=" "><a class="btn btn-block btn-success" href="<?php echo base_admin('modulos/'.$extensao.'/?pai='.$d[$info['pk']])?>"><?php echo $name_extensao?></a></td>
           <?php }?>
           </tr>
         <?php }?>
