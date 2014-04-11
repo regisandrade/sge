@@ -149,7 +149,32 @@ class Controle extends CI_Controller{
 		if ($_POST['dataFim']) {
 			$_POST['dataFim'] = dataBd($_POST['dataFim']);
 		}
+		
+		# Arquivos no formulario
+		if (isset($_FILES['arquivo']['name'])) {
+			$_POST['arquivo'] = $_FILES['arquivo']['name'];
 
+			# Gravar arquivo na pasta correta
+			$this->load->library('upload');
+
+			$config['upload_path'] = './uploads/';
+			$config['allowed_types'] = 'gif|jpg|png|rar|zip';
+			$config['max_size']	= '100';
+			$config['max_width'] = '1024';
+			$config['max_height'] = '768';
+
+			$this->load->library('upload', $config);
+
+			// Alternately you can set preferences by calling the initialize function. Useful if you auto-load the class:
+			$this->upload->initialize($config);
+
+			if(!$this->upload->do_upload($_FILES['arquivo']['name'])) {
+				$error = array('error' => $this->upload->display_errors());
+				echo "<pre>"; print_r($error); exit;
+			}
+		}
+
+		#echo "<pre>"; print_r($_FILES); print_r($_POST); exit;
 		$this->db->insert($this->table,$_POST);
 		#echo "<pre>"; print_r($_POST);
 		#echo ">>> ".$this->db->last_query(); exit;

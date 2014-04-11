@@ -19,6 +19,7 @@
 		array(
 		'<campo_chave_primaria>'=>array('type'=>'pk','label'=>'<label_ou_nome_campo>'),
 		'<campo_imagem>'=>array('type'=>'img','label'=>'<label_ou_nome_campo>'),
+		'<campo_imagem>'=>array('type'=>'file','label'=>'<label_ou_nome_campo>'),
 		'<campo_varchar>'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'<label_ou_nome_campo>','class'=>'<nome_class>'),
 		'<campo_enum>'=>array('type'=>'enum','valor'=>'"SIM","NAO"',DEFAULT=>'SIM','label'=>'<label_ou_nome_campo>'),
 		'<campo_texto_simples>'=>array('type'=>'text','label'=>'<label_ou_nome_campo>'),
@@ -252,11 +253,11 @@ class Modulos extends CI_Controller{
 		redirect(base_admin('controle/listar'));
 	}
 
-	public function instalacao(){
+	public function artigos(){
 		$_SESSION['modulo'] = array();
-		$_SESSION['modulo']['modulo']  = 'instalacao';
-		$_SESSION['modulo']['table'] = 'instalacao';
-		$_SESSION['modulo']['pk'] = 'id_instalacao';
+		$_SESSION['modulo']['modulo']  = 'artigos';
+		$_SESSION['modulo']['table'] = 'artigos';
+		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
 
@@ -264,11 +265,9 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo']['fields'] =
 
 		array(
-		 'id_instalacao'=>array('type'=>'pk','label'=>'Nº'),
-		 'titulo'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'Titulo'),
-		 'resumo'=>array('type'=>'text','size'=>200,'label'=>'Introdução'),
-		 'texto'=>array('type'=>'text','ckeditor'=>1,'label'=>'Texto'),
-
+		 'id'=>array('type'=>'pk','label'=>'Nº'),
+		 'descricao'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'Titulo','class'=>'input-xlarge'),
+		 'arquivo'=>array('type'=>'file','notnull'=>1,'label'=>'Artigo'),
 		);
 
 		//Instalando o modulo
@@ -276,7 +275,31 @@ class Modulos extends CI_Controller{
 		//ir para controlador
 
 		redirect(base_admin('controle/listar'));
-	 }
+	}
+
+	public function avisos(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'avisos';
+		$_SESSION['modulo']['table'] = 'avisos';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Nº'),
+			'titulo'=>array('type'=>'varchar','size'=>150,'notnull'=>1,'label'=>'Título','class'=>'input-xlarge'),
+			'descricao'=>array('type'=>'text','ckeditor'=>1,'notnull'=>1,'label'=>'Descrição'),
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
 
 
     /*INSTALL MODULO NÃO MEXER*/

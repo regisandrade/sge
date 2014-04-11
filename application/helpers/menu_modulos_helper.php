@@ -3,8 +3,8 @@ function getMenu() {
 	# Criar o menu do primeiro nível
 	$menu = array('Cadastro' =>  
 						array('Alunos' => 'modulo/banners',
-							  'Artigos' => 'caminho',
-							  'Avisos' => 'caminho',
+							  'Artigos' => 'generic/modulos/artigos',
+							  'Avisos' => 'generic/modulos/avisos',
 							  'Cronogramas' => 'caminho',
 							  'Currículos' => 'caminho',
 							  'Cursos' => 'generic/modulos/cursos',

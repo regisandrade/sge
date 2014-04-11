@@ -12,7 +12,7 @@ if(!permissao($info['modulo'],'adicionar')){
 echo br(); 
 ?>
 <h5 class="widget-name"><i class="icon-th-list"></i>Cadastrar <?php echo ucfirst($info['modulo']); ?></h5>
-<form name="form1" id="validate" method="post" action='<?php echo base_admin('controle/salvar_novo')?>' class="form-horizontal">
+<form name="form1" id="validate" method="post" action='<?php echo base_admin('controle/salvar_novo')?>' class="form-horizontal" enctype="multipart/form-data">
 <input name="us_id" type="hidden" value="<?php echo $this->session->userdata('us_id'); ?>">
 <fieldset>
   <div class="navbar">
@@ -40,6 +40,16 @@ echo br();
         </a><br />
         <a style="font-size:13px;" onclick="return abrir_gerenciador('#img_<?php echo $field?>','#rece_imagem_<?php echo $field?>')"  href="javascript:void(0)">Enviar</a>
       </div>
+    </div>
+    <?php 
+      }
+      if($f['type']=='file'){
+    ?>
+    <div class="control-group">
+      <label class="control-label"><?php echo $f['label']?>:</label>
+      <div class="controls">
+        <input type="file" size="24" style="opacity: 0;" name="<?php echo $field?>" class="styled <?php echo (isset($f['notnull']) ? 'validate[required]': '') ?>">
+        </div>
     </div>
     <?php 
       }
