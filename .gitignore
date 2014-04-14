@@ -5,5 +5,4 @@
 */cache/!index.html
 */cache/!.htaccess
 
-# Ignorar arquivos específicos
-application/config/config.php
+uploads/*

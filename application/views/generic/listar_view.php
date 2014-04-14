@@ -5,6 +5,7 @@ echo br();
 <?php
 //echo "<pre>"; print_r(); die;
 if ($this->uri->segment(5)) {
+  $alertcss = "alert-success";
   switch ($this->uri->segment(5)) {
     case 1: # Gravar
       $msg = "Registro gravado com sucesso";
@@ -15,8 +16,16 @@ if ($this->uri->segment(5)) {
     case 3: # Excluir
       $msg = "Registro excluído com sucesso";
       break;
+    case 4: # Arquivo
+      $msg = "Erro no envio do arquivo selecionado";
+      $alertcss = "alert-error";
+      break;
+    case 5: # Permissao
+      $msg = "<strong>Atenção</strong><br>Você não tem permissão para excluir registros";
+      $alertcss = "";
+      break;
   }
-  echo "<div class=\"alert alert-success\">
+  echo "<div class=\"alert ".$alertcss."\">
           <button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>
           ".$msg."
         </div>";

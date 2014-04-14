@@ -8,32 +8,34 @@ class Upload extends CI_Controller {
 		$this->load->helper(array('form', 'url'));
 	}
 
-	function index()
-	{
-		$this->load->view('upload_form', array('error' => ' ' ));
-	}
+	// function index()
+	// {
+	// 	$this->load->view('upload_form', array('error' => ' ' ));
+	// }
 
 	function do_upload()
 	{
-		$config['upload_path'] = './uploads/';
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size']	= '100';
-		$config['max_width']  = '1024';
-		$config['max_height']  = '768';
+
+		$path = './uploads/';
+
+		if(!file_exists($path)){
+			mkdir($path);
+		}
+
+		$config['upload_path'] = $path;
+		$config['allowed_types'] = 'gif|jpg|JPG|jpeg|JPEG|png|zip|rar|doc|docx|pdf|xls|xlsx';
+		$config['overwrite'] = FALSE;
+		//$config['file_name'] = url_title(str_ireplace(array('png','jpg','jpeg','gif','doc','xls','pdf','rar','zip'),array('','','','','','','','','','','',''),$arquivo['name']));
 
 		$this->load->library('upload', $config);
 
-		if ( ! $this->upload->do_upload())
-		{
-			$error = array('error' => $this->upload->display_errors());
-
-			$this->load->view('upload_form', $error);
+		if(!$this->upload->do_upload()) {
+			echo array('error' => $this->upload->display_errors());
+			return false;
 		}
-		else
-		{
-			$data = array('upload_data' => $this->upload->data());
-
-			$this->load->view('upload_success', $data);
+		else {
+			echo array('upload_data' => $this->upload->data());
+			return true;
 		}
 	}
 }

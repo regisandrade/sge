@@ -8,10 +8,8 @@ class Controle extends CI_Controller{
 	private $where_fk;
 	private $order_fk;
 
-
 	private $fields;
 	private $info;
-
 
 	public function __construct(){
 
@@ -53,16 +51,12 @@ class Controle extends CI_Controller{
 		$_SESSION['filtros'] = array();
 		foreach($_POST as $field => $p){
 			if(!empty($p)){
-			list($type,$field) = explode('__',$field);
-			  $_SESSION['filtros'][] = array('type'=>$type,'field'=>$field,'val'=>$p);
+				list($type,$field) = explode('__',$field);
+				$_SESSION['filtros'][] = array('type'=>$type,'field'=>$field,'val'=>$p);
 			}
-			}
-
-		redirect(base_admin('listar'));
-
 		}
-
-
+		redirect(base_admin('listar'));
+	}
 
 	public function listar(){
 		$data['config'] = $this->conf->getConfiguracao();
@@ -136,41 +130,40 @@ class Controle extends CI_Controller{
 		}
 
 	public function salvar_novo(){
-		 $_POST['insert_data'] = date('Y-m-d H:i:s');
-		 $_POST['update_data'] = date('Y-m-d H:i:s');
 
-		 if($this->pai!=0){
+		$_POST['insert_data'] = date('Y-m-d H:i:s');
+		$_POST['update_data'] = date('Y-m-d H:i:s');
+
+		if($this->pai!=0){
 			$_POST['id_pai'] = $this->pai;
 		}
+		
 		# Verificar datas
-		if ($_POST['dataInicio']) {
+		if (isset($_POST['dataInicio'])) {
 			$_POST['dataInicio'] = dataBd($_POST['dataInicio']);
 		}
-		if ($_POST['dataFim']) {
+		if (isset($_POST['dataFim'])) {
 			$_POST['dataFim'] = dataBd($_POST['dataFim']);
 		}
 		
 		# Arquivos no formulario
 		if (isset($_FILES['arquivo']['name'])) {
-			$_POST['arquivo'] = $_FILES['arquivo']['name'];
+			
+			$path = './uploads/';
+			if(!file_exists($path)){
+				mkdir($path);
+			}
 
-			# Gravar arquivo na pasta correta
+			$config['upload_path'] = "./uploads/";
+			$config['upload_url'] = base_url()."uploads/";
+			$config['allowed_types'] = 'gif|jpg|JPG|jpeg|JPEG|png|zip|rar|doc|docx|pdf|xls|xlsx';
+			$config['overwrite'] = true;
+
 			$this->load->library('upload');
+			$this->upload->initialize($config); 
 
-			$config['upload_path'] = './uploads/';
-			$config['allowed_types'] = 'gif|jpg|png|rar|zip';
-			$config['max_size']	= '100';
-			$config['max_width'] = '1024';
-			$config['max_height'] = '768';
-
-			$this->load->library('upload', $config);
-
-			// Alternately you can set preferences by calling the initialize function. Useful if you auto-load the class:
-			$this->upload->initialize($config);
-
-			if(!$this->upload->do_upload($_FILES['arquivo']['name'])) {
-				$error = array('error' => $this->upload->display_errors());
-				echo "<pre>"; print_r($error); exit;
+			if(!$this->upload->do_upload('arquivo')) {
+				redirect(base_admin('controle/listar/msgid/4'));
 			}
 		}
 
@@ -181,7 +174,7 @@ class Controle extends CI_Controller{
 		if(isset($_GET['aplicar'])&&$_GET['aplicar']=='sim'){
 			redirect(base_admin('controle/add'));
 		}else{
-			redirect(base_admin('controle/listar'));
+			redirect(base_admin('controle/listar/msgid/1'));
 		}
 	}
 
@@ -189,11 +182,32 @@ class Controle extends CI_Controller{
 		$_POST['update_data'] = date('Y-m-d H:i:s');
 
 		# Verificar datas
-		if ($_POST['dataInicio']) {
+		if (isset($_POST['dataInicio'])) {
 			$_POST['dataInicio'] = dataBd($_POST['dataInicio']);
 		}
-		if ($_POST['dataFim']) {
+		if (isset($_POST['dataFim'])) {
 			$_POST['dataFim'] = dataBd($_POST['dataFim']);
+		}
+
+		# Arquivos no formulario
+		if (isset($_FILES['arquivo']['name'])) {
+			
+			$path = './uploads/';
+			if(!file_exists($path)){
+				mkdir($path);
+			}
+
+			$config['upload_path'] = "./uploads/";
+			$config['upload_url'] = base_url()."uploads/";
+			$config['allowed_types'] = 'gif|jpg|JPG|jpeg|JPEG|png|zip|rar|doc|docx|pdf|xls|xlsx';
+			$config['overwrite'] = true;
+
+			$this->load->library('upload');
+			$this->upload->initialize($config); 
+
+			if(!$this->upload->do_upload('arquivo')) {
+				redirect(base_admin('controle/listar/msgid/4'));
+			}
 		}
 		
 		$this->db->where($this->pk,$this->uri->segment(4))->update($this->table,$_POST);
@@ -201,13 +215,13 @@ class Controle extends CI_Controller{
 		if(isset($_GET['aplicar'])&&$_GET['aplicar']=='sim'){
 			redirect(base_admin('editar/'.$this->uri->segment(4)));
 		}else{
-			redirect(base_admin('controle/listar'));
+			redirect(base_admin('controle/listar/msgid/2'));
 		}
 	}
 
 	public function excluir(){
 		if(!permissao($this->modulo,'remover')){
-			redirect(base_admin('controle/listar'));
+			redirect(base_admin('controle/listar/msgid/5'));
 			exit;
 		}
 
