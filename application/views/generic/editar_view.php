@@ -74,7 +74,7 @@ echo br();
 
             $this->output->enable_profiler(TRUE);
             foreach($table_fks as $fk){
-            echo "<pre>"; print_r($fk); print_r($f); print_r($dados); echo "</pre>"; exit;
+            #echo "<pre>"; print_r($fk); print_r($f); print_r($dados); echo "</pre>"; exit;
             ?>
             <option <?php echo $dados->$field == $fk[$f['fk_id']]?'selected':''?> value="<?php echo $fk[$f['fk_id']]?>"><?php echo $fk[$f['fk_text']]?></option>
             <?php }?>
