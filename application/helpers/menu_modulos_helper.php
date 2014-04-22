@@ -27,7 +27,13 @@ function getMenu() {
 				  'Newsletter' => 
 				  		array('Newsletter'=>'usuarios/listarUsuarios'),
 				  'Financeiro' => 
-				  		array('Boletos Emitidos'=>'usuarios/listarUsuarios'),
+				  		array('Boletos Emitidos'=>'usuarios/listarUsuarios',
+				  			  'Bancos' => 'generic/modulos/bancos',
+				  			  'Contas bancárias' => 'generic/modulos/contas_bancarias',
+				  			  'Centros de custos' => 'generic/modulos/centros_custos',
+				  			  'Categorias de contas' => 'generic/modulos/categorias_contas',
+				  			  'Contas' => 'generic/modulos/contas',
+				  			 ),
 				  'Usuários' => 
 				  		array('Lista de usuários'=>'usuarios/listarUsuarios',
 				  			  'Novo usuários'=>'usuarios/form_usuario'),
