@@ -89,7 +89,7 @@ class Modulos extends CI_Controller{
 		//Definindo os campos da tabela
 		$_SESSION['modulo']['fields'] =
 		array(
-		'id_noticia'=>array('type'=>'pk','label'=>'Nº'),
+		'id_noticia'=>array('type'=>'pk','label'=>'Id'),
 		'titulo'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'Título','class'=>'input-xxlarge'),
 		'texto'=>array('type'=>'text','ckeditor'=>0,'notnull'=>1,'label'=>'Notícia'),
 		);
@@ -110,7 +110,7 @@ class Modulos extends CI_Controller{
 		//Definindo os campos da tabela
 		$_SESSION['modulo']['fields'] =
 		array(
-		'id_galeria'=>array('type'=>'pk','label'=>'Nº'),
+		'id_galeria'=>array('type'=>'pk','label'=>'Id'),
 		//'imagem'=>array('type'=>'img','label'=>'Imagem Capa'),
 		'titulo'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'Título','class'=>'input-xxlarge'),
 		);
@@ -132,7 +132,7 @@ class Modulos extends CI_Controller{
 		//Definindo os campos da tabela
 		$_SESSION['modulo']['fields'] =
 		array(
-		 'id_foto'=>array('type'=>'pk','label'=>'Nº'),
+		 'id_foto'=>array('type'=>'pk','label'=>'Id'),
 		 //'nome'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'nome'),
 		 'foto'=>array('type'=>'img','label'=>'Foto'),
 		 //'texto'=>array('type'=>'text','ckeditor'=>1,'label'=>'Texto')
@@ -156,7 +156,7 @@ class Modulos extends CI_Controller{
 		//Definindo os campos da tabela
 		$_SESSION['modulo']['fields'] =
 		array(
-		'id_empresa'=>array('type'=>'pk','label'=>'Nº'),
+		'id_empresa'=>array('type'=>'pk','label'=>'Id'),
 		'titulo'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'Título','class'=>'input-xxlarge'),
 		'texto'=>array('type'=>'text','ckeditor'=>0,'notnull'=>1,'label'=>'Conteúdo'),
 		);
@@ -177,10 +177,10 @@ class Modulos extends CI_Controller{
 		//Definindo os campos da tabela
 		$_SESSION['modulo']['fields'] =
 		array(
-		'id_banners'=>array('type'=>'pk','label'=>'Nº'),
+		'id_banners'=>array('type'=>'pk','label'=>'Id'),
 		'imagem'=>array('type'=>'img','label'=>'Imagem'),
-		'titulo'=>array('type'=>'varchar','size'=>200,'label'=>'Titulo','notnull'=>1,'class'=>'input-xxlarge'),
-		'link'=>array('type'=>'varchar','size'=>200,'label'=>'Link','class'=>'input-xxlarge'),
+		'titulo'=>array('type'=>'varchar','size'=>200,'label'=>'Titulo','class'=>'input-xxlarge'),
+		'link'=>array('type'=>'varchar','size'=>200,'label'=>'Link','notnull'=>1,'class'=>'input-xxlarge'),
 		);
 		//Instalando o modulo
 		$this->install();
@@ -201,7 +201,7 @@ class Modulos extends CI_Controller{
 		//Definindo os campos da tabela
 		$_SESSION['modulo']['fields'] =
 		array(
-			'id_descricao_curso'=>array('type'=>'pk','label'=>'Nº'),
+			'id_descricao_curso'=>array('type'=>'pk','label'=>'Id'),
 			'codg_curso_descricao'=>array('type'=>'fk','table_fk'=>'curso','fk_id'=>'id','fk_text'=>'nome','label'=>'Curso','notnull'=>1),
 			//'nome'=>array('type'=>'varchar','size'=>200,'label'=>'Nome'),
 			'apresentacao'=>array('type'=>'text','ckeditor'=>1,'label'=>'Apresentação','notnull'=>1),
@@ -238,7 +238,7 @@ class Modulos extends CI_Controller{
 		//Definindo os campos da tabela
 		$_SESSION['modulo']['fields'] =
 		array(
-			'id'=>array('type'=>'pk','label'=>'Nº'),
+			'id'=>array('type'=>'pk','label'=>'Id'),
 			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>1,'label'=>'Nome','class'=>'input-xxlarge'),
 			'qtdeHoras'=>array('type'=>'varchar','size'=>10,'notnull'=>1, 'label'=>'Carga Horária','class'=>'input-small'),
 			'dataInicio'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data Inicial'),
@@ -265,7 +265,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo']['fields'] =
 
 		array(
-		 'id'=>array('type'=>'pk','label'=>'Nº'),
+		 'id'=>array('type'=>'pk','label'=>'Id'),
 		 'descricao'=>array('type'=>'varchar','size'=>200,'label'=>'Titulo','class'=>'input-xlarge'),
 		 'arquivo'=>array('type'=>'file','label'=>'Artigo'),
 		);
@@ -289,9 +289,148 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo']['fields'] =
 
 		array(
-			'id'=>array('type'=>'pk','label'=>'Nº'),
+			'id'=>array('type'=>'pk','label'=>'Id'),
 			'titulo'=>array('type'=>'varchar','size'=>150,'notnull'=>1,'label'=>'Título','class'=>'input-xlarge'),
 			'descricao'=>array('type'=>'text','ckeditor'=>1,'notnull'=>1,'label'=>'Descrição'),
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
+	# Financeiro
+	public function bancos(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'bancos';
+		$_SESSION['modulo']['table'] = 'bancos';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
+			'site'=>array('type'=>'varchar','size'=>150,'notnull'=>1,'label'=>'Site','class'=>'input-xlarge'),
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
+	public function contas_bancarias(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'contas_bancarias';
+		$_SESSION['modulo']['table'] = 'contas_bancarias';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'id_banco'=>array('type'=>'fk','table_fk'=>'bancos','fk_id'=>'id','fk_text'=>'nome','label'=>'Banco','notnull'=>0),
+			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
+			'agencia'=>array('type'=>'varcar','size'=>20,'notnull'=>0,'label'=>'Agência','class'=>'input-medium'),
+			'numero'=>array('type'=>'varcar','size'=>45,'notnull'=>0,'label'=>'Número','class'=>'input-medium'),
+			'operacao'=>array('type'=>'int','notnull'=>1,'label'=>'Operação','class'=>'input-medium'),
+			'gerente'=>array('type'=>'varcar','size'=>150,'notnull'=>1,'label'=>'Gerente','class'=>'input-medium'),
+			'telefone'=>array('type'=>'varcar','size'=>15,'notnull'=>1,'label'=>'Telefone','class'=>'input-medium'),
+			
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
+	public function centros_custos(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'centros_custos';
+		$_SESSION['modulo']['table'] = 'centros_custos';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
+	public function categorias_contas(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'categorias_contas';
+		$_SESSION['modulo']['table'] = 'categorias_contas';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'tipo'=>array('type'=>'enum','valor'=>'"Receita","Despesa"', 'notnull'=>0, 'label'=>'Tipo'),
+			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
+	public function contas(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'contas';
+		$_SESSION['modulo']['table'] = 'contas';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'id_conta_bancaria'=>array('type'=>'fk','table_fk'=>'contas_bancarias','fk_id'=>'id','fk_text'=>'nome','label'=>'Conta Bancária','notnull'=>0),
+			'id_categoria'=>array('type'=>'fk','table_fk'=>'categorias_contas','fk_id'=>'id','fk_text'=>'nome','label'=>'Categoria','notnull'=>0),
+			'tipo'=>array('type'=>'enum','valor'=>'"Receita","Despesa"', 'notnull'=>0, 'label'=>'Tipo'),
+			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
+			'valor'=>array('type'=>'varchar','size'=>15,'notnull'=>0,'label'=>'Valor','class'=>'input-xlarge'),
+			'data_vencimento'=>array('type'=>'varchar','size'=>10,'notnull'=>0,'label'=>'Data Vencimento','class'=>'input-xlarge'),
+			'pago'=>array('type'=>'enum','valor'=>'"Sim","Não"', 'DEFAULT' => 'Não', 'notnull'=>0, 'label'=>'Pago'),
+			'recorrencia'=>array('type'=>'enum','valor'=>'"Sim","Não"', 'DEFAULT' => 'Não', 'notnull'=>0, 'label'=>'Recorrência'),
+			'frequencia'=>array('type'=>'enum','valor'=>'"DIARIAMENTE","SEMANALMENTE","BIMESTRAL","TRIMESTRAL","SEMESTRAL","ANUAL"', 'DEFAULT' => '', 'notnull'=>1, 'label'=>'Frequência'),
+			'data_competencia'=>array('type'=>'varchar','size'=>10,'notnull'=>0,'label'=>'Data Competência','class'=>'input-xlarge'),
+			'id_centro_custo'=>array('type'=>'fk','table_fk'=>'centros_custos','fk_id'=>'id','fk_text'=>'nome','label'=>'Centro Custo','notnull'=>0),
+			'id_centro_custo'=>array('type'=>'fk','table_fk'=>'centros_custos','fk_id'=>'id','fk_text'=>'nome','label'=>'Centro Custo','notnull'=>0),
+			'observacoes'=>array('type'=>'text','ckeditor'=>1,'label'=>'Observações','notnull'=>1),
+			'arquivo'=>array('type'=>'file','label'=>'Arquivo'),
+			
 		);
 
 		//Instalando o modulo
