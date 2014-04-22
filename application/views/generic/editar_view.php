@@ -127,6 +127,24 @@ echo br();
       </div>
     <?php 
       }
+      if($f['type']=='file'){
+    ?>
+    <div class="control-group">
+      <label class="control-label"><?php echo $f['label']?>:</label>
+      <div class="controls">
+        <input type="file" size="24" style="opacity: 0;" name="<?php echo $field?>" class="styled <?php echo (isset($f['notnull']) ? 'validate[required]': '') ?>">
+        <?php 
+        if (isset($dados->arquivo)) {
+        ?>
+          <br><br>Foto atual: <img src="<?php echo base_url('')."uploads/".$dados->arquivo?>" alt="<?php echo $dados->arquivo?>" title="<?php echo $dados->arquivo?>" />
+        <?php
+        }
+        ?>
+        
+      </div>
+    </div>
+    <?php 
+      }
     }
   ?>
     <div class="form-actions">

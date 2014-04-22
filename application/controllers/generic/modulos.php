@@ -19,7 +19,7 @@
 		array(
 		'<campo_chave_primaria>'=>array('type'=>'pk','label'=>'<label_ou_nome_campo>'),
 		'<campo_imagem>'=>array('type'=>'img','label'=>'<label_ou_nome_campo>'),
-		'<campo_imagem>'=>array('type'=>'file','label'=>'<label_ou_nome_campo>'),
+		'<campo_file>'=>array('type'=>'file','label'=>'<label_ou_nome_campo>'),
 		'<campo_varchar>'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'<label_ou_nome_campo>','class'=>'<nome_class>'),
 		'<campo_enum>'=>array('type'=>'enum','valor'=>'"SIM","NAO"',DEFAULT=>'SIM','label'=>'<label_ou_nome_campo>'),
 		'<campo_texto_simples>'=>array('type'=>'text','label'=>'<label_ou_nome_campo>'),
@@ -266,8 +266,8 @@ class Modulos extends CI_Controller{
 
 		array(
 		 'id'=>array('type'=>'pk','label'=>'Nº'),
-		 'descricao'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'Titulo','class'=>'input-xlarge'),
-		 'arquivo'=>array('type'=>'file','notnull'=>1,'label'=>'Artigo'),
+		 'descricao'=>array('type'=>'varchar','size'=>200,'label'=>'Titulo','class'=>'input-xlarge'),
+		 'arquivo'=>array('type'=>'file','label'=>'Artigo'),
 		);
 
 		//Instalando o modulo
@@ -330,6 +330,12 @@ class Modulos extends CI_Controller{
 				//IMG
 				if($f['type']=='img'){
 					$SQL_TABLE .= $field." varchar(200),";
+					}
+
+				//FILE
+				if($f['type']=='file'){
+					$null = isset($f['notnull'])?'':' not null';
+					$SQL_TABLE .= $field." varchar(150) {$null},";
 					}
 
 				//DATE

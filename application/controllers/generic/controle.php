@@ -165,6 +165,8 @@ class Controle extends CI_Controller{
 			if(!$this->upload->do_upload('arquivo')) {
 				redirect(base_admin('controle/listar/msgid/4'));
 			}
+
+			$_POST['arquivo'] = $_FILES['arquivo']['name'];
 		}
 
 		#echo "<pre>"; print_r($_FILES); print_r($_POST); exit;
@@ -227,6 +229,6 @@ class Controle extends CI_Controller{
 
 		$this->db->where($this->pk,$this->uri->segment(4))->delete($this->table);
 			redirect(base_admin('controle/listar/msgid/3'));
-		}
+	}
 
 } // Fim da classe
