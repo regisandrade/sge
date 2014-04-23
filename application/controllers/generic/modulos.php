@@ -339,13 +339,13 @@ class Modulos extends CI_Controller{
 
 		array(
 			'id'=>array('type'=>'pk','label'=>'Id'),
-			'id_banco'=>array('type'=>'fk','table_fk'=>'bancos','fk_id'=>'id','fk_text'=>'nome','label'=>'Banco','notnull'=>0),
+			'id_banco'=>array('type'=>'fk','table_fk'=>'bancos','fk_id'=>'id','fk_text'=>'nome','label'=>'Banco','notnull'=>0,'class'=>''),
 			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
-			'agencia'=>array('type'=>'varcar','size'=>20,'notnull'=>0,'label'=>'Agência','class'=>'input-medium'),
-			'numero'=>array('type'=>'varcar','size'=>45,'notnull'=>0,'label'=>'Número','class'=>'input-medium'),
+			'agencia'=>array('type'=>'varchar','size'=>20,'notnull'=>0,'label'=>'Agência','class'=>'input-medium'),
+			'numero'=>array('type'=>'varchar','size'=>45,'notnull'=>0,'label'=>'Número','class'=>'input-medium'),
 			'operacao'=>array('type'=>'int','notnull'=>1,'label'=>'Operação','class'=>'input-medium'),
-			'gerente'=>array('type'=>'varcar','size'=>150,'notnull'=>1,'label'=>'Gerente','class'=>'input-medium'),
-			'telefone'=>array('type'=>'varcar','size'=>15,'notnull'=>1,'label'=>'Telefone','class'=>'input-medium'),
+			'gerente'=>array('type'=>'varchar','size'=>150,'notnull'=>1,'label'=>'Gerente','class'=>'input-medium'),
+			'telefone'=>array('type'=>'varchar','size'=>15,'notnull'=>1,'label'=>'Telefone','class'=>'input-medium'),
 			
 		);
 
@@ -491,6 +491,11 @@ class Modulos extends CI_Controller{
 
 				//FK
 				if($f['type']=='fk'){
+					$SQL_TABLE .= $field." integer default 0,";
+					}
+
+				//INT
+				if($f['type']=='int'){
 					$SQL_TABLE .= $field." integer default 0,";
 					}
 

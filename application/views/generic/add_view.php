@@ -64,6 +64,7 @@ echo br();
       }
       #echo "<pre>"; print_r($f); echo "</pre>";
       if($f['type']=='fk'){
+        #echo "<pre>"; print_r($f); echo "</pre>";
     ?>
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
