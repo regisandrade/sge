@@ -1,62 +1,91 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>404 Page Not Found</title>
-<style type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<title>Ipecon - 404 Error</title>
+<link href="<?php echo config_item('base_url')?>public/css/main.css" rel="stylesheet" type="text/css" />
+<!--[if IE 8]><link href="css/ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
+<!--[if IE 9]><link href="css/ie9.css" rel="stylesheet" type="text/css" /><![endif]-->
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 
-::selection{ background-color: #E13300; color: white; }
-::moz-selection{ background-color: #E13300; color: white; }
-::webkit-selection{ background-color: #E13300; color: white; }
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&amp;sensor=false"></script>
 
-body {
-	background-color: #fff;
-	margin: 40px;
-	font: 13px/20px normal Helvetica, Arial, sans-serif;
-	color: #4F5155;
-}
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/charts/jquery.sparkline.min.js"></script>
 
-a {
-	color: #003399;
-	background-color: transparent;
-	font-weight: normal;
-}
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/ui/jquery.easytabs.min.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/ui/jquery.collapsible.min.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/ui/jquery.mousewheel.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/ui/jquery.bootbox.min.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/ui/jquery.colorpicker.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/ui/jquery.timepicker.min.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/ui/jquery.jgrowl.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/ui/jquery.fancybox.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/ui/jquery.fullcalendar.min.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/ui/jquery.elfinder.js"></script>
 
-h1 {
-	color: #444;
-	background-color: transparent;
-	border-bottom: 1px solid #D0D0D0;
-	font-size: 19px;
-	font-weight: normal;
-	margin: 0 0 14px 0;
-	padding: 14px 15px 10px 15px;
-}
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/uploader/plupload.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/uploader/plupload.html4.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/uploader/plupload.html5.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/uploader/jquery.plupload.queue.js"></script>
 
-code {
-	font-family: Consolas, Monaco, Courier New, Courier, monospace;
-	font-size: 12px;
-	background-color: #f9f9f9;
-	border: 1px solid #D0D0D0;
-	color: #002166;
-	display: block;
-	margin: 14px 0 14px 0;
-	padding: 12px 10px 12px 10px;
-}
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/forms/jquery.uniform.min.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/forms/jquery.autosize.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/forms/jquery.inputlimiter.min.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/forms/jquery.tagsinput.min.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/forms/jquery.inputmask.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/forms/jquery.select2.min.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/forms/jquery.listbox.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/forms/jquery.validation.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/forms/jquery.validationEngine-en.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/forms/jquery.form.wizard.js"></script>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/forms/jquery.form.js"></script>
 
-#container {
-	margin: 10px;
-	border: 1px solid #D0D0D0;
-	-webkit-box-shadow: 0 0 8px #D0D0D0;
-}
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/plugins/tables/jquery.dataTables.min.js"></script>
 
-p {
-	margin: 12px 15px 12px 15px;
-}
-</style>
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/files/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="<?php echo config_item('base_url')?>public/js/files/functions.js"></script>
+
 </head>
-<body>
-	<div id="container">
-		<h1><?php echo $heading; ?></h1>
-		<?php echo $message; ?>
+
+<body class="no-background">
+
+	<!-- Fixed top -->
+	<div id="top">
+		<div class="fixed">
+			<a href="<?php echo config_item('base_url')?>index.php/inicio/home" title="" class="logo"><img src="<?php echo config_item('base_url')?>public/img/logo.png" alt="" /></a>	
+		</div>
 	</div>
+	<!-- /fixed top -->
+
+    <!-- Breadcrumbs line -->
+    <div class="crumbs">
+        <ul id="breadcrumbs" class="breadcrumb"> 
+            <li><a href="<?php echo config_item('base_url')?>index.php/inicio/home">Administração</a></li>
+            <li class="active"><a href="404.html" title="">404 error</a></li>
+        </ul>
+ 
+    </div>
+    <!-- /breadcrumbs line -->
+
+	<!-- Error wrapper -->
+	<div class="error-page">
+	    <span class="reason">404</span>
+		<div class="error-content">
+	        <span class="reason-title">- Oops. Página não encontrada! -</span>
+	    </div>
+	</div>  
+	<!-- /error wrapper -->
+
+
+	<!-- Footer -->
+	<div id="footer">
+	</div>
+	<!-- /footer -->
+
 </body>
 </html>
