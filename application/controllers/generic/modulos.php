@@ -440,6 +440,194 @@ class Modulos extends CI_Controller{
 		redirect(base_admin('controle/listar'));
 	}
 
+	public function turmas(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'turmas';
+		$_SESSION['modulo']['table'] = 'turmas';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
+			'id_curso'=>array('type'=>'fk','table_fk'=>'curso','fk_id'=>'id','fk_text'=>'nome','label'=>'Curso','notnull'=>1),
+			'turma_fechada'=>array('type'=>'enum','valor'=>'"Sim","Não"', 'DEFAULT' => 'Não', 'notnull'=>0, 'label'=>'Turma Fechada?'),
+			'data_inicio'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data Inicial'),
+			'data_fim'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data Final'),
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
+	public function disciplinas_turmas(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'disciplinas_turmas';
+		$_SESSION['modulo']['table'] = 'disciplinas_turmas';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'id_turma'=>array('type'=>'fk','table_fk'=>'turmas','fk_id'=>'id','fk_text'=>'nome','label'=>'Turma','notnull'=>1),
+			'id_disciplina'=>array('type'=>'fk','table_fk'=>'disciplinas','fk_id'=>'id','fk_text'=>'nome','label'=>'Disciplina','notnull'=>1),
+			'id_professor'=>array('type'=>'fk','table_fk'=>'professores','fk_id'=>'id','fk_text'=>'nome','label'=>'Professor','notnull'=>1),
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
+	public function disciplinas(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'disciplinas';
+		$_SESSION['modulo']['table'] = 'disciplinas';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
+			'data_nascimento'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data Inicial'),
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
+	public function professores(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'professores';
+		$_SESSION['modulo']['table'] = 'professores';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
+			'data_nascimento'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data de nascimento'),
+			'sexo'=>array('type'=>'enum','valor'=>'"Masculino","Feminino"', 'DEFAULT' => 'Masculino', 'notnull'=>0, 'label'=>'Sexo'),
+			'rg'=>array('type'=>'int','notnull'=>1,'label'=>'RG','class'=>'input-medium'),
+			'orgao_expedidor'=>array('type'=>'varchar','size'=>10,'notnull'=>0,'label'=>'Orgão','class'=>'input-large'),
+			'cpf'=>array('type'=>'varchar','size'=>14,'notnull'=>0,'label'=>'CPF','class'=>'input-large'),
+			'pis'=>array('type'=>'varchar','size'=>10,'notnull'=>0,'label'=>'PIS','class'=>'input-large'),
+			'banco'=>array('type'=>'varchar','size'=>50,'notnull'=>0,'label'=>'Banco','class'=>'input-large'),
+			'agencia'=>array('type'=>'varchar','size'=>20,'notnull'=>0,'label'=>'Agência','class'=>'input-large'),
+			'conta'=>array('type'=>'varchar','size'=>20,'notnull'=>0,'label'=>'Conta','class'=>'input-large'),
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
+	public function links(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'links';
+		$_SESSION['modulo']['table'] = 'links';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
+			'url'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Url','class'=>'input-large'),
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
+	public function curriculos(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'curriculos';
+		$_SESSION['modulo']['table'] = 'curriculos';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'id_curso'=>array('type'=>'fk','table_fk'=>'curso','fk_id'=>'id','fk_text'=>'nome','label'=>'Curso','notnull'=>1),
+			'id_professor'=>array('type'=>'fk','table_fk'=>'professores','fk_id'=>'id','fk_text'=>'nome','label'=>'Professor','notnull'=>1),
+			'url'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Url'),
+			'titulacao'=>array('type'=>'varchar','size'=>150,'notnull'=>1,'label'=>'Titulação'),
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
+	public function cronogramas(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'cronogramas';
+		$_SESSION['modulo']['table'] = 'cronogramas';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'id_turma'=>array('type'=>'fk','table_fk'=>'turmas','fk_id'=>'id','fk_text'=>'nome','label'=>'Turma','notnull'=>1),
+			'id_disciplina'=>array('type'=>'fk','table_fk'=>'disciplinas','fk_id'=>'id','fk_text'=>'nome','label'=>'Disciplina','notnull'=>1),
+			'data_01'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data 01'),
+			'data_02'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data 02'),
+			'data_03'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data 03'),
+			'data_04'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data 04'),
+			'data_05'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data 05'),
+			'data_06'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data 06'),
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
 
     /*INSTALL MODULO NÃO MEXER*/
 	public function install(){
