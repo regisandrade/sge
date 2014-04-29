@@ -59,7 +59,7 @@ echo br();
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
         <div class="controls">
-          <select class="select select2-offscreen <?php echo (isset($f['notnull']) ? ' validate[required]' : '') ?>" name="<?php echo $field?>">
+          <select class="select select2-offscreen <?php echo (isset($f['class']) ? $f['class'] : '').(isset($f['notnull']) ? ' validate[required]' : '') ?>" name="<?php echo $field?>">
             <option value="<?php echo isset($f['notnull'])?'':'0';?>">--Selecione--</option>
             <?php
             if(isset($info['where_fk'])){
@@ -88,7 +88,7 @@ echo br();
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
         <div class="controls">
-          <input type="text" name="<?php echo $field?>" value="<?php echo $dados->$field;?>" class="<?php echo $f['class'] . (isset($f['notnull']) ? ' validate[required]': '') ?>" maxlength="<?php echo $f['size']?>"></div>
+          <input type="text" name="<?php echo $field?>" value="<?php echo $dados->$field;?>" class="<?php echo (isset($f['class']) ? $f['class'] : '') . (isset($f['notnull']) ? ' validate[required]': '') ?>" maxlength="<?php echo $f['size']?>"></div>
       </div>
     <?php 
       }
@@ -115,7 +115,7 @@ echo br();
     ?>
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
-        <div class="controls"><input type="text" class="datepicker validate[required]" name="<?php echo $field?>" value="<?php echo $dados->$field?>" /></div>
+        <div class="controls"><input type="text" class="datepicker validate[required]" name="<?php echo $field?>" value="<?php echo dataTela($dados->$field)?>" /></div>
       </div>
     <?php 
       }
@@ -125,6 +125,14 @@ echo br();
         <label class="control-label"><?php echo $f['label']?>:</label>
         <div class="controls"><textarea rows="10" cols="100" class="<?php echo (isset($f['ckeditor']) ? ' texto' : '') . (isset($f['notnull']) ? ' validate[required]': '') ?>" name="<?php echo $field?>"><?php echo $dados->$field?></textarea></div>
       </div>
+    <?php 
+      }
+      if($f['type']=='int'){
+    ?>
+            <div class="control-group">
+              <label class="control-label"><?php echo $f['label']?>:</label>
+              <div class="controls"><input type="text" class="<?php echo (isset($f['class']) ? $f['class'] : '') . (isset($f['notnull']) ? ' validate[required]': '') ?>" name="<?php echo $field?>" value="<?php echo $dados->$field?>" /></div>
+            </div>
     <?php 
       }
       if($f['type']=='file'){
@@ -148,8 +156,9 @@ echo br();
     }
   ?>
     <div class="form-actions">
-      <button class="btn btn-primary" type="submit">Gravar</button>
-      <button class="btn btn-danger btnVoltar" type="button" caminho="<?php echo base_admin('controle/listar')?>">Cancelar</button>
+      <button class="btn btn-primary" type="submit"><i class="icon-ok"></i>&nbsp;Gravar</button>
+      <button class="btn btn-success" type="button"><i class="icon-star"></i>&nbsp;Aplicar</button>
+      <button class="btn btn-danger btnVoltar" type="button" caminho="<?php echo base_admin('controle/listar')?>"><i class="icon-remove"></i>&nbsp;Cancelar</button>
     </div>
   </div>
 </fieldset>

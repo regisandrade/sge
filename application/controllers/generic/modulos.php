@@ -506,7 +506,6 @@ class Modulos extends CI_Controller{
 		array(
 			'id'=>array('type'=>'pk','label'=>'Id'),
 			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
-			'data_nascimento'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data Inicial'),
 		);
 
 		//Instalando o modulo
@@ -529,16 +528,16 @@ class Modulos extends CI_Controller{
 
 		array(
 			'id'=>array('type'=>'pk','label'=>'Id'),
-			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
+			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xxlarge'),
 			'data_nascimento'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data de nascimento'),
 			'sexo'=>array('type'=>'enum','valor'=>'"Masculino","Feminino"', 'DEFAULT' => 'Masculino', 'notnull'=>0, 'label'=>'Sexo'),
 			'rg'=>array('type'=>'int','notnull'=>1,'label'=>'RG','class'=>'input-medium'),
-			'orgao_expedidor'=>array('type'=>'varchar','size'=>10,'notnull'=>0,'label'=>'Orgão','class'=>'input-large'),
-			'cpf'=>array('type'=>'varchar','size'=>14,'notnull'=>0,'label'=>'CPF','class'=>'input-large'),
-			'pis'=>array('type'=>'varchar','size'=>10,'notnull'=>0,'label'=>'PIS','class'=>'input-large'),
-			'banco'=>array('type'=>'varchar','size'=>50,'notnull'=>0,'label'=>'Banco','class'=>'input-large'),
-			'agencia'=>array('type'=>'varchar','size'=>20,'notnull'=>0,'label'=>'Agência','class'=>'input-large'),
-			'conta'=>array('type'=>'varchar','size'=>20,'notnull'=>0,'label'=>'Conta','class'=>'input-large'),
+			'orgao_expedidor'=>array('type'=>'varchar','size'=>10,'notnull'=>0,'label'=>'Orgão','class'=>'input-medium'),
+			'cpf'=>array('type'=>'varchar','size'=>14,'notnull'=>0,'label'=>'CPF','class'=>'input-medium','data-mask'=>'999.999.999-99'),
+			'pis'=>array('type'=>'varchar','size'=>10,'notnull'=>0,'label'=>'PIS','class'=>'input-medium'),
+			'banco'=>array('type'=>'varchar','size'=>50,'notnull'=>0,'label'=>'Banco','class'=>'input-medium'),
+			'agencia'=>array('type'=>'varchar','size'=>20,'notnull'=>0,'label'=>'Agência','class'=>'input-medium'),
+			'conta'=>array('type'=>'varchar','size'=>20,'notnull'=>0,'label'=>'Conta','class'=>'input-medium'),
 		);
 
 		//Instalando o modulo
@@ -587,8 +586,8 @@ class Modulos extends CI_Controller{
 			'id'=>array('type'=>'pk','label'=>'Id'),
 			'id_curso'=>array('type'=>'fk','table_fk'=>'curso','fk_id'=>'id','fk_text'=>'nome','label'=>'Curso','notnull'=>1),
 			'id_professor'=>array('type'=>'fk','table_fk'=>'professores','fk_id'=>'id','fk_text'=>'nome','label'=>'Professor','notnull'=>1),
-			'url'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Url'),
-			'titulacao'=>array('type'=>'varchar','size'=>150,'notnull'=>1,'label'=>'Titulação'),
+			'url'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Url','class'=>'input-xlarge'),
+			'titulacao'=>array('type'=>'varchar','size'=>150,'notnull'=>1,'label'=>'Titulação','class'=>'input-xlarge'),
 		);
 
 		//Instalando o modulo

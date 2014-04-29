@@ -52,7 +52,7 @@ if ($this->uri->segment(5)) {
             <?php
             //Cabeçalho
             foreach($info['fields'] as $field => $f){
-              if($f['type']=='varchar'||$f['type']=='img'||$f['type']=='fk'||$f['type']=='date'||($f['type']=='text'&&!isset($f['ckeditor']))){
+              if($f['type']=='varchar'||$f['type']=='img'||$f['type']=='int'||$f['type']=='fk'||$f['type']=='date'||($f['type']=='text'&&!isset($f['ckeditor']))){
             ?>
               <th <?php echo $f['type']=='date'?'width="100px"':''?>><?php echo $f['label']?></th>
             <?php 
@@ -85,7 +85,7 @@ if ($this->uri->segment(5)) {
           <?php
           // Conteudo
           foreach($info['fields'] as $field => $f){
-          if($f['type']=='varchar'||$f['type']=='img'||$f['type']=='fk'||$f['type']=='date'||($f['type']=='text'&&!isset($f['ckeditor']))){
+          if($f['type']=='varchar'||$f['type']=='img'||$f['type']=='int'||$f['type']=='fk'||$f['type']=='date'||($f['type']=='text'&&!isset($f['ckeditor']))){
           ?>
             <td class=" ">
             <!-- Mostrando Valor Imagem -->
@@ -115,11 +115,15 @@ if ($this->uri->segment(5)) {
           	}
 
           if($f['type']=='date'){
-          	echo date('d/m/Y',strtotime($d[$field]));
+          	echo dataTela($d[$field]);
           	}
 
           if($f['type']=='text'){
           	echo texto($d[$field],100);
+          }
+          
+          if($f['type']=='int'){
+          	echo $d[$field];
           }
 
           ?>

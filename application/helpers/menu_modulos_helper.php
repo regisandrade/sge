@@ -2,23 +2,25 @@
 function getMenu() {
 	# Criar o menu do primeiro nível
 	$menu = array('Cadastro' =>  
-						array('Alunos' => 'modulo/banners',
+						array(
 							  'Artigos' => 'generic/modulos/artigos',
-							  'Avisos' => 'generic/modulos/avisos',
-							  'Cronogramas' => 'generic/modulos/cronogramas',
-							  'Currículos' => 'generic/modulos/curriculos',
-							  'Cursos' => 'generic/modulos/cursos',
-							  'Depoimentos' => 'caminho',
-							  'Material de apoio' => 'caminho',
+							  'Avisos' => 'generic/modulos/avisos',							  
 							  'Links' => 'generic/modulos/links',
-							  'Notas & Frequências' => 'caminho',
-							  'Professores' => 'generic/modulos/professores',
-							  'Turmas' => 'generic/modulos/turmas',
-							  'Disciplinas' => 'generic/modulos/disciplinas',
-							  'Disciplinas da Turma' => 'generic/modulos/disciplinas_turmas',
 							  ),
 				  'Educacional' => 
-				  		array('Matrículas'=>'caminho',
+				  		array(
+				  			  'Alunos' => 'generic/modulos/alunos',
+				  			  'Matrículas'=>'caminho',
+				  			  'Cronogramas' => 'generic/modulos/cronogramas',
+				  			  'Currículos' => 'generic/modulos/curriculos',
+				  			  'Cursos' => 'generic/modulos/cursos',
+				  			  'Depoimentos' => 'caminho',
+				  			  'Disciplinas' => 'generic/modulos/disciplinas',
+				  			  'Disciplinas da Turma' => 'generic/modulos/disciplinas_turmas',
+				  			  'Material de apoio' => 'caminho',
+				  			  'Notas & Frequências' => 'caminho',
+				  			  'Professores' => 'generic/modulos/professores',
+				  			  'Turmas' => 'generic/modulos/turmas',
 							  'Senhas dos Alunos' => 'caminho',
 							  'Alunos em potencial' => 'caminho',
 							  'Pré-Inscrições' => 'caminho',

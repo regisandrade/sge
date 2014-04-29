@@ -145,6 +145,33 @@ class Controle extends CI_Controller{
 		if (isset($_POST['dataFim'])) {
 			$_POST['dataFim'] = dataBd($_POST['dataFim']);
 		}
+		if (isset($_POST['data_nascimento'])) {
+			$_POST['data_nascimento'] = dataBd($_POST['data_nascimento']);
+		}
+		if (isset($_POST['data_inicio'])) {
+			$_POST['data_inicio'] = dataBd($_POST['data_inicio']);
+		}
+		if (isset($_POST['data_fim'])) {
+			$_POST['data_fim'] = dataBd($_POST['data_fim']);
+		}
+		if (isset($_POST['data_01'])) {
+			$_POST['data_01'] = dataBd($_POST['data_01']);
+		}
+		if (isset($_POST['data_02'])) {
+			$_POST['data_02'] = dataBd($_POST['data_02']);
+		}
+		if (isset($_POST['data_03'])) {
+			$_POST['data_03'] = dataBd($_POST['data_03']);
+		}
+		if (isset($_POST['data_04'])) {
+			$_POST['data_04'] = dataBd($_POST['data_04']);
+		}
+		if (isset($_POST['data_05'])) {
+			$_POST['data_05'] = dataBd($_POST['data_05']);
+		}
+		if (isset($_POST['data_06'])) {
+			$_POST['data_06'] = dataBd($_POST['data_06']);
+		}	
 		
 		# Arquivos no formulario
 		if (isset($_FILES['arquivo']['name'])) {
@@ -189,6 +216,33 @@ class Controle extends CI_Controller{
 		}
 		if (isset($_POST['dataFim'])) {
 			$_POST['dataFim'] = dataBd($_POST['dataFim']);
+		}
+		if (isset($_POST['data_nascimento'])) {
+			$_POST['data_nascimento'] = dataBd($_POST['data_nascimento']);
+		}
+		if (isset($_POST['data_inicio'])) {
+			$_POST['data_inicio'] = dataBd($_POST['data_inicio']);
+		}
+		if (isset($_POST['data_fim'])) {
+			$_POST['data_fim'] = dataBd($_POST['data_fim']);
+		}
+		if (isset($_POST['data_01'])) {
+			$_POST['data_01'] = dataBd($_POST['data_01']);
+		}
+		if (isset($_POST['data_02'])) {
+			$_POST['data_02'] = dataBd($_POST['data_02']);
+		}
+		if (isset($_POST['data_03'])) {
+			$_POST['data_03'] = dataBd($_POST['data_03']);
+		}
+		if (isset($_POST['data_04'])) {
+			$_POST['data_04'] = dataBd($_POST['data_04']);
+		}
+		if (isset($_POST['data_05'])) {
+			$_POST['data_05'] = dataBd($_POST['data_05']);
+		}
+		if (isset($_POST['data_06'])) {
+			$_POST['data_06'] = dataBd($_POST['data_06']);
 		}
 
 		# Arquivos no formulario

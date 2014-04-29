@@ -22,7 +22,10 @@ function dataBd($data){
 	list($d,$m,$y) = @explode('-',$data);
 	return "$y-$m-$d";
 }
-
+function dataTela($data){
+	list($y,$m,$d) = @explode('-',$data);
+	return "$d/$m/$y";
+}
 function is_date($data){
 	$date = @explode('-',$data);
 	if(count($date)==3){
