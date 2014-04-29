@@ -627,6 +627,138 @@ class Modulos extends CI_Controller{
 		redirect(base_admin('controle/listar'));
 	}
 
+	public function alunos(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'alunos';
+		$_SESSION['modulo']['table'] = 'alunos';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'id_curso'=>array('type'=>'fk','table_fk'=>'curso','fk_id'=>'id','fk_text'=>'nome','label'=>'Curso','notnull'=>1),
+			'ano'=>array('type'=>'int','size'=>4,'notnull'=>0,'label'=>'Ano','class'=>'input-small'),
+			'nome'=>array('type'=>'varchar','size'=>250,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
+			'data_nascimento'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data de Nascimento','class'=>'input-xlarge'),
+			'naturalidade'=>array('type'=>'varchar','size'=>150,'notnull'=>1,'label'=>'Naturalidade','class'=>'input-xlarge'),
+			'uf_naturalidade'=>array('type'=>'fk','table_fk'=>'estados','fk_id'=>'id','fk_text'=>'nome','label'=>'UF Naturalidade','notnull'=>1),
+			'nacionalidade'=>array('type'=>'varchar','size'=>50,'notnull'=>1,'label'=>'Nacionalidade','class'=>'input-xlarge'),
+			'sexo'=>array('type'=>'enum','valor'=>'"Masculino","Feminino"', 'DEFAULT' => 'Masculino', 'notnull'=>0, 'label'=>'Sexo'),
+			'rg'=>array('type'=>'int','notnull'=>1,'label'=>'RG','class'=>'input-medium'),
+			'orgao_expedidor'=>array('type'=>'varchar','size'=>10,'notnull'=>0,'label'=>'Orgão','class'=>'input-medium'),
+			'cpf'=>array('type'=>'varchar','size'=>14,'notnull'=>0,'label'=>'C.P.F.','class'=>'input-medium','data-mask'=>'999.999.999-99'),
+			'email'=>array('type'=>'varchar','size'=>250,'notnull'=>0,'label'=>'e-Mail','class'=>'input-xlarge'),
+			'status'=>array('type'=>'enum','valor'=>'"Ativo","Inativo"', 'DEFAULT' => 'Ativo', 'notnull'=>0, 'label'=>'Status'),
+			'web'=>array('type'=>'enum','valor'=>'"Cadastro pela web","Cadastro pelo sistema"', 'DEFAULT' => 'Cadastro pela web', 'notnull'=>0, 'label'=>'web', 'naoMostrar'=>true),
+			'enviado'=>array('type'=>'enum','valor'=>'"Notificado","Não Notificado"', 'DEFAULT' => 'Não Notificado', 'notnull'=>0, 'label'=>'Enviado Cartão de Aniversário', 'naoMostrar'=>true),
+			'data_vencimento_parcela'=>array('type'=>'varchar','size'=>2,'notnull'=>1,'label'=>'Data de Vencimento da Parcela','class'=>'input-xlarge'),
+			'tituloEleitoral'=>array('type'=>'varchar','size'=>20,'notnull'=>1,'label'=>'Data de Vencimento da Parcela','class'=>'input-xlarge', 'naoMostrar'=>true),
+			'reservista'=>array('type'=>'varchar','size'=>20,'notnull'=>1,'label'=>'Data de Vencimento da Parcela','class'=>'input-xlarge', 'naoMostrar'=>true),
+			'estadoCivil'=>array('type'=>'varchar','size'=>20,'notnull'=>1,'label'=>'Data de Vencimento da Parcela','class'=>'input-xlarge', 'naoMostrar'=>true),
+			'filiacaoPai'=>array('type'=>'varchar','size'=>150,'notnull'=>1,'label'=>'Data de Vencimento da Parcela','class'=>'input-xlarge', 'naoMostrar'=>true),
+			'filiacaoMae'=>array('type'=>'varchar','size'=>150,'notnull'=>1,'label'=>'Data de Vencimento da Parcela','class'=>'input-xlarge', 'naoMostrar'=>true),
+			'situacao'=>array('type'=>'enum','valor'=>'"Ativo","Inativo"', 'DEFAULT' => 'Ativo', 'notnull'=>0, 'label'=>'Situação'),
+			'twitter'=>array('type'=>'varchar','size'=>100,'notnull'=>1,'label'=>'Data de Vencimento da Parcela','class'=>'input-xlarge'),
+			'facebook'=>array('type'=>'varchar','size'=>100,'notnull'=>1,'label'=>'Data de Vencimento da Parcela','class'=>'input-xlarge'),
+			'ficouSabendo'=>array('type'=>'enum','valor'=>'"Mala direta","Outdoor","E-mail Marketing","Folder","Eventos","Indicação de ex alunos","Outros"', 'DEFAULT' => 'Ativo', 'notnull'=>0, 'label'=>'Situação'),
+			'ficouSabendoOutro'=>array('type'=>'varchar','size'=>30,'notnull'=>1,'label'=>'Data de Vencimento da Parcela','class'=>'input-xlarge'),
+
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
+	public function depoimentos(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'depoimentos';
+		$_SESSION['modulo']['table'] = 'depoimentos';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'id_curso'=>array('type'=>'fk','table_fk'=>'curso','fk_id'=>'id','fk_text'=>'nome','label'=>'Curso','notnull'=>1),
+			'id_aluno'=>array('type'=>'fk','table_fk'=>'alunos','fk_id'=>'id','fk_text'=>'nome','label'=>'Aluno','notnull'=>1, 'naoMostrar'=>true),
+			'depoimento'=>array('type'=>'text','size'=>200,'notnull'=>0,'label'=>'Depoimento'),
+			'data_depoimento'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data'),
+			'status'=>array('type'=>'enum','valor'=>'"Ativo","Inativo"', 'DEFAULT' => 'Ativo', 'notnull'=>0, 'label'=>'Status'),
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
+	public function exercicios(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'exercicios';
+		$_SESSION['modulo']['table'] = 'exercicios';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'ano'=>array('type'=>'int','size'=>4,'notnull'=>0,'label'=>'Ano','class'=>'input-small'),
+			'descricao'=>array('type'=>'varchar','size'=>200,'label'=>'Titulo','class'=>'input-xlarge'),
+			'id_turma'=>array('type'=>'fk','table_fk'=>'turmas','fk_id'=>'id','fk_text'=>'nome','label'=>'Turma','notnull'=>1),
+			'arquivo'=>array('type'=>'file','label'=>'Artigo'),
+			'tipo_material'=>array('type'=>'enum','valor'=>'"Exercícios","Material didático","Trabalhos","Apostilas"', 'DEFAULT' => 'Ativo', 'notnull'=>0, 'label'=>'Status'),
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
+	public function notas_frequencias(){
+		$_SESSION['modulo'] = array();
+		$_SESSION['modulo']['modulo']  = 'notas_frequencias';
+		$_SESSION['modulo']['table'] = 'notas_frequencias';
+		$_SESSION['modulo']['pk'] = 'id';
+		$_SESSION['modulo']['anexada'] = '';
+		$_SESSION['modulo']['extensao'] = array();
+
+		//Definindo os campos da tabela
+		$_SESSION['modulo']['fields'] =
+
+		array(
+			'id'=>array('type'=>'pk','label'=>'Id'),
+			'id_curso'=>array('type'=>'fk','table_fk'=>'cursos','fk_id'=>'id','fk_text'=>'nome','label'=>'Curso','notnull'=>1),
+			'id_turma'=>array('type'=>'fk','table_fk'=>'turmas','fk_id'=>'id','fk_text'=>'nome','label'=>'Turma','notnull'=>1),
+			'id_disciplina'=>array('type'=>'fk','table_fk'=>'disciplinas','fk_id'=>'id','fk_text'=>'nome','label'=>'Disciplina','notnull'=>1),
+			'id_professor'=>array('type'=>'fk','table_fk'=>'professores','fk_id'=>'id','fk_text'=>'nome','label'=>'Professor','notnull'=>1),
+			'id_aluno'=>array('type'=>'fk','table_fk'=>'alunos','fk_id'=>'id','fk_text'=>'nome','label'=>'Aluno','notnull'=>1),
+			'nota'=>array('type'=>'varchar','size'=>10,'label'=>'Nota','class'=>'input-small'),
+			'frequencia'=>array('type'=>'int','label'=>'Frequência','class'=>'input-small'),	
+		);
+
+		//Instalando o modulo
+		$this->install();
+		//ir para controlador
+
+		redirect(base_admin('controle/listar'));
+	}
+
 
     /*INSTALL MODULO NÃO MEXER*/
 	public function install(){
