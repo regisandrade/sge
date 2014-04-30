@@ -2,6 +2,7 @@
 class Controle extends CI_Controller{
 	private $modulo;
 	private $table;
+	private $nomeTela;
 	private $pk;
 	private $extensao;
 	private $anexada;
@@ -16,6 +17,7 @@ class Controle extends CI_Controller{
 		parent::__construct();
 		$this->modulo = $_SESSION['modulo']['modulo'];
 		$this->table = $_SESSION['modulo']['table'];
+		$this->nomeTela = $_SESSION['modulo']['nomeTela'];
 		$this->pk = $_SESSION['modulo']['pk'];
 		$this->fields = $_SESSION['modulo']['fields'];
 		$this->anexada = $_SESSION['modulo']['anexada'];
@@ -28,6 +30,7 @@ class Controle extends CI_Controller{
 		$this->info = array(
 			'modulo'=>$this->modulo,
 			'table'=>$this->table,
+			'nomeTela'=>$this->nomeTela,
 			'pk'=>$this->pk,
 			'fields'=>$this->fields,
 			'extensao'=>$this->extensao,
@@ -62,7 +65,7 @@ class Controle extends CI_Controller{
 		$data['config'] = $this->conf->getConfiguracao();
 
 		//Verifica se há algum filtro no array
-		if(isset($_SESSION['filtros'])&&count($_SESSION['filtros'])>0){
+		/*if(isset($_SESSION['filtros'])&&count($_SESSION['filtros'])>0){
 			foreach($_SESSION['filtros'] as $filto){
 
 				if($filto['type']=='pk'){
@@ -78,7 +81,7 @@ class Controle extends CI_Controller{
 				}
 
 			}
-		}
+		}*/
 
 		//Verifica se é uma extensão
 		if($this->pai!=0){

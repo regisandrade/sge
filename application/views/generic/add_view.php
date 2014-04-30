@@ -2,7 +2,7 @@
 if(!permissao($info['modulo'],'adicionar')){
   echo "<div class=\"alert alert-error\">
           <button type=\"button\" class=\"close\" data-dismiss=\"alert\">×</button>
-          Você não tem permissão para <strong>Cadastrar</strong> no módulo ".$info['modulo']."
+          Você não tem permissão para <strong>Cadastrar</strong> no módulo ".$info['nomeTela']."
         </div>";
   exit;
 }
@@ -11,16 +11,16 @@ if(!permissao($info['modulo'],'adicionar')){
 #echo "<pre>"; print_r($_SESSION); echo "</pre>";
 echo br(); 
 ?>
-<h5 class="widget-name"><i class="icon-th-list"></i>Cadastrar <?php echo ucfirst($info['modulo']); ?></h5>
+<h5 class="widget-name"><i class="icon-th-list"></i>Cadastrar <?php echo $info['nomeTela']; ?></h5>
 <form name="form1" id="validate" method="post" action='<?php echo base_admin('controle/salvar_novo')?>' class="form-horizontal" enctype="multipart/form-data">
 <input name="us_id" type="hidden" value="<?php echo $this->session->userdata('us_id'); ?>">
 <fieldset>
   <div class="navbar">
     <div class="navbar-inner">
-      <h6><?php echo ucfirst($info['modulo']); ?></h6>
+      <h6><?php echo $info['nomeTela']; ?></h6>
       <ul class="navbar-icons">
-        <li><a title="" class="tip" href="<?php echo base_admin('controle/add')?>" data-original-title="Cadastrar <?php echo ucfirst($info['modulo']); ?>"><i class="icon-plus"></i></a></li>
-        <li><a title="" class="tip" href="<?php echo base_admin('controle/listar')?>" data-original-title="Listar <?php echo ucfirst($info['modulo']); ?>"><i class="icon-reorder"></i></a></li>
+        <li><a title="" class="tip" href="<?php echo base_admin('controle/add')?>" data-original-title="Cadastrar <?php echo $info['nomeTela']; ?>"><i class="icon-plus"></i></a></li>
+        <li><a title="" class="tip" href="<?php echo base_admin('controle/listar')?>" data-original-title="Listar <?php echo $info['nomeTela']; ?>"><i class="icon-reorder"></i></a></li>
         <!-- <li><a title="" class="tip" href="#" data-original-title="Parameters"><i class="icon-cogs"></i></a></li> -->
       </ul>
     </div>

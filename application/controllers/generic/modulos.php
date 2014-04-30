@@ -48,6 +48,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'configuracao';
 		$_SESSION['modulo']['table'] = 'configuracao';
+		$_SESSION['modulo']['nomeTela'] = 'configuração';
 		$_SESSION['modulo']['pk'] = 'id_configuracao';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -82,6 +83,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'noticias';
 		$_SESSION['modulo']['table'] = 'noticias';
+		$_SESSION['modulo']['nomeTela'] = 'notícias';
 		$_SESSION['modulo']['pk'] = 'id_noticia';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -103,6 +105,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'galerias';
 		$_SESSION['modulo']['table'] = 'galerias';
+		$_SESSION['modulo']['nomeTela'] = 'galerias';
 		$_SESSION['modulo']['pk'] = 'id_galeria';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array('fotos'=>'Fotos');
@@ -124,6 +127,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'fotos';
 		$_SESSION['modulo']['table'] = 'fotos';
+		$_SESSION['modulo']['nomeTela'] = 'fotos';
 		$_SESSION['modulo']['pk'] = 'id_foto';
 		$_SESSION['modulo']['anexada'] = 'galerias';
 		$_SESSION['modulo']['extensao'] = array();
@@ -149,6 +153,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'empresa';
 		$_SESSION['modulo']['table'] = 'empresa';
+		$_SESSION['modulo']['nomeTela'] = 'empresa';
 		$_SESSION['modulo']['pk'] = 'id_empresa';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -170,6 +175,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'banners';
 		$_SESSION['modulo']['table'] = 'banners';
+		$_SESSION['modulo']['nomeTela'] = 'banners';
 		$_SESSION['modulo']['pk'] = 'id_banners';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -192,6 +198,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'descricaoCursos';
 		$_SESSION['modulo']['table'] = 'descricaoCursos';
+		$_SESSION['modulo']['nomeTela'] = 'descrição do curso';
 		$_SESSION['modulo']['pk'] = 'id_descricao_curso';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -231,6 +238,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'cursos';
 		$_SESSION['modulo']['table'] = 'curso';
+		$_SESSION['modulo']['nomeTela'] = 'cursos';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -257,6 +265,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'artigos';
 		$_SESSION['modulo']['table'] = 'artigos';
+		$_SESSION['modulo']['nomeTela'] = 'artigos';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -281,6 +290,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'avisos';
 		$_SESSION['modulo']['table'] = 'avisos';
+		$_SESSION['modulo']['nomeTela'] = 'avisos';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -306,6 +316,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'bancos';
 		$_SESSION['modulo']['table'] = 'bancos';
+		$_SESSION['modulo']['nomeTela'] = 'bancos';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -330,6 +341,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'contas_bancarias';
 		$_SESSION['modulo']['table'] = 'contas_bancarias';
+		$_SESSION['modulo']['nomeTela'] = 'contas bancárias';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -360,6 +372,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'centros_custos';
 		$_SESSION['modulo']['table'] = 'centros_custos';
+		$_SESSION['modulo']['nomeTela'] = 'centro de custo';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -383,6 +396,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'categorias_contas';
 		$_SESSION['modulo']['table'] = 'categorias_contas';
+		$_SESSION['modulo']['nomeTela'] = 'categoria da conta';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -392,7 +406,7 @@ class Modulos extends CI_Controller{
 
 		array(
 			'id'=>array('type'=>'pk','label'=>'Id'),
-			'tipo'=>array('type'=>'enum','valor'=>'"Receita","Despesa"', 'notnull'=>0, 'label'=>'Tipo'),
+			'tipo'=>array('type'=>'enum','valor'=>'"Receita","Despesa"', 'DEFAULT' => 'Receita', 'notnull'=>0, 'label'=>'Tipo'),
 			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
 		);
 
@@ -407,6 +421,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'contas';
 		$_SESSION['modulo']['table'] = 'contas';
+		$_SESSION['modulo']['nomeTela'] = 'contas';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -418,15 +433,14 @@ class Modulos extends CI_Controller{
 			'id'=>array('type'=>'pk','label'=>'Id'),
 			'id_conta_bancaria'=>array('type'=>'fk','table_fk'=>'contas_bancarias','fk_id'=>'id','fk_text'=>'nome','label'=>'Conta Bancária','notnull'=>0),
 			'id_categoria'=>array('type'=>'fk','table_fk'=>'categorias_contas','fk_id'=>'id','fk_text'=>'nome','label'=>'Categoria','notnull'=>0),
-			'tipo'=>array('type'=>'enum','valor'=>'"Receita","Despesa"', 'notnull'=>0, 'label'=>'Tipo'),
+			'tipo'=>array('type'=>'enum','valor'=>'"Receita","Despesa"', 'DEFAULT' => 'Receita', 'notnull'=>0, 'label'=>'Tipo'),
 			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
 			'valor'=>array('type'=>'varchar','size'=>15,'notnull'=>0,'label'=>'Valor','class'=>'input-xlarge'),
 			'data_vencimento'=>array('type'=>'varchar','size'=>10,'notnull'=>0,'label'=>'Data Vencimento','class'=>'input-xlarge'),
 			'pago'=>array('type'=>'enum','valor'=>'"Sim","Não"', 'DEFAULT' => 'Não', 'notnull'=>0, 'label'=>'Pago'),
 			'recorrencia'=>array('type'=>'enum','valor'=>'"Sim","Não"', 'DEFAULT' => 'Não', 'notnull'=>0, 'label'=>'Recorrência'),
-			'frequencia'=>array('type'=>'enum','valor'=>'"DIARIAMENTE","SEMANALMENTE","BIMESTRAL","TRIMESTRAL","SEMESTRAL","ANUAL"', 'DEFAULT' => '', 'notnull'=>1, 'label'=>'Frequência'),
+			'frequencia'=>array('type'=>'enum','valor'=>'"Diária","Semanal","Bimestral","Trimestral","Semestral","Anual"', 'DEFAULT' => 'Diária', 'notnull'=>1, 'label'=>'Frequência'),
 			'data_competencia'=>array('type'=>'varchar','size'=>10,'notnull'=>0,'label'=>'Data Competência','class'=>'input-xlarge'),
-			'id_centro_custo'=>array('type'=>'fk','table_fk'=>'centros_custos','fk_id'=>'id','fk_text'=>'nome','label'=>'Centro Custo','notnull'=>0),
 			'id_centro_custo'=>array('type'=>'fk','table_fk'=>'centros_custos','fk_id'=>'id','fk_text'=>'nome','label'=>'Centro Custo','notnull'=>0),
 			'observacoes'=>array('type'=>'text','ckeditor'=>1,'label'=>'Observações','notnull'=>1),
 			'arquivo'=>array('type'=>'file','label'=>'Arquivo'),
@@ -444,6 +458,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'turmas';
 		$_SESSION['modulo']['table'] = 'turmas';
+		$_SESSION['modulo']['nomeTela'] = 'turmas';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -471,6 +486,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'disciplinas_turmas';
 		$_SESSION['modulo']['table'] = 'disciplinas_turmas';
+		$_SESSION['modulo']['nomeTela'] = 'disciplinas da turma';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -496,6 +512,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'disciplinas';
 		$_SESSION['modulo']['table'] = 'disciplinas';
+		$_SESSION['modulo']['nomeTela'] = 'disciplinas';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -519,6 +536,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'professores';
 		$_SESSION['modulo']['table'] = 'professores';
+		$_SESSION['modulo']['nomeTela'] = 'professores';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -551,6 +569,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'links';
 		$_SESSION['modulo']['table'] = 'links';
+		$_SESSION['modulo']['nomeTela'] = 'links';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -575,6 +594,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'curriculos';
 		$_SESSION['modulo']['table'] = 'curriculos';
+		$_SESSION['modulo']['nomeTela'] = 'currículos';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -601,6 +621,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'cronogramas';
 		$_SESSION['modulo']['table'] = 'cronogramas';
+		$_SESSION['modulo']['nomeTela'] = 'cronogramas';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -631,6 +652,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'alunos';
 		$_SESSION['modulo']['table'] = 'alunos';
+		$_SESSION['modulo']['nomeTela'] = 'alunos';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -666,7 +688,6 @@ class Modulos extends CI_Controller{
 			'facebook'=>array('type'=>'varchar','size'=>100,'notnull'=>1,'label'=>'Data de Vencimento da Parcela','class'=>'input-xlarge'),
 			'ficouSabendo'=>array('type'=>'enum','valor'=>'"Mala direta","Outdoor","E-mail Marketing","Folder","Eventos","Indicação de ex alunos","Outros"', 'DEFAULT' => 'Ativo', 'notnull'=>0, 'label'=>'Situação'),
 			'ficouSabendoOutro'=>array('type'=>'varchar','size'=>30,'notnull'=>1,'label'=>'Data de Vencimento da Parcela','class'=>'input-xlarge'),
-
 		);
 
 		//Instalando o modulo
@@ -680,6 +701,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'depoimentos';
 		$_SESSION['modulo']['table'] = 'depoimentos';
+		$_SESSION['modulo']['nomeTela'] = 'depoimentos';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -707,6 +729,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'exercicios';
 		$_SESSION['modulo']['table'] = 'exercicios';
+		$_SESSION['modulo']['nomeTela'] = 'ecercícios';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -734,6 +757,7 @@ class Modulos extends CI_Controller{
 		$_SESSION['modulo'] = array();
 		$_SESSION['modulo']['modulo']  = 'notas_frequencias';
 		$_SESSION['modulo']['table'] = 'notas_frequencias';
+		$_SESSION['modulo']['nomeTela'] = 'notas & frequeências';
 		$_SESSION['modulo']['pk'] = 'id';
 		$_SESSION['modulo']['anexada'] = '';
 		$_SESSION['modulo']['extensao'] = array();
@@ -846,7 +870,3 @@ class Modulos extends CI_Controller{
 		}
 
 }
-
-
-
-

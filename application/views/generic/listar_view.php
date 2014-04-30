@@ -1,7 +1,7 @@
 <?php 
-echo br(); 
+echo br();
 ?>
-<h5 class="widget-name"><i class="icon-columns"></i></i>Listar <?php echo ucfirst($info['modulo']); ?></h5>
+<h5 class="widget-name"><i class="icon-columns"></i></i>Listar <?php echo $info['nomeTela']; ?></h5>
 <?php
 //echo "<pre>"; print_r(); die;
 if ($this->uri->segment(5)) {
