@@ -48,8 +48,12 @@ echo br();
     <div class="control-group">
       <label class="control-label"><?php echo $f['label']?>:</label>
       <div class="controls">
-        <input type="file" size="24" style="opacity: 0;" name="<?php echo $field?>" class="styled <?php echo (isset($f['notnull']) ? 'validate[required]': '') ?>">
-        </div>
+        <input type="file" size="24" style="opacity: 0;" 
+               name="<?php echo $field?>" 
+               class="tip styled <?php echo (isset($f['notnull']) ? 'validate[required]': '') ?>"
+               data-original-title="<?php echo $f['label']?>"
+               data-placement="right">
+      </div>
     </div>
     <?php 
       }
@@ -62,7 +66,8 @@ echo br();
           		class="tip <?php echo (isset($f['class']) ? $f['class'] : '') . (isset($f['notnull']) ? ' validate[required]': '') ?>" 
           		maxlength="<?php echo $f['size']?>" 
           		<?php echo (isset($f['data-mask']) ? 'data-mask="'.$f['data-mask'].'"' : '') ?>
-          		data-original-title="<?php echo $f['label']?>"></div>
+          		data-original-title="<?php echo $f['label']?>"
+              data-placement="right"></div>
       </div>
     <?php 
       }
@@ -73,7 +78,10 @@ echo br();
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
         <div class="controls">
-          <select class="select select2-offscreen <?php echo (isset($f['class']) ? $f['class'] : '') . (isset($f['notnull']) ? ' validate[required]' : '') ?>" name="<?php echo $field?>">
+          <select class="tip select select2-offscreen <?php echo (isset($f['class']) ? $f['class'] : '') . (isset($f['notnull']) ? ' validate[required]' : '') ?>" 
+                  name="<?php echo $field?>"
+                  data-original-title="<?php echo $f['label']?>"
+                  data-placement="right">
             <option value="<?php echo isset($f['notnull'])?'':'0';?>">--Selecione--</option>
             <?php
             if(isset($info['where_fk'])){
@@ -101,7 +109,10 @@ echo br();
     ?>
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
-        <div class="controls"><input type="text" class="datepicker validate[required]" name="<?php echo $field?>" /></div>
+        <div class="controls"><input type="text" class="tip datepicker validate[required]" 
+                                     name="<?php echo $field?>"
+                                     data-original-title="<?php echo $f['label']?>"
+                                     data-placement="right"></div>
       </div>
     <?php 
       }
@@ -109,7 +120,11 @@ echo br();
     ?>
             <div class="control-group">
               <label class="control-label"><?php echo $f['label']?>:</label>
-              <div class="controls"><textarea rows="10" cols="100" class="<?php echo (isset($f['ckeditor']) ? ' texto' : '') . (isset($f['notnull']) ? ' validate[required]': '') ?>" name="<?php echo $field?>"></textarea></div>
+              <div class="controls"><textarea rows="10" cols="100" 
+                                              class="tip <?php echo (isset($f['ckeditor']) ? ' texto' : '') . (isset($f['notnull']) ? ' validate[required]': '') ?>" 
+                                              name="<?php echo $field?>"
+                                              data-original-title="<?php echo $f['label']?>"
+                                              data-placement="right"></textarea></div>
             </div>
     <?php 
       }
@@ -117,7 +132,10 @@ echo br();
     ?>
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
-        <div class="controls"><input type="text" class="<?php echo (isset($f['class']) ? $f['class'] : '') . (isset($f['notnull']) ? ' validate[required]': '') ?>" name="<?php echo $field?>" /></div>
+        <div class="controls"><input type="text" class="tip <?php echo (isset($f['class']) ? $f['class'] : '') . (isset($f['notnull']) ? ' validate[required]': '') ?>" 
+                                     name="<?php echo $field?>"
+                                     data-original-title="<?php echo $f['label']?>"
+                                     data-placement="right"></div>
       </div>
     <?php 
       }
@@ -127,7 +145,11 @@ echo br();
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
           <div class="controls">
-            <select tabindex="-1" name="<?php echo $field?>" class="select select2-offscreen <?php if(isset($f['notnull'])){echo "validate[required]";}?>" data-placeholder="Selecionar">
+            <select tabindex="-1" name="<?php echo $field?>" 
+                    class="tip select select2-offscreen <?php if(isset($f['notnull'])){echo "validate[required]";}?>" 
+                    data-placeholder="Selecionar"
+                    data-original-title="<?php echo $f['label']?>"
+                    data-placement="right">
                 <option value=""></option> 
                 <?php
                 foreach ($valores as $valor) {
