@@ -22,7 +22,7 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 	<div class="well">
 		<div class="control-group">
 			<label class="control-label">Nome:</label>
-			<div class="controls"><input type="text" name="us_nome" class="validate[required] input-xlarge" value="<?php echo $dados->us_nome?>" maxlength="200"></div>
+			<div class="controls"><input type="text" name="us_nome" class="validate[required] input-xxlarge" value="<?php echo $dados->us_nome?>" maxlength="200"></div>
 		</div>
 		<div class="control-group">
 			<label class="control-label">Cidade:</label>
@@ -31,7 +31,7 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 		<div class="control-group">
 			<label class="control-label">Estado:</label>
 			<div class="controls">
-			<select name="us_estado" class="styled" style="opacity: 0;">
+			<select name="us_estado" class="select select2-offscreen">
 					<option selected="" value="">UF</option>
 					<option value="AC" <?php echo ($dados->us_estado == 'AC' ? 'selected="true"' : '') ?>>Acre</option>
 					<option value="AL" <?php echo ($dados->us_estado == 'AL' ? 'selected="true"' : '') ?>>Alagoas</option>
@@ -65,7 +65,7 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 		</div>
 		<div class="control-group">
 			<label class="control-label">Telefone:</label>
-			<div class="controls"><input type="tel" data-mask="(99) 9999-9999" name="us_telefone" class="input-xlarge validate[required]" value="<?php echo $dados->us_telefone?>" maxlength="20"></div>
+			<div class="controls"><input type="tel" data-mask="(99) 9999-9999" name="us_telefone" class="input-medium validate[required]" value="<?php echo $dados->us_telefone?>" maxlength="20"></div>
 		</div>
 		<div class="control-group">
 			<label class="control-label"><strong>Dados para acessar o painel</strong></label>
@@ -91,7 +91,7 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 		<div class="control-group">
 			<label class="control-label">Função do usuário:</label>
 			<div class="controls">
-				<select  class="styled validate[required]" style="opacity: 0;" id="us_tipo" name="us_tipo">
+				<select  class="select select2-offscreen validate[required]" style="opacity: 0;" id="us_tipo" name="us_tipo">
 					<option value="">Selecione</option>
 					<option value="1" <?php echo ($dados->us_tipo == 1 ? 'selected' : '')?>>Administrador</option>
 					<option value="2" <?php echo ($dados->us_tipo == 2 ? 'selected' : '')?>>Administrador de conteúdo</option>
@@ -102,7 +102,8 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 		<div class="control-group">
 			<label class="control-label">Usuário pode logar no sistema?</label>
 			<div class="controls">
-				<select class="styled validate[required]" id="us_ativo" name="us_ativo">
+				<select class="select select2-offscreen validate[required]" id="us_ativo" name="us_ativo">
+					<option value="">Selecione</option>
 					<option value="1" <?php echo ($dados->us_ativo == 1 ? 'selected' : '')?>>Sim</option>
 					<option value="0" <?php echo ($dados->us_ativo == 0 ? 'selected' : '')?>>Não</option>
 				</select>

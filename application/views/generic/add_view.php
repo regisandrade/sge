@@ -58,7 +58,11 @@ echo br();
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
         <div class="controls">
-          <input type="text" name="<?php echo $field?>" class="<?php echo (isset($f['class']) ? $f['class'] : '') . (isset($f['notnull']) ? ' validate[required]': '') ?>" maxlength="<?php echo $f['size']?>" <?php echo (isset($f['data-mask']) ? 'data-mask="'.$f['data-mask'].'"' : '') ?>></div>
+          <input type="text" name="<?php echo $field?>" 
+          		class="tip <?php echo (isset($f['class']) ? $f['class'] : '') . (isset($f['notnull']) ? ' validate[required]': '') ?>" 
+          		maxlength="<?php echo $f['size']?>" 
+          		<?php echo (isset($f['data-mask']) ? 'data-mask="'.$f['data-mask'].'"' : '') ?>
+          		data-original-title="<?php echo $f['label']?>"></div>
       </div>
     <?php 
       }

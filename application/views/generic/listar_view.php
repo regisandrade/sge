@@ -8,20 +8,20 @@ if ($this->uri->segment(5)) {
   $alertcss = "alert-success";
   switch ($this->uri->segment(5)) {
     case 1: # Gravar
-      $msg = "Registro gravado com sucesso";
+      $msg = "Registro gravado com sucesso.";
       break;
     case 2: # Alterar
-      $msg = "Registro alterado com sucesso";
+      $msg = "Registro alterado com sucesso.";
       break;
     case 3: # Excluir
-      $msg = "Registro excluído com sucesso";
+      $msg = "Registro excluído com sucesso.";
       break;
     case 4: # Arquivo
-      $msg = "Erro no envio do arquivo selecionado";
+      $msg = "Erro no envio do arquivo selecionado.";
       $alertcss = "alert-error";
       break;
     case 5: # Permissao
-      $msg = "<strong>Atenção</strong><br>Você não tem permissão para excluir registros";
+      $msg = "<strong>Atenção</strong><br>Você não tem permissão para excluir registros.";
       $alertcss = "";
       break;
   }
@@ -47,8 +47,8 @@ if ($this->uri->segment(5)) {
       <table class="table table-striped table-bordered dataTable" id="data-table" aria-describedby="data-table_info">
         <thead>
           <tr role="row">
-            <th>Ações</th>
-            <th>Nº</th>
+            <th class="th-acoes">Ações</th>
+            <th class="th-id">Id</th>
             <?php
             //Cabeçalho
             foreach($info['fields'] as $field => $f){

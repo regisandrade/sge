@@ -18,6 +18,7 @@ $metas = array(
 echo meta($metas);
 ?>
 <title>SGE :-: <?php echo $config->empresa;?></title>
+<?php echo link_tag(base_url().'public/css/generic.css') . "\n"; ?>
 <?php echo link_tag(base_url().'public/css/main.css') . "\n"; ?>
 <!--[if IE 8]><?php echo link_tag(base_url().'public/css/ie8.css'); ?><![endif]-->
 <?php echo link_tag('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700') . "\n"; ?>
