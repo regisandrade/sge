@@ -32,10 +32,9 @@ $(document).on("click", ".btnVoltar", function(e) {
 	window.location = $('.btnVoltar').attr('caminho');
 });
 
-$('.datepicker').datepicker({
-    format: "dd/mm/yyyy",
-    language: "pt-BR",
-    calendarWeeks: true,
-    autoclose: true,
-    todayHighlight: true
+$(function(){
+	$('#datepicker').datepicker({
+		showOtherMonths: true,
+	    selectOtherMonths: true
+	});
 });

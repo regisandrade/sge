@@ -1,5 +1,6 @@
 <?php 
 echo br();
+echo '<pre>'; print_r($info['modulo']); echo '</pre>';
 ?>
 <h5 class="widget-name"><i class="icon-columns"></i></i>Listar <?php echo $info['nomeTela']; ?></h5>
 <?php
@@ -34,10 +35,10 @@ if ($this->uri->segment(5)) {
 <div class="widget">
   <div class="navbar">
     <div class="navbar-inner">
-      <h6><?php echo ucfirst($info['modulo']); ?></h6>
+      <h6><?php echo ucfirst($info['nomeTela']); ?></h6>
       <ul class="navbar-icons">
-        <li><a title="" class="tip" href="<?php echo base_admin('controle/add')?>" data-original-title="Cadastrar <?php echo ucfirst($info['modulo']); ?>"><i class="icon-plus"></i></a></li>
-        <li><a title="" class="tip" href="<?php echo base_admin('controle/listar')?>" data-original-title="Listar <?php echo ucfirst($info['modulo']); ?>"><i class="icon-reorder"></i></a></li>
+        <li><a title="" class="tip" href="<?php echo base_admin('controle/add')?>" data-original-title="Cadastrar <?php echo ucfirst($info['nomeTela']); ?>"><i class="icon-plus"></i></a></li>
+        <li><a title="" class="tip" href="<?php echo base_admin('controle/listar')?>" data-original-title="Listar <?php echo ucfirst($info['nomeTela']); ?>"><i class="icon-reorder"></i></a></li>
         <!-- <li><a title="" class="tip" href="#" data-original-title="Parameters"><i class="icon-cogs"></i></a></li> -->
       </ul>
     </div>

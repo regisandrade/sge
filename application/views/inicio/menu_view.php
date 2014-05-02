@@ -28,8 +28,7 @@
 						# Nivel 2
 						echo "<ul>";
 						foreach ($menu as $key1 => $menu1) {
-							//print_r($menu1);
-							echo "<li><a href=\"".base_url('index.php')."/".$menu1."\" title=\"\">".$key1."</a></li>";
+							echo "<li><a href=\"".base_url('index.php')."/".$menu1."\" title>".$key1."</a></li>";
 						}
 						echo "</ul>";
 					}
