@@ -1,0 +1,44 @@
+Sistema SGE
+===========
+
+Cadastro
+	* Artigos - Erro ao gravar o arquivo
+	* Avisos - OK
+	* Links - OK
+Educacional
+	* Alunos
+	* Matrículas
+	* Cronogramas
+	* Currículos
+	* Cursos - OK
+	* Depoimentos
+	* Disciplinas -OK
+	* Disciplinas da Turma - 
+	* Material de apoio
+	* Notas & Frequências
+	* Professores -OK
+	* Turmas - OK
+	* Senhas dos Alunos
+	* Alunos em potencial
+	* Pré-Inscrições
+	* Históricos Escolares
+	* Área do Aluno
+Newsletter
+	* Newsletter
+Financeiro
+	* Boletos Emitidos
+	* Bancos - OK
+	* Contas bancárias - OK
+	* Centros de custos - OK
+	* Categorias de contas - OK
+	* Contas - Falta implantar o envio de arquivo e validação dos campos
+Usuários
+	* Lista de usuários - OK
+	* Novo usuários - OK
+Site
+	* Configuração - Falta implantar o envio de arquivo/Logo
+	* Descriçoes dos Cursos - Falta implantar a formatação de texto
+	* Banners - Falta implantar o envio de arquivo/Banners
+	* Empresa - OK
+	* Fotos -  Falta implantar o envio de arquivos/Fotos
+	* Notícias - OK

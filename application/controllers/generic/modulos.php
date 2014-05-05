@@ -56,21 +56,21 @@ class Modulos extends CI_Controller{
 		//Definindo os campos da tabela
 		$_SESSION['modulo']['fields'] =
 		array(
-		'id_configuracao'=>array('type'=>'pk','label'=>'N°'),
-		'empresa'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'Empresa','class'=>'input-xxlarge'),
-		'slogan'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'Slogan','class'=>'input-xlarge'),
-		'descricao'=>array('type'=>'text','size'=>200,'notnull'=>0,'label'=>'Descrição'),
-		'email'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'E-mail','class'=>'input-xlarge'),
-		'endereco'=>array('type'=>'text','notnull'=>1,'label'=>'Endereço'),
-		'telefone_1'=>array('type'=>'varchar','size'=>15,'notnull'=>1,'label'=>'Telefone 1','class'=>'input-medium'),
-		'telefone_2'=>array('type'=>'varchar','size'=>15,'notnull'=>0,'label'=>'Telefone 2','class'=>'input-medium'),
-		'facebook'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'Facebook','class'=>'input-xlarge'),
-		'twitter'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'Twitter','class'=>'input-xlarge'),
-		'linkedin'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'LinkedIn','class'=>'input-xlarge'),
-		'meta_descricao'=>array('type'=>'varchar','size'=>200,'label'=>'Meta Descrição','class'=>'input-xxlarge'),
-		'latitude_endereco'=>array('type'=>'varchar','size'=>20,'notnull'=>1,'label'=>'Latitude','class'=>'input-medium'),
-		'longitude_endereco'=>array('type'=>'varchar','size'=>20,'notnull'=>1,'label'=>'Longitude','class'=>'input-medium'),
-		'logo'=>array('type'=>'img','size'=>100,'label'=>'Logo','class'=>'input-xxlarge'),
+			'id_configuracao'=>array('type'=>'pk','label'=>'N°'),
+			'empresa'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'Empresa','class'=>'input-xxlarge'),
+			'slogan'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'Slogan','class'=>'input-xlarge'),
+			'descricao'=>array('type'=>'text','size'=>200,'notnull'=>0,'label'=>'Descrição'),
+			'email'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'E-mail','class'=>'input-xlarge'),
+			'endereco'=>array('type'=>'text','notnull'=>1,'label'=>'Endereço'),
+			'telefone_1'=>array('type'=>'varchar','size'=>15,'notnull'=>1,'label'=>'Telefone 1','class'=>'input-medium'),
+			'telefone_2'=>array('type'=>'varchar','size'=>15,'notnull'=>0,'label'=>'Telefone 2','class'=>'input-medium'),
+			'facebook'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'Facebook','class'=>'input-xlarge'),
+			'twitter'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'Twitter','class'=>'input-xlarge'),
+			'linkedin'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'LinkedIn','class'=>'input-xlarge'),
+			'meta_descricao'=>array('type'=>'varchar','size'=>200,'label'=>'Meta Descrição','class'=>'input-xxlarge'),
+			'latitude_endereco'=>array('type'=>'varchar','size'=>20,'notnull'=>1,'label'=>'Latitude','class'=>'input-medium'),
+			'longitude_endereco'=>array('type'=>'varchar','size'=>20,'notnull'=>1,'label'=>'Longitude','class'=>'input-medium'),
+			'arquivo'=>array('type'=>'file', 'label'=>'Logo'),
 		);
 		//Instalando o modulo
 		$this->install();

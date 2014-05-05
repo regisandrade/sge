@@ -57,7 +57,7 @@
 	<!-- Fixed top -->
 	<div id="top">
 		<div class="fixed">
-			<a href="<?php echo config_item('base_url')?>index.php/inicio/home" title="" class="logo"><img src="<?php echo config_item('base_url')?>public/img/logo.png" alt="" /></a>	
+			<a href="<?php echo config_item('base_url')?>index.php/inicio/home" title="" class="logo"><img src="<?php echo config_item('base_url')?>uploads/logo.png" alt="" /></a>	
 		</div>
 	</div>
 	<!-- /fixed top -->

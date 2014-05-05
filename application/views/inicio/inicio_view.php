@@ -28,7 +28,7 @@ $this->load->library('session');
 	<!-- Fixed top -->
 	<div id="top">
 		<div class="fixed">
-			<a href="<?php echo base_url()?>" title="" class="logo"><img src="<?php echo base_url()?>public/img/<?php echo $config->logo;?>" alt="" /></a>
+			<a href="<?php echo base_url()?>" title="" class="logo"><img src="<?php echo base_url()?>uploads/<?php echo $config->arquivo;?>" alt="" /></a>
 			<!-- <ul class="top-menu">
 				<li class="dropdown">
 					<a class="login-top" data-toggle="dropdown"></a>

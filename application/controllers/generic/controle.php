@@ -179,17 +179,15 @@ class Controle extends CI_Controller{
 		# Arquivos no formulario
 		if (isset($_FILES['arquivo']['name'])) {
 
-			$config['upload_path'] = base_url()."public/uploads/";
-			$config['upload_url'] = base_url()."public/uploads/";
+			$config['upload_path'] = "./uploads/";
 			$config['allowed_types'] = 'gif|jpg|JPG|jpeg|JPEG|png|zip|rar|doc|docx|pdf|xls|xlsx|pdf';
 			$config['overwrite'] = true;
 
 			$this->load->library('upload',$config);
-			//$this->upload->initialize($config); 
 
 			if(!$this->upload->do_upload('arquivo')) {
-				$error = array('error' => $this->upload->display_errors()); 
-				echo "<pre>"; print_r($error); print_r($config); exit;
+				/*$error = array('error' => $this->upload->display_errors()); 
+				echo "<pre>"; print_r($error); print_r($config); exit;*/
 				redirect(base_admin('controle/listar/msgid/4'));
 			}
 
@@ -248,18 +246,19 @@ class Controle extends CI_Controller{
 		# Arquivos no formulario
 		if (isset($_FILES['arquivo']['name'])) {
 
-			$config['upload_path'] = "public/uploads/";
-			$config['upload_url'] = base_url()."public/uploads/";
+			$config['upload_path'] = "./uploads/";
 			$config['allowed_types'] = 'gif|jpg|JPG|jpeg|JPEG|png|zip|rar|doc|docx|pdf|xls|xlsx|pdf';
-			$config['overwrite'] = true;
+			$config['overwrite'] = false;
 
-			$this->load->library('upload');
-			$this->upload->initialize($config); 
+			$this->load->library('upload',$config);
 
 			if(!$this->upload->do_upload('arquivo')) {
-				echo $error = array('error' => $this->upload->display_errors()); exit;
+				/*$error = array('error' => $this->upload->display_errors()); 
+				echo "<pre>"; print_r($error); print_r($config); exit;*/
 				redirect(base_admin('controle/listar/msgid/4'));
 			}
+
+			$_POST['arquivo'] = $_FILES['arquivo']['name'];
 		}
 		
 		$this->db->where($this->pk,$this->uri->segment(4))->update($this->table,$_POST);

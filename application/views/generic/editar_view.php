@@ -27,7 +27,7 @@ echo br();
   <div class="well">
     <?php 
     foreach($info['fields'] as $field => $f){
-
+      #echo "<pre>"; print_r($field);
       if($f['type']=='img'){
         $nome_itens = $dados->$field;
         if(strpos($nome_itens,'.png')||strpos($nome_itens,'.jpeg')||strpos($nome_itens,'.JPG')||strpos($nome_itens,'.jpg')||strpos($nome_itens,'.gif')){
@@ -159,6 +159,7 @@ echo br();
         </div>
     <?php 
       }
+      #echo "<pre>"; print_r($dados); exit;
       if($f['type']=='file'){
     ?>
     <div class="control-group">
@@ -172,7 +173,7 @@ echo br();
         <?php 
         if (isset($dados->arquivo)) {
         ?>
-          <br><br>Foto atual: <img src="<?php echo base_url('')."uploads/".$dados->arquivo?>" alt="<?php echo $dados->arquivo?>" title="<?php echo $dados->arquivo?>" />
+          <br><br>Arquivo atual: <img src="<?php echo base_url('')."uploads/".$dados->arquivo?>" alt="<?php echo $dados->arquivo?>" title="<?php echo $dados->arquivo?>" />
         <?php
         }
         ?>

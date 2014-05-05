@@ -23,8 +23,8 @@ echo meta($metas);
 <!--[if IE 8]><?php echo link_tag(base_url().'public/css/ie8.css'); ?><![endif]-->
 <?php echo link_tag('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700') . "\n"; ?>
 
-<script type="text/javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script type="text/javascript" src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&amp;sensor=false"></script>
 
 <script type="text/javascript" src="<?php echo base_url()?>public/js/plugins/charts/excanvas.min.js"></script>

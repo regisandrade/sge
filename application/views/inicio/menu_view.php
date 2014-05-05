@@ -11,7 +11,7 @@
 
 	        <!-- Sidebar user -->
 	        <div class="sidebar-user widget">
-				<a href="#" title="" class="user"><img src="<?php echo base_url()?>public/img/<?php echo $config->logo;?>" alt="" /></a>
+				<a href="#" title="" class="user"><img src="<?php echo base_url()?>uploads/<?php echo $config->arquivo;?>" alt="" /></a>
 	        </div>
 	        <!-- /sidebar user -->
 
