@@ -33,7 +33,7 @@ function getMenu() {
 				  		array('Boletos Emitidos'=>'usuarios/listarUsuarios',
 				  			  'Bancos' => 'generic/modulos/bancos',
 				  			  'Contas bancárias' => 'generic/modulos/contas_bancarias',
-				  			  'Centros de custos' => 'generic/modulos/centros_custos',
+				  			  /*'Centros de custos' => 'generic/modulos/centros_custos',*/
 				  			  'Categorias de contas' => 'generic/modulos/categorias_contas',
 				  			  'Contas' => 'generic/modulos/contas',
 				  			 ),

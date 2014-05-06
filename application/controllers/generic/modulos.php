@@ -439,9 +439,9 @@ class Modulos extends CI_Controller{
 			'data_vencimento'=>array('type'=>'varchar','size'=>10,'notnull'=>0,'label'=>'Data Vencimento','class'=>'input-xlarge'),
 			'pago'=>array('type'=>'enum','valor'=>'"Sim","Não"', 'DEFAULT' => 'Não', 'notnull'=>0, 'label'=>'Pago'),
 			'recorrencia'=>array('type'=>'enum','valor'=>'"Sim","Não"', 'DEFAULT' => 'Não', 'notnull'=>0, 'label'=>'Recorrência'),
-			'frequencia'=>array('type'=>'enum','valor'=>'"Diária","Semanal","Bimestral","Trimestral","Semestral","Anual"', 'DEFAULT' => 'Diária', 'notnull'=>1, 'label'=>'Frequência'),
+			'frequencia'=>array('type'=>'enum','valor'=>'"Diária","Semanal","Mensal","Bimestral","Trimestral","Semestral","Anual"', 'DEFAULT' => 'Diária', 'notnull'=>1, 'label'=>'Frequência'),
 			'data_competencia'=>array('type'=>'varchar','size'=>10,'notnull'=>0,'label'=>'Data Competência','class'=>'input-xlarge'),
-			'id_centro_custo'=>array('type'=>'fk','table_fk'=>'centros_custos','fk_id'=>'id','fk_text'=>'nome','label'=>'Centro Custo','notnull'=>0),
+			/*'id_centro_custo'=>array('type'=>'fk','table_fk'=>'centros_custos','fk_id'=>'id','fk_text'=>'nome','label'=>'Centro Custo','notnull'=>0),*/
 			'observacoes'=>array('type'=>'text','ckeditor'=>1,'label'=>'Observações','notnull'=>1),
 			'arquivo'=>array('type'=>'file','label'=>'Arquivo'),
 			
