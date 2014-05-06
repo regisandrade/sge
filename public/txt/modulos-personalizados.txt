@@ -1,0 +1,11 @@
+Módulos personalizados
+======================
+
+   * Alunos
+      -> Utilizar um elemteo do layout que gera ambientes na mesma tela, diferente de abas, para colocar, dados básico, endereço, graduaçao, redes sociais, usuario e senha
+
+   * Matricular
+      -> Selecionar o aluno, a turma (Mostrar as discipinas da turma), apos matricular, gerar as parcelas (boletos/cheque);
+
+   * Notas & Frequências
+      -> Selecionar o aluno, logo apos mostrar as disciplinas com campos ao lado de cada nome para informar a nota e frequencia;
