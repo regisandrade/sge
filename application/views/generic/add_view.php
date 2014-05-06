@@ -110,7 +110,7 @@ echo br();
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
         <div class="controls"><input type="text" class="tip datepicker validate[required]" 
-                                     name="<?php echo $field?>" id="datepicker" 
+                                     name="<?php echo $field?>" id="<?php echo $field?>" 
                                      data-original-title="<?php echo $f['label']?>"
                                      data-placement="right"></div>
       </div>

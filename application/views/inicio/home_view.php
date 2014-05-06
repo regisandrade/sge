@@ -111,7 +111,7 @@ echo meta($metas);
 			    <div class="crumbs">
 		            <ul id="breadcrumbs" class="breadcrumb"> 
 		                <li><a href="<?php echo base_url('index.php')?>/inicio/home">Administração</a></li>
-		                <!-- <li class="active"><a href="calendar.html" title="">Calendar</a></li> -->
+		                <li class="active"><a href="#" title=""><?php echo ucfirst($info['nomeTela'])?></a></li>
 		            </ul>
 			    </div>
 			    <!-- /breadcrumbs line -->

@@ -173,7 +173,8 @@ echo br();
         <?php 
         if (isset($dados->arquivo)) {
         ?>
-          <br><br>Arquivo atual: <img src="<?php echo base_url('')."uploads/".$dados->arquivo?>" alt="<?php echo $dados->arquivo?>" title="<?php echo $dados->arquivo?>" />
+          <br><br><strong>Arquivo atual:</strong> <img src="<?php echo base_url('')."uploads/".$dados->arquivo?>" alt="<?php echo $dados->arquivo?>" title="<?php echo $dados->arquivo?>" />
+          <input type="hidden" name="arquivo_gravado" value="<?php echo $dados->arquivo?>" />
         <?php
         }
         ?>

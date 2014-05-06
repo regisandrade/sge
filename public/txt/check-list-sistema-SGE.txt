@@ -2,7 +2,7 @@ Sistema SGE
 ===========
 
 Cadastro
-	* Artigos - Erro ao gravar o arquivo
+	* Artigos - OK
 	* Avisos - OK
 	* Links - OK
 Educacional
@@ -31,7 +31,7 @@ Financeiro
 	* Contas bancárias - OK
 	* Centros de custos - OK
 	* Categorias de contas - OK
-	* Contas - Falta implantar o envio de arquivo e validação dos campos
+	* Contas - OK
 Usuários
 	* Lista de usuários - OK
 	* Novo usuários - OK
