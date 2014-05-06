@@ -1,6 +1,5 @@
 <?php 
 echo br();
-echo '<pre>'; print_r($info['modulo']); echo '</pre>';
 ?>
 <h5 class="widget-name"><i class="icon-columns"></i></i>Listar <?php echo $info['nomeTela']; ?></h5>
 <?php

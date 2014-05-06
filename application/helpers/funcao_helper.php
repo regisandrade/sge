@@ -24,7 +24,7 @@ function dataBd($data){
 }
 function dataTela($data){
 	list($y,$m,$d) = @explode('-',$data);
-	return "$d/$m/$y";
+	return "$d-$m-$y";
 }
 function is_date($data){
 	$date = @explode('-',$data);

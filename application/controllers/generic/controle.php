@@ -174,7 +174,13 @@ class Controle extends CI_Controller{
 		}
 		if (isset($_POST['data_06'])) {
 			$_POST['data_06'] = dataBd($_POST['data_06']);
-		}	
+		}
+		if (isset($_POST['data_vencimento'])) {
+			$_POST['data_vencimento'] = dataBd($_POST['data_vencimento']);
+		}
+		if (isset($_POST['data_competencia'])) {
+			$_POST['data_competencia'] = dataBd($_POST['data_competencia']);
+		}
 		
 		# Arquivos no formulario
 		if (isset($_FILES['arquivo']['name'])) {
@@ -242,10 +248,15 @@ class Controle extends CI_Controller{
 		if (isset($_POST['data_06'])) {
 			$_POST['data_06'] = dataBd($_POST['data_06']);
 		}
+		if (isset($_POST['data_vencimento'])) {
+			$_POST['data_vencimento'] = dataBd($_POST['data_vencimento']);
+		}
+		if (isset($_POST['data_competencia'])) {
+			$_POST['data_competencia'] = dataBd($_POST['data_competencia']);
+		}
 
 		# Arquivos no formulario
-		if (isset($_FILES['arquivo']['name'])) {
-
+		if (!empty($_FILES['arquivo']['name'])) {
 			$config['upload_path'] = "./uploads/";
 			$config['allowed_types'] = 'gif|jpg|JPG|jpeg|JPEG|png|zip|rar|doc|docx|pdf|xls|xlsx|pdf';
 			$config['overwrite'] = false;
@@ -259,6 +270,8 @@ class Controle extends CI_Controller{
 			}
 
 			$_POST['arquivo'] = $_FILES['arquivo']['name'];
+		}elseif (isset($_POST['arquivo_gravado'])) {
+			$_POST['arquivo'] = $_POST['arquivo_gravado'];
 		}
 		
 		$this->db->where($this->pk,$this->uri->segment(4))->update($this->table,$_POST);
