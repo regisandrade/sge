@@ -81,6 +81,7 @@ echo meta($metas);
 	<!-- Fixed top -->
 	<div id="top">
 		<div class="fixed">
+			<a href="<?php echo base_url('index.php')?>/inicio/home" title="Principal" class="logo"><img src="<?php echo base_url()?>uploads/<?php echo $config->arquivo;?>" alt=""></a>
 			<ul class="top-menu">
 				<li><a class="fullview"></a></li>
 				<li class="dropdown">

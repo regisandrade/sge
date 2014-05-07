@@ -6,12 +6,11 @@ if(!permissao($info['modulo'],'editar')){
         </div>";
   exit;
 }
-
 #echo "<pre>"; print_r($dados); echo "</pre>";
 echo br(); 
 ?>
 <h5 class="widget-name"><i class="icon-th-list"></i>Alterar <?php echo $info['nomeTela']; ?></h5>
-<form name="form1" id="validate" method="post" action='<?php echo base_admin("controle/salvar_update/".$this->uri->segment(4))?>' class="form-horizontal">
+<form name="form1" id="validate" method="post" action='<?php echo base_admin("controle/salvar_update/".$this->uri->segment(4))?>' class="form-horizontal" enctype="multipart/form-data">
 <input name="us_id" type="hidden" value="<?php echo $this->session->userdata('us_id'); ?>">
 <fieldset>
   <div class="navbar">
@@ -171,10 +170,11 @@ echo br();
                data-original-title="<?php echo $f['label']?>"
                data-placement="right">
         <?php 
+        #echo "<pre>"; print_r($dados); exit;
         if (isset($dados->arquivo)) {
         ?>
-          <br><br><strong>Arquivo atual:</strong> <img src="<?php echo base_url('')."uploads/".$dados->arquivo?>" alt="<?php echo $dados->arquivo?>" title="<?php echo $dados->arquivo?>" />
-          <input type="hidden" name="arquivo_gravado" value="<?php echo $dados->arquivo?>" />
+          <br><br><strong>Arquivo atual:</strong> <?php echo $dados->arquivo; ?>
+          
         <?php
         }
         ?>

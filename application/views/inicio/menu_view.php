@@ -1,4 +1,4 @@
-<!-- Sidebar -->
+Sidebar -->
 <div id="sidebar">
 
 	<div class="sidebar-tabs">
@@ -10,14 +10,13 @@
         <div id="general">
 
 	        <!-- Sidebar user -->
-	        <div class="sidebar-user widget">
-				<a href="#" title="" class="user"><img src="<?php echo base_url()?>uploads/<?php echo $config->arquivo;?>" alt="" /></a>
-	        </div>
+	        
 	        <!-- /sidebar user -->
 
 		    <!-- Main navigation -->
 		    <ul class="navigation widget">
-		    	<li class="active"><a href="<?php echo base_url('index.php')?>/inicio/home" title=""><i class="icon-home"></i>Administração</a></li>
+		    	 <!-- "ATIVAR O MENU" class="active" -->
+		    	<li><a href="<?php echo base_url('index.php')?>/inicio/home" title=""><i class="icon-home"></i>Administração</a></li>
 				<?php
 				foreach (getMenu() as $key => $menu) {
 					# Nivel 1
@@ -42,4 +41,4 @@
 
     </div>
 </div>
-<!-- /sidebar -->
+<!-- /sidebar

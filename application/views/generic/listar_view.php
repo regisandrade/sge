@@ -97,7 +97,7 @@ if ($this->uri->segment(5)) {
           			echo '<img src=\''.(image_url($d[$field],'100x60')).'\' />';
           			}
           	 }else{
-          		   echo str_ireplace('public/imagem/gerenciador/','',$d[$field]);
+          		   echo str_ireplace('public/uploads/','',$d[$field]);
           		 }
           	}
 

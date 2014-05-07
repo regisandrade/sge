@@ -8,12 +8,12 @@ Cadastro
 Educacional
 	* Alunos
 	* Matrículas
-	* Cronogramas
-	* Currículos
+	* Cronogramas - OK
+	* Currículos - OK
 	* Cursos - OK
-	* Depoimentos
+	* Depoimentos - Depende do módulo de alunos
 	* Disciplinas -OK
-	* Disciplinas da Turma - 
+	* Disciplinas da Turma - OK, falta colocar o botão APLICAR
 	* Material de apoio
 	* Notas & Frequências
 	* Professores -OK
@@ -36,7 +36,7 @@ Usuários
 	* Lista de usuários - OK
 	* Novo usuários - OK
 Site
-	* Configuração - Falta implantar o envio de arquivo/Logo
+	* Configuração - ok
 	* Descriçoes dos Cursos - Falta implantar a formatação de texto
 	* Banners - Falta implantar o envio de arquivo/Banners
 	* Empresa - OK

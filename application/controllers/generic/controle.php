@@ -270,8 +270,7 @@ class Controle extends CI_Controller{
 			}
 
 			$_POST['arquivo'] = $_FILES['arquivo']['name'];
-		}elseif (isset($_POST['arquivo_gravado'])) {
-			$_POST['arquivo'] = $_POST['arquivo_gravado'];
+
 		}
 		
 		$this->db->where($this->pk,$this->uri->segment(4))->update($this->table,$_POST);
