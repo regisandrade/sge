@@ -1,4 +1,4 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php if ( ! defined('BASEPATH')) exit('Sem permissão de acesso ao arquivo');
 
 class Usuarios extends CI_Controller {
 
@@ -139,6 +139,3 @@ class Usuarios extends CI_Controller {
  	}
 
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */

@@ -50,7 +50,7 @@ class Usuarios_model extends CI_Model {
     * Retorno todos os usuários no banco
     */
     public function getUsuarios() {
-    	return $this->db->get("usuarios")->result();;
+    	return $this->db->get("usuarios")->result();
     }
 
     /**

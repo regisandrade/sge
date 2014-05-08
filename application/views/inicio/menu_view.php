@@ -1,4 +1,3 @@
-Sidebar -->
 <div id="sidebar">
 
 	<div class="sidebar-tabs">
@@ -41,4 +40,3 @@ Sidebar -->
 
     </div>
 </div>
-<!-- /sidebar

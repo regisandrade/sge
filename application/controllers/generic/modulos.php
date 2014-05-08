@@ -468,6 +468,7 @@ class Modulos extends CI_Controller{
 
 		array(
 			'id'=>array('type'=>'pk','label'=>'Id'),
+			'sigla'=>array('type'=>'varchar','size'=>30,'notnull'=>0,'label'=>'Sigla','class'=>'input-medium'),
 			'nome'=>array('type'=>'varchar','size'=>150,'notnull'=>0,'label'=>'Nome','class'=>'input-xlarge'),
 			'id_curso'=>array('type'=>'fk','table_fk'=>'curso','fk_id'=>'id','fk_text'=>'nome','label'=>'Curso','notnull'=>1),
 			'turma_fechada'=>array('type'=>'enum','valor'=>'"Sim","Não"', 'DEFAULT' => 'Não', 'notnull'=>0, 'label'=>'Turma Fechada?'),

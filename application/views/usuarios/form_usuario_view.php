@@ -32,35 +32,35 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 			<label class="control-label">Estado:</label>
 			<div class="controls">
 			<select name="us_estado" class="select select2-offscreen">
-					<option selected="" value="">UF</option>
-					<option value="AC" <?php echo ($dados->us_estado == 'AC' ? 'selected="true"' : '') ?>>Acre</option>
-					<option value="AL" <?php echo ($dados->us_estado == 'AL' ? 'selected="true"' : '') ?>>Alagoas</option>
-					<option value="AP" <?php echo ($dados->us_estado == 'AP' ? 'selected="true"' : '') ?>>Amapá</option>
-					<option value="AM" <?php echo ($dados->us_estado == 'AM' ? 'selected="true"' : '') ?>>Amazonas</option>
-					<option value="BA" <?php echo ($dados->us_estado == 'BA' ? 'selected="true"' : '') ?>>Bahia</option>
-					<option value="CE" <?php echo ($dados->us_estado == 'CE' ? 'selected="true"' : '') ?>>Ceará</option>
-					<option value="DF" <?php echo ($dados->us_estado == 'DF' ? 'selected="true"' : '') ?>>Distrito Federal</option>
-					<option value="ES" <?php echo ($dados->us_estado == 'ES' ? 'selected="true"' : '') ?>>Espírito Santo</option>
-					<option value="GO" <?php echo ($dados->us_estado == 'GO' ? 'selected="true"' : '') ?>>Goiás</option>
-					<option value="MA" <?php echo ($dados->us_estado == 'MA' ? 'selected="true"' : '') ?>>Maranhão</option>
-					<option value="MT" <?php echo ($dados->us_estado == 'MT' ? 'selected="true"' : '') ?>>Mato Grosso</option>
-					<option value="MS" <?php echo ($dados->us_estado == 'MS' ? 'selected="true"' : '') ?>>Mato Grosso do Sul</option>
-					<option value="MG" <?php echo ($dados->us_estado == 'MG' ? 'selected="true"' : '') ?>>Minas Gerais</option>
-					<option value="PA" <?php echo ($dados->us_estado == 'PA' ? 'selected="true"' : '') ?>>Pará</option>
-					<option value="PB" <?php echo ($dados->us_estado == 'PB' ? 'selected="true"' : '') ?>>Paraíba</option>
-					<option value="PR" <?php echo ($dados->us_estado == 'PR' ? 'selected="true"' : '') ?>>Paraná</option>
-					<option value="PE" <?php echo ($dados->us_estado == 'PE' ? 'selected="true"' : '') ?>>Pernambuco</option>
-					<option value="PI" <?php echo ($dados->us_estado == 'PI' ? 'selected="true"' : '') ?>>Piauí</option>
-					<option value="RJ" <?php echo ($dados->us_estado == 'RJ' ? 'selected="true"' : '') ?>>Rio de Janeiro</option>
-					<option value="RS" <?php echo ($dados->us_estado == 'RS' ? 'selected="true"' : '') ?>>Rio Grande do Sul</option>
-					<option value="RN" <?php echo ($dados->us_estado == 'RN' ? 'selected="true"' : '') ?>>Rio Grande do Norte</option>
-					<option value="RO" <?php echo ($dados->us_estado == 'RO' ? 'selected="true"' : '') ?> <?php echo ($dados->us_estado == 'AC' ? 'selected="true"' : '') ?>>Rondônia</option>
-					<option value="RR" <?php echo ($dados->us_estado == 'RR' ? 'selected="true"' : '') ?>>Roraima</option>
-					<option value="SE" <?php echo ($dados->us_estado == 'SE' ? 'selected="true"' : '') ?>>Santa Catarina</option>
-					<option value="SP" <?php echo ($dados->us_estado == 'SP' ? 'selected="true"' : '') ?>>São Paulo</option>
-					<option value="SE" <?php echo ($dados->us_estado == 'SE' ? 'selected="true"' : '') ?>>Sergipe</option>
-					<option value="TO" <?php echo ($dados->us_estado == 'TO' ? 'selected="true"' : '') ?>>Tocantins</option>
-				</select>
+				<option selected="" value="">UF</option>
+				<option value="AC" <?php echo ($dados->us_estado == 'AC' ? 'selected="true"' : '') ?>>Acre</option>
+				<option value="AL" <?php echo ($dados->us_estado == 'AL' ? 'selected="true"' : '') ?>>Alagoas</option>
+				<option value="AP" <?php echo ($dados->us_estado == 'AP' ? 'selected="true"' : '') ?>>Amapá</option>
+				<option value="AM" <?php echo ($dados->us_estado == 'AM' ? 'selected="true"' : '') ?>>Amazonas</option>
+				<option value="BA" <?php echo ($dados->us_estado == 'BA' ? 'selected="true"' : '') ?>>Bahia</option>
+				<option value="CE" <?php echo ($dados->us_estado == 'CE' ? 'selected="true"' : '') ?>>Ceará</option>
+				<option value="DF" <?php echo ($dados->us_estado == 'DF' ? 'selected="true"' : '') ?>>Distrito Federal</option>
+				<option value="ES" <?php echo ($dados->us_estado == 'ES' ? 'selected="true"' : '') ?>>Espírito Santo</option>
+				<option value="GO" <?php echo ($dados->us_estado == 'GO' ? 'selected="true"' : '') ?>>Goiás</option>
+				<option value="MA" <?php echo ($dados->us_estado == 'MA' ? 'selected="true"' : '') ?>>Maranhão</option>
+				<option value="MT" <?php echo ($dados->us_estado == 'MT' ? 'selected="true"' : '') ?>>Mato Grosso</option>
+				<option value="MS" <?php echo ($dados->us_estado == 'MS' ? 'selected="true"' : '') ?>>Mato Grosso do Sul</option>
+				<option value="MG" <?php echo ($dados->us_estado == 'MG' ? 'selected="true"' : '') ?>>Minas Gerais</option>
+				<option value="PA" <?php echo ($dados->us_estado == 'PA' ? 'selected="true"' : '') ?>>Pará</option>
+				<option value="PB" <?php echo ($dados->us_estado == 'PB' ? 'selected="true"' : '') ?>>Paraíba</option>
+				<option value="PR" <?php echo ($dados->us_estado == 'PR' ? 'selected="true"' : '') ?>>Paraná</option>
+				<option value="PE" <?php echo ($dados->us_estado == 'PE' ? 'selected="true"' : '') ?>>Pernambuco</option>
+				<option value="PI" <?php echo ($dados->us_estado == 'PI' ? 'selected="true"' : '') ?>>Piauí</option>
+				<option value="RJ" <?php echo ($dados->us_estado == 'RJ' ? 'selected="true"' : '') ?>>Rio de Janeiro</option>
+				<option value="RS" <?php echo ($dados->us_estado == 'RS' ? 'selected="true"' : '') ?>>Rio Grande do Sul</option>
+				<option value="RN" <?php echo ($dados->us_estado == 'RN' ? 'selected="true"' : '') ?>>Rio Grande do Norte</option>
+				<option value="RO" <?php echo ($dados->us_estado == 'RO' ? 'selected="true"' : '') ?> <?php echo ($dados->us_estado == 'AC' ? 'selected="true"' : '') ?>>Rondônia</option>
+				<option value="RR" <?php echo ($dados->us_estado == 'RR' ? 'selected="true"' : '') ?>>Roraima</option>
+				<option value="SE" <?php echo ($dados->us_estado == 'SE' ? 'selected="true"' : '') ?>>Santa Catarina</option>
+				<option value="SP" <?php echo ($dados->us_estado == 'SP' ? 'selected="true"' : '') ?>>São Paulo</option>
+				<option value="SE" <?php echo ($dados->us_estado == 'SE' ? 'selected="true"' : '') ?>>Sergipe</option>
+				<option value="TO" <?php echo ($dados->us_estado == 'TO' ? 'selected="true"' : '') ?>>Tocantins</option>
+			</select>
 			</div>
 		</div>
 		<div class="control-group">

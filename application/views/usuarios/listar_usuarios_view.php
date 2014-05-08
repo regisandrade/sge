@@ -1,7 +1,7 @@
 <?php 
 echo br(); 
 ?>
-<h5 class="widget-name"><i class="icon-columns"></i></i>Lista de usuários</h5>
+<h5 class="widget-name"><i class="icon-columns"></i>Lista de usuários</h5>
 <?php
 echo isset($msg)?"<br><div class=\"alert alert-success\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\"></button>{$msg}</div>":"";
 ?>

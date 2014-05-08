@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php  if ( ! defined('BASEPATH')) exit('Sem permissão de acesso ao arquivo');
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/public_html/sge/';
+$config['base_url']	= 'http://localhost/sge/';
 
 /*
 |--------------------------------------------------------------------------

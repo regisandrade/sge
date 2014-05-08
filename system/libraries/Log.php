@@ -1,4 +1,4 @@
-<?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php  if ( ! defined('BASEPATH')) exit('Sem permissão de acesso ao arquivo');
 /**
  * CodeIgniter
  *
@@ -88,7 +88,7 @@ class CI_Log {
 
 		if ( ! file_exists($filepath))
 		{
-			$message .= "<"."?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?".">\n\n";
+			$message .= "<"."?php  if ( ! defined('BASEPATH')) exit('Sem permissão de acesso ao arquivo'); ?".">\n\n";
 		}
 
 		if ( ! $fp = @fopen($filepath, FOPEN_WRITE_CREATE))

@@ -18,7 +18,7 @@ function getMenu() {
 				  			  'Disciplinas' => 'generic/modulos/disciplinas',
 				  			  'Disciplinas da Turma' => 'generic/modulos/disciplinas_turmas',
 				  			  'Material de apoio' => 'generic/modulos/exercicios',
-				  			  'Notas & Frequências' => 'generic/modulos/notas_frequencias',
+				  			  'Notas & Frequências' => 'notasefrequencias/listarNotasFrequencias',
 				  			  'Professores' => 'generic/modulos/professores',
 				  			  'Turmas' => 'generic/modulos/turmas',
 							  'Senhas dos Alunos' => 'alunos/getSenhasAlunos',
