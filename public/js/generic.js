@@ -41,7 +41,7 @@ $(function(){
 
 $(document).on("change", "#turmaNotas", function(e) {
   // Consultar os dados como ANO,CURSO,TURMA e carregar as disciplinas da turma em uma combo.
-  console.log(e.val);
+  //console.log(e.val);
   var $res = e.val.split("|");
   $('#cursoNotas').html($res[1]);
   $('#TurmaNotas').html($res[2]);
@@ -52,8 +52,14 @@ $(document).on("change", "#turmaNotas", function(e) {
       type: 'GET',
       data: '',
       dataType: 'json',
-      success: function(ret){
-        console.log(ret);
+      success: function(json){
+        
+        var options = "";
+        $.each(json, function(key, value){
+          //console.log(key);
+          options += '<option value="' + key.id + '">' + value.nome + '</option>';
+        });
+        $("#disciplinaNotas").html(options);
       }
     });
 });

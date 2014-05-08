@@ -53,8 +53,9 @@ echo br ();
 				<div class="control-group">
 					<label class="control-label">Disciplina:</label>
 					<div class="controls">
-						<input type="text" class="span12 ui-wizard-content"
-							disabled="disabled">
+						<select name="disciplina" id="disciplinaNotas" class="select select2-offscreen">
+							<option value="">Selecionar uma disciplina</option>
+						</select>
 					</div>
 				</div>
 			</div>
