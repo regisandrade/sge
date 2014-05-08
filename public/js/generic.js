@@ -38,3 +38,22 @@ $(function(){
 	    selectOtherMonths: true
 	});
 });
+
+$(document).on("change", "#turmaNotas", function(e) {
+  // Consultar os dados como ANO,CURSO,TURMA e carregar as disciplinas da turma em uma combo.
+  console.log(e.val);
+  var $res = e.val.split("|");
+  $('#cursoNotas').html($res[1]);
+  $('#TurmaNotas').html($res[2]);
+
+  // Buscar as disciplinas da turma
+  $.ajax({
+      url: 'http://localhost/public_html/sge/index.php/disciplinasturmas/getDisciplinas/'+$res[0],
+      type: 'GET',
+      data: '',
+      dataType: 'json',
+      success: function(ret){
+        console.log(ret);
+      }
+    });
+});

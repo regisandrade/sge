@@ -20,10 +20,10 @@ echo br ();
 				<div class="control-group">
 					<label class="control-label">Turma:</label>
 					<div class="controls">
-						<select name="turma" class="select select2-offscreen">
+						<select name="turma" id="turmaNotas" class="select select2-offscreen">
 							<option value="">Selecionar uma turma</option>
 						<?php foreach($turmas as $turma){?>
-							<option value="<?php echo $turma->id?>"><?php echo $turma->sigla.'-'.$turma->nome?></option>
+							<option value="<?php echo $turma->id.'|'.$turma->sigla.'|'.$turma->nome?>"><?php echo $turma->sigla.'-'.$turma->nome?></option>
 						<?php } ?>
 						</select>
 					</div>
@@ -39,24 +39,15 @@ echo br ();
 			</div>
 			<div>
 				<div class="control-group">
-					<label class="control-label">Ano:</label>
-					<div class="controls">
-						<input type="text" class="span12 ui-wizard-content"
-							disabled="disabled">
-					</div>
-				</div>
-				<div class="control-group">
 					<label class="control-label">Curso:</label>
 					<div class="controls">
-						<input type="text" class="span12 ui-wizard-content"
-							disabled="disabled">
+						<span id="cursoNotas"></span>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label">Turma:</label>
 					<div class="controls">
-						<input type="text" class="span12 ui-wizard-content"
-							disabled="disabled">
+						<span id="TurmaNotas"></span>
 					</div>
 				</div>
 				<div class="control-group">
