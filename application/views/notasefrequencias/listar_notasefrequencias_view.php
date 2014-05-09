@@ -47,13 +47,13 @@ echo br ();
 				<div class="control-group">
 					<label class="control-label">Turma:</label>
 					<div class="controls">
-						<span id="TurmaNotas"></span>
+						<span id="nomeTurmaNotas"></span>
 					</div>
 				</div>
 				<div class="control-group">
 					<label class="control-label">Disciplina:</label>
 					<div class="controls">
-						<select name="disciplina" id="disciplinaNotas" class="select select2-offscreen">
+						<select name="disciplinaNotas" id="disciplinaNotas" class="select select2-offscreen">
 							<option value="">Selecionar uma disciplina</option>
 						</select>
 					</div>
@@ -67,6 +67,29 @@ echo br ();
 				id="next-2" value="Avançar">
 		</div>
 	</form>
-	<div class="submit-data" id="w1"></div>
+	<div class="ocultar-tabela" id="w1">
+		<?php 
+		echo br(); 
+		?>
+		<div class="navbar">
+			<div class="navbar-inner">
+				<h6 id="tituloTabela">123</h6>
+			</div>
+		</div>
+		<div class="table-overflow">
+			<table class="table table-striped" id="tabela-dados" border="1">
+			    <thead>
+			        <tr>
+			            <th>Id</th>
+			            <th>Nome</th>
+			            <th>Nota</th>
+			            <th>Frequência</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			    </tbody>
+			</table>
+		</div>
+	</div>
 </div>
 <!-- /AJAX wizard -->

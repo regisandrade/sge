@@ -1,5 +1,21 @@
 @CHARSET "UTF-8";
 
+.ocultar-tabela{
+	display: none;
+}
+
+#tabela-dados > tbody > tr > td{
+	text-align: left;
+}
+
+.td-id{
+	width: 5%;
+}
+
+.td-nota, .td-frequencia{
+	width: 10%;
+}
+
 .th-acoes{
 	width: 10%;
 }

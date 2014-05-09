@@ -145,19 +145,19 @@ echo meta($metas);
 	<script type="text/javascript" src="<?php echo base_url()?>public/ckeditor/ckeditor.js"></script>
 	<script type="text/javascript">
 	<!--
-	/* $('.texto').ckeditor({
-		toolbar:
-			[
-				['Bold', 'Italic', '-', 'NumberedList', 'BulletedList'],
-				['Styles','Format','Font','FontSize'],
-				['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
-				['TextColor','BGColor'],'/',
-				['Image','Table','HorizontalRule','-','Link', 'Unlink','-','Source'],
-				['Maximize', 'ShowBlocks','-','RemoveFormat','YouTube']
-			]
-	});
+	CKEDITOR.replace( 'descricao' );
+	// Default setting.
+	CKEDITOR.config.toolbar = [
+	    { name: 'document', items: [ 'Source' ] },
+	    { name: 'basicstyles', items: [ 'Bold', 'Italic', '-', 'NumberedList', 'BulletedList' ] },
+	    { name: 'Texto', items: [ 'JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock' ] },
+	    { name: 'Cores', items: [ 'TextColor','BGColor' ] },
+	    { name: 'clipboard', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
+		'/',
+		{ name: 'Tabela', items: [ 'Image','Table','HorizontalRule','-','Link', 'Unlink' ] },
+	];
 
-	function seta_imagem_ckeditor(img){
+	/*function seta_imagem_ckeditor(img){
 		CKEDITOR.tools.callFunction(1,img);
 	}; */
 

@@ -20,11 +20,15 @@ class Notasefrequencias extends CI_Controller {
 	
 	function listarNotasFrequencias() {
 		$data['config'] = $this->conf->getConfiguracao();
-		$data['resultado'] = $this->notas->getNotasFrequencias();
 		$data['turmas'] = $this->turmas->getTurmas();
 		
 		$data['pagina'] = 'notasefrequencias/listar_notasefrequencias';
 		view_sistema('inicio/home_view',$data);
+	}
+
+	function getNotasFrequencias() {
+		$resultados = $this->notas->getNotasFrequencias($this->uri->segment(3),$this->uri->segment(4));
+		echo json_encode($resultados);
 	}
 	
 } // Fim class

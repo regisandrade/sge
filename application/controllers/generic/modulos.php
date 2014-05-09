@@ -768,11 +768,9 @@ class Modulos extends CI_Controller{
 
 		array(
 			'id'=>array('type'=>'pk','label'=>'Id'),
-			'id_curso'=>array('type'=>'fk','table_fk'=>'cursos','fk_id'=>'id','fk_text'=>'nome','label'=>'Curso','notnull'=>1),
+			'id_aluno'=>array('type'=>'fk','table_fk'=>'alunos','fk_id'=>'id','fk_text'=>'nome','label'=>'Aluno','notnull'=>1),
 			'id_turma'=>array('type'=>'fk','table_fk'=>'turmas','fk_id'=>'id','fk_text'=>'nome','label'=>'Turma','notnull'=>1),
 			'id_disciplina'=>array('type'=>'fk','table_fk'=>'disciplinas','fk_id'=>'id','fk_text'=>'nome','label'=>'Disciplina','notnull'=>1),
-			'id_professor'=>array('type'=>'fk','table_fk'=>'professores','fk_id'=>'id','fk_text'=>'nome','label'=>'Professor','notnull'=>1),
-			'id_aluno'=>array('type'=>'fk','table_fk'=>'alunos','fk_id'=>'id','fk_text'=>'nome','label'=>'Aluno','notnull'=>1),
 			'nota'=>array('type'=>'varchar','size'=>10,'label'=>'Nota','class'=>'input-small'),
 			'frequencia'=>array('type'=>'int','label'=>'Frequência','class'=>'input-small'),	
 		);

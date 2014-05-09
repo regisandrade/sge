@@ -9,7 +9,7 @@ class Disciplinasturmas_model extends CI_Model {
 	 * Função para listar as notas e frequencias de um determinado aluno
 	 */
 	public function getDisciplinas($idTurma) {
-		$this->db->select('disciplinas.id, disciplinas.nome');
+		$this->db->select('disciplinas.id, disciplinas.nome, disciplinas_turmas.id_turma');
 		$this->db->join('disciplinas', 'disciplinas.id = disciplinas_turmas.id_disciplina');
 		$this->db->where('disciplinas_turmas.id_turma',$idTurma);
 		$this->db->order_by("disciplinas.nome",'ASC');

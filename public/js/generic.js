@@ -40,11 +40,12 @@ $(function(){
 });
 
 $(document).on("change", "#turmaNotas", function(e) {
+  //alert('aqui-1');
   // Consultar os dados como ANO,CURSO,TURMA e carregar as disciplinas da turma em uma combo.
   //console.log(e.val);
   var $res = e.val.split("|");
   $('#cursoNotas').html($res[1]);
-  $('#TurmaNotas').html($res[2]);
+  $('#nomeTurmaNotas').html($res[2]);
 
   // Buscar as disciplinas da turma
   $.ajax({
@@ -53,13 +54,50 @@ $(document).on("change", "#turmaNotas", function(e) {
       data: '',
       dataType: 'json',
       success: function(json){
-        
-        var options = "";
+        var options = "<option value=\"\">Selecionar uma disciplina</option>";
         $.each(json, function(key, value){
           //console.log(key);
-          options += '<option value="' + key.id + '">' + value.nome + '</option>';
+          options += '<option value="' + value.id + '|' + value.id_turma + '">' + value.nome + '</option>';
         });
         $("#disciplinaNotas").html(options);
+      }
+    });
+});
+
+$(document).on("change", "#disciplinaNotas", function(e) {
+  $("#loading").ajaxStart(function () {
+    $(this).show();
+  });
+
+  $("#loading").ajaxStop(function () {
+    $(this).hide();
+  });
+  
+  // Listar todos os alunos da turma e disciplina selecionada
+  var $res = e.val.split("|");
+  $disciplina = $res[0];
+  $turma      = $res[1];
+
+  // Buscar os alunos
+  $.ajax({
+      url: 'http://localhost/public_html/sge/index.php/notasefrequencias/getNotasFrequencias/'+$disciplina+'/'+$turma,
+      type: 'GET',
+      data: '',
+      dataType: 'json',
+      success: function(json){
+        //console.log(json);
+        $(".ocultar-tabela").css("display", "block");
+        $("#tabela-dados tbody").html('');
+        $.each(json, function(key, value){
+          $("#tituloTabela").html(value.nomeDisciplina);
+          $("#tabela-dados tbody").append(
+            '<tr>\n' +
+            '\t<td class="td-id">' + value.id + '</td>\n' +
+            '\t<td>' + value.id_aluno + '</td>\n' +
+            '\t<td class="td-nota">' + value.nota + '</td>\n' +
+            '\t<td class="td-frequencia">' + value.frequencia + '</td>\n' +
+            '</tr>\n');
+        });
       }
     });
 });
