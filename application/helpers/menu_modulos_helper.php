@@ -9,7 +9,7 @@ function getMenu() {
 							  ),
 				  'Educacional' => 
 				  		array(
-				  			  'Alunos' => 'generic/modulos/alunos',
+				  			  'Alunos' => 'alunos/listarAlunos',
 				  			  'Matrículas'=>'caminho',
 				  			  'Cronogramas' => 'generic/modulos/cronogramas',
 				  			  'Currículos' => 'generic/modulos/curriculos',
