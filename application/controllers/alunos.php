@@ -7,7 +7,7 @@ class Alunos extends CI_Controller {
 
         # carrega modelo
         $this->load->model('Configuracao_model','conf',TRUE);
-		$this->load->model('Alunos_model','alu',TRUE);
+		$this->load->model('alunos_model','alu',TRUE);
     }
 
     public function index($msg)
