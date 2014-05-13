@@ -10,7 +10,7 @@ class Alunos_model extends CI_Model {
     */
     public function getAlunos() {
     	$resultado = $this->db->get("alunos")->result();
-    	echo ">>> <pre>".print_r($this->db->last_query()); exit;
+    	#echo ">>> <pre>".print_r($this->db->last_query()); exit;
     	return $resultado;
     }
 

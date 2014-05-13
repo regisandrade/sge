@@ -8,6 +8,8 @@ class Alunos extends CI_Controller {
         # carrega modelo
         $this->load->model('Configuracao_model','conf',TRUE);
 		$this->load->model('alunos_model','alu',TRUE);
+		$this->load->model('estados_model','uf',TRUE);
+		$this->load->model('cursos_model','cur',TRUE);
     }
 
     public function index($msg)
@@ -16,7 +18,16 @@ class Alunos extends CI_Controller {
 		$data['msg'] = $msg;
 		$this->load->view('inicio/inicio_view',$data);
 	}
-
+	
+	public function form_aluno(){
+		$data['config'] = $this->conf->getConfiguracao();
+		$data['estados'] = $this->uf->getEstados();
+		$data['cursos'] = $this->cur->getCursos();
+		
+		$data['pagina'] = 'alunos/form_aluno';
+		view_sistema('inicio/home_view',$data);
+	}
+	
 	public function listar()
 	{
 		$data['config'] = $this->conf->getConfiguracao();

@@ -23,11 +23,10 @@ echo isset($msg)?"<br><div class=\"alert alert-success\"><button class=\"close\"
 				<thead>
 					<tr role="row">
 						<th class="th-acoes">Ações</th>
-						<th class="th-id sorting_asc" role="columnheader" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="#: activate to sort column descending">Id</th>
-						<th class="sorting" role="columnheader" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-label="Nome: activate to sort column ascending">Nome</th>
+						<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="#: activate to sort column descending">Nome</th>
 						<th class="sorting" role="columnheader" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-label="e-Mail: activate to sort column ascending">e-Mail</th>
 						<th class="sorting" role="columnheader" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-label="Telefone: activate to sort column ascending">Telefone</th>
-						<th class="sorting" role="columnheader" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-label="Função: activate to sort column ascending">Função</th>
+						<th class="sorting" role="columnheader" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-label="Curso activate to sort column ascending">Curso</th>
 					</tr>
 				</thead>
 				<tbody role="alert" aria-live="polite" aria-relevant="all">
@@ -39,18 +38,17 @@ echo isset($msg)?"<br><div class=\"alert alert-success\"><button class=\"close\"
 							<td>
 								<ul class="table-controls">
 									<li>
-										<a title="" class="btn tip" href="<?php echo base_url('index.php')?>/alunos/form_usuario/<?php echo $dado->us_id; ?>" data-original-title="Editar"><i class="icon-pencil"></i></a>
+										<a title="" class="btn tip" href="<?php echo base_url('index.php')?>/alunos/form_aluno/<?php echo $dado->id; ?>" data-original-title="Editar"><i class="icon-pencil"></i></a>
 									</li>
 									<li>
-										<a title="" class="btn tip confirma" href="#" caminho="<?php echo base_url('index.php')?>/alunos/deleteUsuario/<?php echo $dado->us_id; ?>" data-original-title="Excluir"><i class="icon-remove"></i></a>
+										<a title="" class="btn tip confirma" href="#" caminho="<?php echo base_url('index.php')?>/alunos/deleteAluno/<?php echo $dado->id; ?>" data-original-title="Excluir"><i class="icon-remove"></i></a>
 									</li>
 								</ul>
 							</td>
-							<td class=" sorting_1"><?php echo $dado->us_id?></td>
-							<td class=" "><?php echo $dado->us_nome?></td>
-							<td class=" "><?php echo $dado->us_email?></td>
-							<td class=" "><?php echo $dado->us_telefone?></td>
-							<td class=" "><?php echo tipo_usuario($dado->us_tipo);?></td>
+							<td class=" "><?php echo $dado->nome?></td>
+							<td class=" "><?php echo $dado->email?></td>
+							<td class=" "><?php echo '123';//$dado->telefone?></td>
+							<td class=" "><?php echo $dado->id_curso;?></td>
 						</tr>
 					<?php
 					}
