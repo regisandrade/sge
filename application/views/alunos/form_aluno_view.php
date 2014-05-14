@@ -6,8 +6,9 @@ echo br();
 <?php
 echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\"></button>{$msg}</div>":"";
 ?>
-<form name="form1" id="validate" method="post" action='<?php echo base_url('index.php') ?>/alunos/form_usuario/<?php echo $this->uri->segment(3); ?>' class="form-horizontal">
-<input name="us_id" type="hidden" value="<?php echo $this->uri->segment(3)?>">
+<form name="form1" id="validate" method="post" action="<?php echo base_url('index.php') ?>/alunos/gravar" class="form-horizontal">
+<input name="id" type="hidden" value="">
+<input type="hidden" name="web" id="web" value="Não" />
 <fieldset>
 	<div class="navbar">
 		<div class="navbar-inner">
@@ -19,21 +20,18 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 			</ul>
 		</div>
 	</div>
-	<form name="form_aluno" id="form_aluno" action="" method="post">
-	<input type="hidden" name="id" id="id" value="" />
-	<input type="hidden" name="web" id="web" value="Não" />
 	<div class="well">
 		<div class="accordion" id="accordion2">
 			<div class="accordion-group">
 				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne1"><i class="ico-user"></i>Básico</a>
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseBasico"><i class="ico-user"></i>Básico</a>
 				</div>
-				<div id="collapseOne1" class="accordion-body in collapse" style="height: auto;">
+				<div id="collapseBasico" class="accordion-body in collapse" style="height: auto;">
 					<div class="well">
 						<div class="control-group">
 							<label class="control-label">Curso:</label>
 							<div class="controls">
-								<select  class="select select2-offscreen validate[required]" style="opacity: 0;" id="id_curso" name="id_curso">
+								<select class="tip select select2-offscreen validate[required]" style="opacity: 0;" id="id_curso" name="id_curso">
 									<option value="">Selecione</option>
 									<?php 
 									foreach ($cursos as $curso){
@@ -45,33 +43,23 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 						</div>
 						<div class="control-group">
 							<label class="control-label">Nome:</label>
-							<div class="controls"><input type="text" name="nome" class="validate[required] input-xxlarge" value="<?php //echo $dados->nome; ?>" maxlength="200"></div>
+							<div class="controls"><input type="text" name="nome" class="tip validate[required] input-xxlarge" value="<?php //echo $dados->nome; ?>" maxlength="200" data-placement="right" data-original-title="Nome do aluno"></div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">Data de nascimento:</label>
-							<div class="controls"><input type="text" name="data_nascimento" class="tip datepicker validate[required]" value="<?php //echo $dados->nome; ?>" maxlength="10"></div>
-						</div>						
-						<div class="control-group">
-							<label class="control-label">Sexo:</label>
-							<div class="controls">
-								<select  class="select select2-offscreen validate[required]" style="opacity: 0;" id="sexo" name="sexo">
-									<option value="">Selecione</option>
-									<option value="Masculino">Masculino</option>
-									<option value="Feminino">Feminino</option>									
-								</select>
-							</div>
+							<div class="controls"><input type="text" name="data_nascimento" class="tip datepicker validate[required]" value="<?php //echo $dados->nome; ?>" maxlength="10" data-placement="right" data-original-title="Data de nascimento"></div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">E-mail:</label>
 							<div class="controls">
 								<div class="input-prepend">
-									<span class="add-on">@</span><input name="email" id="prependedInput" type="email" class="validate[required,custom[email]] input-xlarge" value="<?php //echo $dados->email?>">
+									<span class="add-on">@</span><input name="email" id="prependedInput" type="email" class="tip validate[required,custom[email]] input-xlarge" value="<?php //echo $dados->email?>" data-placement="right" data-original-title="e-Mail">
 								</div>
 							</div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">Naturalidade:</label>
-							<div class="controls"><input type="text" name="naturalidade" class="validate[required] input-large" value="<?php //echo $dados->nome; ?>" maxlength="150"></div>
+							<div class="controls"><input type="text" name="naturalidade" class="tip validate[required] input-large" value="<?php //echo $dados->nome; ?>" maxlength="100" data-placement="right" data-original-title="Cidade onde nasceu"></div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">Estado:</label>
@@ -88,50 +76,8 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 						</div>
 						<div class="control-group">
 							<label class="control-label">Nacionalidade:</label>
-							<div class="controls"><input type="text" name="nacionalidade" class="validate[required] input-large" value="<?php //echo $dados->nome; ?>" maxlength="150"></div>
+							<div class="controls"><input type="text" name="nacionalidade" class="tip validate[required] input-large" value="<?php //echo $dados->nome; ?>" maxlength="150" data-placement="right" data-original-title="País onde nasceu"></div>
 						</div>
-						<div class="control-group">
-							<label class="control-label">RG:</label>
-							<div class="controls"><input type="text" name="rg" class="validate[required] input-medium" value="<?php //echo $dados->nome; ?>" maxlength="25"></div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Orgão Expedidor:</label>
-							<div class="controls"><input type="text" name="orgao" class="validate[required] input-medium" value="<?php //echo $dados->nome; ?>" maxlength="15"></div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">C.P.F.:</label>
-							<div class="controls"><input type="text" name="cpf" class="validate[required] input-medium" value="<?php //echo $dados->nome; ?>" maxlength="14" data-mask="999.999.999-99"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="accordion-group">
-				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo1"><i class="icon-home"></i>Endereço</a>
-				</div>
-				<div id="collapseTwo1" class="accordion-body collapse" style="height: 0px;">
-					<div class="well">
-						<div class="control-group">
-							<label class="control-label">Curso:</label>
-							<div class="controls">
-								<select  class="select select2-offscreen validate[required]" style="opacity: 0;" id="id_curso" name="id_curso">
-									<option value="">Selecione</option>
-									<?php 
-									foreach ($cursos as $curso){
-									?>
-									<option value="<?php echo $curso->id; ?>"><?php echo $curso->nome; ?></option>
-									<?php } ?>
-								</select>
-							</div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Nome:</label>
-							<div class="controls"><input type="text" name="nome" class="validate[required] input-xxlarge" value="<?php //echo $dados->nome; ?>" maxlength="200"></div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Data de nascimento:</label>
-							<div class="controls"><input type="text" name="data_nascimento" class="tip datepicker validate[required]" value="<?php //echo $dados->nome; ?>" maxlength="10"></div>
-						</div>						
 						<div class="control-group">
 							<label class="control-label">Sexo:</label>
 							<div class="controls">
@@ -143,21 +89,56 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label">E-mail:</label>
-							<div class="controls">
-								<div class="input-prepend">
-									<span class="add-on">@</span><input name="email" id="prependedInput" type="email" class="validate[required,custom[email]] input-xlarge" value="<?php //echo $dados->email?>">
-								</div>
-							</div>
+							<label class="control-label">RG:</label>
+							<div class="controls"><input type="text" name="rg" class="tip validate[required] input-medium" value="<?php //echo $dados->nome; ?>" maxlength="25" data-placement="right" data-original-title="RG"></div>
 						</div>
 						<div class="control-group">
-							<label class="control-label">Naturalidade:</label>
-							<div class="controls"><input type="text" name="naturalidade" class="validate[required] input-large" value="<?php //echo $dados->nome; ?>" maxlength="150"></div>
+							<label class="control-label">Orgão Expedidor:</label>
+							<div class="controls"><input type="text" name="orgao" class="tip validate[required] input-medium" value="<?php //echo $dados->nome; ?>" maxlength="15" data-placement="right" data-original-title="Orgão expedidor do RG"></div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">C.P.F.:</label>
+							<div class="controls"><input type="text" name="cpf" class="tip validate[required] input-medium" value="<?php //echo $dados->nome; ?>" maxlength="14" data-mask="999.999.999-99" data-placement="right" data-original-title="C.P.F."></div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">Como ficou sabendo:</label>
+							<div class="controls">
+								<select  class="select select2-offscreen validate[required]" style="opacity: 0;" id="sexo" name="sexo">
+									<option value="">Selecione</option>
+									<option value="Mala Direta">Mala Direta</option>
+									<option value="Outdoor">Outdoor</option>
+									<option value="E-mail Marketing">E-mail Marketing</option>
+									<option value="Folder">Folder</option>
+									<option value="Eventos">Eventos</option>
+									<option value="Indicação de ex-alunos">Indicação de ex-alunos</option>									
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseEndereco"><i class="icon-home"></i>Endereço</a>
+				</div>
+				<div id="collapseEndereco" class="accordion-body collapse" style="height: 0px;">
+					<div class="well">
+						<div class="control-group">
+							<label class="control-label">Endereço:</label>
+							<div class="controls"><input type="text" name="endereco" class="tip validate[required] input-xxlarge" value="<?php //echo $dados->endereco; ?>" maxlength="255" data-placement="right" data-original-title="Endereço"></div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">Bairro:</label>
+							<div class="controls"><input type="text" name="bairro" class="tip validate[required] input-large" value="<?php //echo $dados->bairro; ?>" maxlength="60" data-placement="right" data-original-title="Bairro"></div>
+						</div>						
+						<div class="control-group">
+							<label class="control-label">Cidade:</label>
+							<div class="controls"><input type="text" name="cidade" class="tip validate[required] input-large" value="<?php //echo $dados->cidade; ?>" maxlength="80" data-placement="right" data-original-title="Cidade"></div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">Estado:</label>
 							<div class="controls">
-								<select  class="select select2-offscreen validate[required]" style="opacity: 0;" id="uf_naturalidade" name="uf_naturalidade">
+								<select class="select select2-offscreen validate[required]" style="opacity: 0;" id="uf_endereco" name="uf_endereco">
 									<option value="">Selecione</option>
 									<?php 
 									foreach ($estados as $estado){
@@ -168,73 +149,82 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label">Nacionalidade:</label>
-							<div class="controls"><input type="text" name="nacionalidade" class="validate[required] input-large" value="<?php //echo $dados->nome; ?>" maxlength="150"></div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">RG:</label>
-							<div class="controls"><input type="text" name="rg" class="validate[required] input-medium" value="<?php //echo $dados->nome; ?>" maxlength="25"></div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Orgão Expedidor:</label>
-							<div class="controls"><input type="text" name="orgao" class="validate[required] input-medium" value="<?php //echo $dados->nome; ?>" maxlength="15"></div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">C.P.F.:</label>
-							<div class="controls"><input type="text" name="cpf" class="validate[required] input-medium" value="<?php //echo $dados->nome; ?>" maxlength="14" data-mask="999.999.999-99"></div>
+							<label class="control-label">CEP:</label>
+							<div class="controls"><input type="text" name="cep" class="tip validate[required] input-small" value="<?php //echo $dados->cep; ?>" maxlength="14" data-mask="99999-999" data-placement="right" data-original-title="CEP"></div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="accordion-group">
 				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTree1"><i class="ico-briefcase"></i>Graduação</a>
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTelefone"><i class="icon-phone"></i>Telefones</a>
 				</div>
-				<div id="collapseTree1" class="accordion-body collapse" style="height: 0px;">
+				<div id="collapseTelefone" class="accordion-body collapse" style="height: 0px;">
 					<div class="well">
 						<div class="control-group">
-							<label class="control-label">Graduação:</label>
-							<div class="controls"><input type="text" name="graduacao" class="validate[required] input-large" value="<?php //echo $dados->graduacao; ?>" maxlength="150"></div>
+							<label class="control-label">Residêncial:</label>
+							<div class="controls"><input type="text" name="fone_residencial" class="tip validate[required] input-medium" value="<?php //echo $dados->fone_residencial; ?>" maxlength="14" data-mask="(99) 9999-9999" data-placement="right" data-original-title="Telefone residêncial"></div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">Celular:</label>
+							<div class="controls"><input type="text" name="fone_celular" class="tip validate[required] input-medium" value="<?php //echo $dados->fone_celular; ?>" maxlength="14" data-mask="(99) 9999-9999" data-placement="right" data-original-title="Telefone celular"></div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">Comercial:</label>
+							<div class="controls"><input type="text" name="fone_comercial" class="tip input-medium" value="<?php //echo $dados->fone_comercial; ?>" maxlength="14" data-mask="(99) 9999-9999" data-placement="right" data-original-title="Telefone comercial"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-group">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseGraduacao"><i class="ico-briefcase"></i>Graduação</a>
+				</div>
+				<div id="collapseGraduacao" class="accordion-body collapse" style="height: 0px;">
+					<div class="well">
+						<div class="control-group">
+							<label class="control-label">Curso de Graduação:</label>
+							<div class="controls"><input type="text" name="curso" class="tip validate[required] input-large" value="<?php //echo $dados->graduacao; ?>" maxlength="150" data-placement="right" data-original-title="Nome do curso de formação"></div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">Instituição:</label>
-							<div class="controls"><input type="text" name="instituicao" class="validate[required] input-large" value="<?php //echo $dados->instituicao; ?>" maxlength="150"></div>
+							<div class="controls"><input type="text" name="instituicao" class="tip validate[required] input-large" value="<?php //echo $dados->instituicao; ?>" maxlength="150" data-placement="right" data-original-title="Nome da instituição"></div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">Sigla:</label>
-							<div class="controls"><input type="text" name="sigla" class="validate[required] input-small" value="<?php //echo $dados->sigla; ?>" maxlength="15"></div>
+							<div class="controls"><input type="text" name="sigla" class="tip validate[required] input-small" value="<?php //echo $dados->sigla; ?>" maxlength="15" data-placement="right" data-original-title="Sigla"></div>
 						</div>
 						<div class="control-group">
 							<label class="control-label">Conclusão:</label>
-							<div class="controls"><input type="text" name="ano_conclusao" class="validate[required] input-small" value="<?php //echo $dados->ano_conclusao; ?>" maxlength="4" data-mask="9999"></div>
+							<div class="controls"><input type="text" name="ano_conclusao" class="tip validate[required] input-small" value="<?php //echo $dados->ano_conclusao; ?>" maxlength="4" data-mask="9999" data-placement="right" data-original-title="Ano de conclusão do curso"></div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="accordion-group">
 				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour1"><i class="ico-globe"></i>Usuário</a>
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseRedesSociais"><i class="icon-facebook-sign"></i><i class="icon-twitter"></i>Redes Sociais</a>
 				</div>
-				<div id="collapseFour1" class="accordion-body collapse" style="height: 0px;">
+				<div id="collapseRedesSociais" class="accordion-body collapse" style="height: 0px;">
 					<div class="well">
 						<div class="control-group">
-							<label class="control-label">Usuário:</label>
-							<div class="controls"><input type="text" name="login" class="validate[required] input-large" value="<?php //echo $dados->login; ?>" maxlength="150"></div>
+							<label class="control-label">Facebook:</label>
+							<div class="controls"><input type="text" name="facebook" class="tip input-xlarge" value="<?php //echo $dados->facebook; ?>" maxlength="150" data-placement="right" data-original-title="Endereõ do facebook"></div>
 						</div>
 						<div class="control-group">
-							<label class="control-label">Senha:</label>
-							<div class="controls"><input type="text" name="senha" class="validate[required] input-medium" value="" maxlength="20"></div>
-						</div>
-						<div class="control-group">
-							<label class="control-label">Repetir senha:</label>
-							<div class="controls"><input type="text" name="senha2" class="validate[required] input-medium" value="" maxlength="20"></div>
+							<label class="control-label">Twitter:</label>
+							<div class="controls"><input type="text" name="twitter" class="tip input-xlarge" value="<?php //echo $dados->twitter; ?>" maxlength="150" data-placement="right" data-original-title="Endereço do twitter"></div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="form-actions">
+			<button class="btn btn-primary" type="submit"><i class="icon-ok"></i>&nbsp;Gravar</button>
+			<button class="btn btn-success" type="button"><i class="icon-star"></i>&nbsp;Aplicar</button>
+			<button class="btn btn-danger btnVoltar" type="button" caminho="<?php echo base_url('index.php')?>/alunos/listar"><i class="icon-remove"></i>&nbsp;Cancelar</button>
+	    </div>
 	</div>
-	</form>
 </fieldset>
 </form>
 <?php echo br(2); ?>

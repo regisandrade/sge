@@ -24,16 +24,21 @@ class Alunos_model extends CI_Model {
     /**
     * Adicionar aluno
     */
-    public function addUsuario($dados = array()) {
-		$retorno = $this->db->insert('alunos', valida_fields('alunos',$dados));
-		#echo ">>> <pre>".print_r($this->db->last_query()); exit;
-		return ($retorno ? true : false);
+    public function addAluno($dados = array(), $id=null) {
+    	if(is_null($id)) { #Insert
+    		$retorno = $this->db->insert('alunos', valida_fields('alunos',$dados));
+    		$retorno = $this->db->insert_id();
+    	}
+    	else { #Update
+    		$retorno = $this->db->where('id',$_id)->update('alunos',valida_fields('alunos',$dados));
+    	}
+		return $retorno;
     }
 
     /**
     * Alterar aluno
     */
-    public function updateUsuario($_id, $dados = array()) {
+    public function updateAluno($_id, $dados = array()) {
 		$retorno = $this->db->where('id',$_id)->update('alunos',valida_fields('alunos',$dados));
 		#echo ">>> <pre>".print_r($this->db->last_query()); exit;
 		if ($retorno) {
@@ -46,7 +51,7 @@ class Alunos_model extends CI_Model {
     /**
     * Deletar aluno
     */
-    public function deleteUsuario($_id) {
+    public function deleteAluno($_id) {
 		$retorno = $this->db->where('id', $_id)->delete('alunos');
 		return ($retorno ? true : false);
     }

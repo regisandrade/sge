@@ -67,7 +67,7 @@ echo br();
           		maxlength="<?php echo $f['size']?>" 
           		<?php echo (isset($f['data-mask']) ? 'data-mask="'.$f['data-mask'].'"' : '') ?>
           		data-original-title="<?php echo $f['label']?>"
-              data-placement="right"></div>
+              	data-placement="right"></div>
       </div>
     <?php 
       }
