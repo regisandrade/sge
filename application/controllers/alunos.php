@@ -26,7 +26,13 @@ class Alunos extends CI_Controller {
 		$data['config'] = $this->conf->getConfiguracao();
 		$data['estados'] = $this->uf->getEstados();
 		$data['cursos'] = $this->cur->getCursos();
-		
+
+		if($this->uri->segment(3)){
+			$data['dados'] = $this->alu->getAluno($this->uri->segment(3));
+			$data['dadosEndereco'] = $this->ende->getEnderecoAluno($this->uri->segment(3));
+			$data['dadosGraduacao'] = $this->gra->getGraduacaoAluno($this->uri->segment(3));
+		}
+		#echo ">>> <pre>".print_r($data['dadosEndereco']); exit;
 		$data['pagina'] = 'alunos/form_aluno';
 		view_sistema('inicio/home_view',$data);
 	}
@@ -61,7 +67,7 @@ class Alunos extends CI_Controller {
 		$data['config'] = $this->conf->getConfiguracao();
 
 		# Colocar aqui o código
-		echo "<pre>"; print_r($_POST);
+		#echo "<pre>"; print_r($_POST);
 		# 1. Gravar os dados do aluno
 		$dadosBasico = array('id_curso' => $_POST['id_curso'],
 							 'nome' => $_POST['nome'],
@@ -116,8 +122,71 @@ class Alunos extends CI_Controller {
 		if(!$this->usu->addUsuarioAluno($dadosUsuario)){
 			$data['msg'] = "Erro ao tentar gravar dados da graduação";
 		}
-		die;
 		
+		$data['pagina'] = 'alunos/listar_alunos';
+		view_sistema('inicio/home_view',$data);
+	}
+
+	public function update()
+	{
+		$data['config'] = $this->conf->getConfiguracao();
+
+		# Colocar aqui o código
+		#echo "<pre>"; print_r($_POST);
+		# 1. Gravar os dados do aluno
+		$dadosBasico = array('id_curso' => $_POST['id_curso'],
+							 'nome' => $_POST['nome'],
+							 'data_nascimento' => dataBd($_POST['data_nascimento']),
+							 'naturalidade' => $_POST['naturalidade'],
+							 'uf_naturalidade' => $_POST['uf_naturalidade'],
+							 'nacionalidade' => $_POST['nacionalidade'],
+							 'sexo' => $_POST['sexo'],
+							 'rg' => $_POST['rg'],
+							 'orgao' => $_POST['orgao'],
+							 'cpf' => $_POST['cpf'],
+							 'email' => $_POST['email'],
+							 'twitter' => $_POST['twitter'],
+							 'facebook' => $_POST['facebook']);
+		
+		if(!$this->alu->updateAluno($_POST['id'],$dadosBasico)){
+			$data['msg'] = "Erro ao tentar gravar dados do aluno";
+		}
+		
+		# 2. Gravar o endereço do aluno
+		$dadosEndereco = array('endereco' => $_POST['endereco'],
+								'bairro' => $_POST['bairro'],
+								'cep' => $_POST['cep'],
+								'cidade' => $_POST['cidade'],
+								'uf_endereco' => $_POST['uf_endereco'],
+								'fone_residencial' => $_POST['fone_residencial'],
+								'fone_celular' => $_POST['fone_celular'],
+								'fone_comercial' => $_POST['fone_comercial']);
+		
+		if(!$this->ende->updateEndereco($_POST['id'],$dadosEndereco)){
+			$data['msg'] = "Erro ao tentar gravar dados do endereco";
+		}
+		
+		# 3. Gravar a graduação do aluno
+		$dadosGraduacao = array('curso' => $_POST['curso'],
+								'instituicao' => $_POST['instituicao'],
+								'sigla' => $_POST['sigla'],
+								'cidade' => $_POST['cidade'],
+								'ano_conclusao' => $_POST['ano_conclusao']);
+		
+		if(!$this->gra->updateGraduacao($_POST['id'],$dadosGraduacao)){
+			$data['msg'] = "Erro ao tentar gravar dados da graduação";
+		}
+		
+		# 4. Gracar o usuário/email do aluno com senha sha1
+		$dadosUsuario = array('login' => $_POST['email']);
+		
+		if(!$this->usu->updateLoginUsuarioAluno($_POST['id'],$dadosUsuario)){
+			$data['msg'] = "Erro ao tentar gravar dados da graduação";
+		}
+
+		# Listar os dados
+		$data['resultado'] = $this->alu->getAlunos();
+
 		$data['pagina'] = 'alunos/listar_alunos';
 		view_sistema('inicio/home_view',$data);
 	}

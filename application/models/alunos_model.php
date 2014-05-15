@@ -9,9 +9,15 @@ class Alunos_model extends CI_Model {
     * Retorno todos os alunos no banco
     */
     public function getAlunos() {
-    	$resultado = $this->db->get("alunos")->result();
-    	#echo ">>> <pre>".print_r($this->db->last_query()); exit;
-    	return $resultado;
+        $this->db->select('alunos.id,alunos.nome,alunos.email,
+                          enderecos.fone_residencial,enderecos.fone_celular,
+                          curso.nome AS nomeCurso');
+        $this->db->from('alunos');
+        $this->db->join('enderecos', 'enderecos.id_aluno = alunos.id','LEFT');
+        $this->db->join('curso', 'curso.id = alunos.id_curso','LEFT');
+        $query = $this->db->get();
+        #echo ">>> <pre>".print_r($this->db->last_query()); exit;
+        return $query->result();
     }
 
     /**
@@ -41,11 +47,7 @@ class Alunos_model extends CI_Model {
     public function updateAluno($_id, $dados = array()) {
 		$retorno = $this->db->where('id',$_id)->update('alunos',valida_fields('alunos',$dados));
 		#echo ">>> <pre>".print_r($this->db->last_query()); exit;
-		if ($retorno) {
-			return true;
-		} else {
-			return false;
-		}
+		return ($retorno ? true : false);
     }
 
     /**

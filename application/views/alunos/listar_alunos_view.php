@@ -47,8 +47,8 @@ echo isset($msg)?"<br><div class=\"alert alert-success\"><button class=\"close\"
 							</td>
 							<td class=" "><?php echo $dado->nome?></td>
 							<td class=" "><?php echo $dado->email?></td>
-							<td class=" "><?php echo '123';//$dado->telefone?></td>
-							<td class=" "><?php echo $dado->id_curso;?></td>
+							<td class=" "><?php echo ($dado->fone_residencial ? $dado->fone_residencial.' - ' : '').$dado->fone_celular?></td>
+							<td class=" "><?php echo $dado->nomeCurso;?></td>
 						</tr>
 					<?php
 					}

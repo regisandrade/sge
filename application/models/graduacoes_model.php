@@ -17,10 +17,16 @@ class Graduacoes_model extends CI_Model {
     /**
     * Retorno um Graduacao
     */
-    public function getGraduacao($_id, $id_aluno = null) {
+    public function getGraduacao($_id) {
     	return $this->db->where('id', $_id)->get('graduacoes')->row();
     }
 
+    /**
+    * Retorno graduacao do aluno
+    */
+    public function getGraduacaoAluno($_id_aluno) {
+        return $this->db->where('id_aluno', $_id_aluno)->get('graduacoes')->row();
+    }
     /**
     * Adicionar Graduacao
     */
@@ -38,13 +44,9 @@ class Graduacoes_model extends CI_Model {
     * Alterar Graduacao
     */
     public function updateGraduacao($_id, $dados = array()) {
-		$retorno = $this->db->where('id',$_id)->update('graduacoes',valida_fields('graduacoes',$dados));
+		$retorno = $this->db->where('id_aluno',$_id)->update('graduacoes',valida_fields('graduacoes',$dados));
 		#echo ">>> <pre>".print_r($this->db->last_query()); exit;
-		if ($retorno) {
-			return true;
-		} else {
-			return false;
-		}
+		return ($retorno ? true : false);
     }
 
     /**

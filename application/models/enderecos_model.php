@@ -22,6 +22,13 @@ class Enderecos_model extends CI_Model {
     }
 
     /**
+    * Retorna endereco do aluno
+    */
+    public function getEnderecoAluno($_id_aluno) {
+        return $this->db->where('id_aluno', $_id_aluno)->get('enderecos')->row();
+    }
+
+    /**
     * Adicionar endereco
     */
     public function addEndereco($dados = array(), $id=null) {
@@ -38,13 +45,9 @@ class Enderecos_model extends CI_Model {
     * Alterar endereco
     */
     public function updateEndereco($_id, $dados = array()) {
-		$retorno = $this->db->where('id',$_id)->update('enderecos',valida_fields('enderecos',$dados));
+		$retorno = $this->db->where('id_aluno',$_id)->update('enderecos',valida_fields('enderecos',$dados));
 		#echo ">>> <pre>".print_r($this->db->last_query()); exit;
-		if ($retorno) {
-			return true;
-		} else {
-			return false;
-		}
+		return ($retorno ? true : false);
     }
 
     /**

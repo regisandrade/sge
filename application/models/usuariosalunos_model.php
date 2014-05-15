@@ -29,7 +29,7 @@ class Usuariosalunos_model extends CI_Model {
     		$retorno = $this->db->insert('usuarios_alunos', valida_fields('usuarios_alunos',$_dados));
     	}
     	else { #Update
-    		$retorno = $this->db->where('id',$_id)->update('usuarios_alunos',valida_fields('usuarios_alunos',$_dados));
+    		$retorno = $this->db->where('id_aluno',$_id)->update('usuarios_alunos',valida_fields('usuarios_alunos',$_dados));
     	}
 		return ($retorno ? true : false);
     }
@@ -38,13 +38,18 @@ class Usuariosalunos_model extends CI_Model {
     * Alterar usuario
     */
     public function updateUsuarioAluno($_id, $dados = array()) {
-		$retorno = $this->db->where('id',$_id)->update('usuarios_alunos',valida_fields('usuarios_alunos',$dados));
+		$retorno = $this->db->where('id_aluno',$_id)->update('usuarios_alunos',valida_fields('usuarios_alunos',$dados));
 		#echo ">>> <pre>".print_r($this->db->last_query()); exit;
-		if ($retorno) {
-			return true;
-		} else {
-			return false;
-		}
+		return ($retorno ? true : false);
+    }
+
+    /**
+    * Alterar login usuario
+    */
+    public function updateLoginUsuarioAluno($_id, $dados = array()) {
+        $retorno = $this->db->where('id_aluno',$_id)->update('usuarios_alunos',valida_fields('usuarios_alunos',$dados));
+        #echo ">>> <pre>".print_r($this->db->last_query()); exit;
+        return ($retorno ? true : false);
     }
 
     /**
