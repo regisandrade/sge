@@ -6,12 +6,12 @@ echo br();
 <?php
 echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\"></button>{$msg}</div>":"";
 ?>
-<form name="form1" id="validate" method="post" action="<?php echo base_url('index.php').'/alunos/'.(isset($dados->id) ? 'update' : 'gravar')?>" class="form-horizontal">
+<form name="form1" id="validate" method="post" action="<?php echo base_url('index.php').'/alunos/'.(isset($dados->id) ? 'alterar' : 'gravar')?>" class="form-horizontal">
 <input name="id" type="hidden" value="<?php echo (isset($dados->id) ? $dados->id : ''); ?>">
 <fieldset>
 	<div class="navbar">
 		<div class="navbar-inner">
-			<h6>Alunos</h6>
+			<h6>Aluno</h6>
 			<ul class="navbar-icons">
 				<li><a title="" class="tip" href="<?php echo base_url('index.php')?>/alunos/form_aluno" data-original-title="Adicionar novo aluno"><i class="icon-plus"></i></a></li>
 				<li><a title="" class="tip" href="<?php echo base_url('index.php')?>/alunos/listar" data-original-title="Listar alunos"><i class="icon-reorder"></i></a></li>
@@ -119,7 +119,7 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 				<div class="accordion-heading">
 					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseEndereco"><i class="icon-home"></i>Endereço</a>
 				</div>
-				<div id="collapseEndereco" class="accordion-body collapse" style="height: 0px;">
+				<div id="collapseEndereco" class="accordion-body <?php echo (isset($dados->id) ? 'in' : ''); ?> collapse" style="height: <?php echo (isset($dados->id) ? 'auto' : '0px'); ?>;">
 					<div class="well">
 						<div class="control-group">
 							<label class="control-label">Endereço:</label>
@@ -157,7 +157,7 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 				<div class="accordion-heading">
 					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTelefone"><i class="icon-phone"></i>Telefones</a>
 				</div>
-				<div id="collapseTelefone" class="accordion-body collapse" style="height: 0px;">
+				<div id="collapseTelefone" class="accordion-body <?php echo (isset($dados->id) ? 'in' : ''); ?> collapse" style="height: <?php echo (isset($dados->id) ? 'auto' : '0px'); ?>;">
 					<div class="well">
 						<div class="control-group">
 							<label class="control-label">Residêncial:</label>
@@ -178,7 +178,7 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 				<div class="accordion-heading">
 					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseGraduacao"><i class="ico-briefcase"></i>Graduação</a>
 				</div>
-				<div id="collapseGraduacao" class="accordion-body collapse" style="height: 0px;">
+				<div id="collapseGraduacao" class="accordion-body <?php echo (isset($dados->id) ? 'in' : ''); ?> collapse" style="height: <?php echo (isset($dados->id) ? 'auto' : '0px'); ?>;">
 					<div class="well">
 						<div class="control-group">
 							<label class="control-label">Curso de Graduação:</label>
@@ -203,7 +203,7 @@ echo isset($msg) ? "<br><div class=\"alert alert-success\"><button class=\"close
 				<div class="accordion-heading">
 					<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseRedesSociais"><i class="icon-facebook-sign"></i><i class="icon-twitter"></i>Redes Sociais</a>
 				</div>
-				<div id="collapseRedesSociais" class="accordion-body collapse" style="height: 0px;">
+				<div id="collapseRedesSociais" class="accordion-body <?php echo (isset($dados->id) ? 'in' : ''); ?> collapse" style="height: <?php echo (isset($dados->id) ? 'auto' : '0px'); ?>;">
 					<div class="well">
 						<div class="control-group">
 							<label class="control-label">Facebook:</label>

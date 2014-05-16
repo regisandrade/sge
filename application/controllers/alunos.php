@@ -49,8 +49,9 @@ class Alunos extends CI_Controller {
 	public function deletar()
 	{
 		$data['config'] = $this->conf->getConfiguracao();
-
-		if ($this->alu->deleteAluno($this->uri->segment(3))) {
+		
+		# Nunca iremos deletar o registro e sim mudar o ststus para EXCLUIDO
+		if ($this->alu->deleteAluno($this->uri->segment(3),'Excluído')) {
 			$data['msg'] = "Registro excluído com sucesso.";
 		} else {
 			$data['msg'] = "Erro ao tentar excluir o registro.";
@@ -127,7 +128,7 @@ class Alunos extends CI_Controller {
 		view_sistema('inicio/home_view',$data);
 	}
 
-	public function update()
+	public function alterar()
 	{
 		$data['config'] = $this->conf->getConfiguracao();
 
@@ -162,9 +163,18 @@ class Alunos extends CI_Controller {
 								'fone_celular' => $_POST['fone_celular'],
 								'fone_comercial' => $_POST['fone_comercial']);
 		
-		if(!$this->ende->updateEndereco($_POST['id'],$dadosEndereco)){
-			$data['msg'] = "Erro ao tentar gravar dados do endereco";
+		# Verificar se tem graduação para o aluno
+		if(!$this->ende->getEnderecoAluno($_POST['id'])) {
+			$dadosEndereco['id_aluno'] = $_POST['id'];
+			if(!$this->ende->addEndereco($dadosEndereco)){
+				$data['msg'] = "Erro ao tentar gravar dados do endereco";
+			}
 		}
+		else{
+			if(!$this->ende->updateEndereco($_POST['id'],$dadosEndereco)){
+				$data['msg'] = "Erro ao tentar gravar dados do endereco";
+			}
+		}		
 		
 		# 3. Gravar a graduação do aluno
 		$dadosGraduacao = array('curso' => $_POST['curso'],
@@ -173,10 +183,19 @@ class Alunos extends CI_Controller {
 								'cidade' => $_POST['cidade'],
 								'ano_conclusao' => $_POST['ano_conclusao']);
 		
-		if(!$this->gra->updateGraduacao($_POST['id'],$dadosGraduacao)){
-			$data['msg'] = "Erro ao tentar gravar dados da graduação";
+		# Verificar se tem graduação para o aluno
+		if(!$this->gra->getGraduacaoAluno($_POST['id'])) {
+			$dadosGraduacao['id_aluno'] = $_POST['id'];
+			if(!$this->gra->addGraduacao($dadosGraduacao)){
+				$data['msg'] = "Erro ao tentar gravar dados da graduação";
+			}
 		}
-		
+		else{
+			if(!$this->gra->updateGraduacao($_POST['id'],$dadosGraduacao)){
+				$data['msg'] = "Erro ao tentar gravar dados da graduação";
+			}
+		}
+			
 		# 4. Gracar o usuário/email do aluno com senha sha1
 		$dadosUsuario = array('login' => $_POST['email']);
 		

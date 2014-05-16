@@ -41,7 +41,7 @@ echo isset($msg)?"<br><div class=\"alert alert-success\"><button class=\"close\"
 										<a title="" class="btn tip" href="<?php echo base_url('index.php')?>/alunos/form_aluno/<?php echo $dado->id; ?>" data-original-title="Editar"><i class="icon-pencil"></i></a>
 									</li>
 									<li>
-										<a title="" class="btn tip confirma" href="#" caminho="<?php echo base_url('index.php')?>/alunos/deleteAluno/<?php echo $dado->id; ?>" data-original-title="Excluir"><i class="icon-remove"></i></a>
+										<a title="" class="btn tip confirma" href="#" caminho="<?php echo base_url('index.php')?>/alunos/deletar/<?php echo $dado->id; ?>" data-original-title="Excluir"><i class="icon-remove"></i></a>
 									</li>
 								</ul>
 							</td>

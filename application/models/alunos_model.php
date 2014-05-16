@@ -15,6 +15,7 @@ class Alunos_model extends CI_Model {
         $this->db->from('alunos');
         $this->db->join('enderecos', 'enderecos.id_aluno = alunos.id','LEFT');
         $this->db->join('curso', 'curso.id = alunos.id_curso','LEFT');
+        $this->db->where('alunos.status != ', 'Excluído');
         $query = $this->db->get();
         #echo ">>> <pre>".print_r($this->db->last_query()); exit;
         return $query->result();
@@ -53,8 +54,9 @@ class Alunos_model extends CI_Model {
     /**
     * Deletar aluno
     */
-    public function deleteAluno($_id) {
-		$retorno = $this->db->where('id', $_id)->delete('alunos');
+    public function deleteAluno($_id, $_status) {
+    	$dados = array('status' => $_status);
+		$retorno = $this->db->where('id',$_id)->update('alunos',$dados);
 		return ($retorno ? true : false);
     }
 
