@@ -35,12 +35,14 @@ class Usuarios_model extends CI_Model {
 						'us_tipo' => $row->us_tipo,
 						'us_ativo' => $row->us_ativo,
 						'us_time' => $row->us_time,
-						'logadminxli'=> true
+						'logadminxli'=> false
 			        );
 			$this->session->set_userdata($data);
 			
 			return true;
 		}
+
+		$this->session->set_userdata(array('logadminxli'=> true));
 		// If the previous process did not validate
 		// then return false.
 		return false;

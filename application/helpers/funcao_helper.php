@@ -75,7 +75,9 @@ function view_admin($view,$data=array()){
 }
 
 function verifica_usuario_logado(){
-	if($this->session->userdata('logadminxli') !== false){
+	$CI =& get_instance();
+	$CI->load->library('session');
+	if($CI->session->userdata['logadminxli'] !== false){
 		redirect('/');
 	}
 }

@@ -1,4 +1,10 @@
 <?php 
+$this->load->library('session');
+echo "<pre>";
+print_r($_session);
+echo "</pre>";
+exit;
+verifica_usuario_logado();
 echo br();
 ?>
 <h5 class="widget-name"><i class="icon-columns"></i></i>Listar <?php echo $info['nomeTela']; ?></h5>

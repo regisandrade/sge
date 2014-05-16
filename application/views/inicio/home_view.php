@@ -1,6 +1,11 @@
 <?php 
 $this->load->library('session');
-//verifica_usuario_logado();
+
+/*echo "<pre>";
+print_r($this->session->userdata['logadminxli']);
+echo "</pre>";
+exit;*/
+verifica_usuario_logado();
 
 # Definindo constantes
 define('ID_USUARIO', $this->session->userdata('us_id'));
