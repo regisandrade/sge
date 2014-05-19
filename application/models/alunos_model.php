@@ -29,6 +29,17 @@ class Alunos_model extends CI_Model {
     }
 
     /**
+    * Verificar se o aluno esta cadastrado, com os campos de e-mail, cpf e curso
+    */
+    public function verificarExisteAluno(array $_param) {
+        return = $this->db
+                        ->where('cpf', $_param['cpf'])
+                        ->where('email', $_param['email'])
+                        ->where('id_curso', $_param['id_curso'])
+                        ->get('alunos')->count_all();
+    }
+
+    /**
     * Adicionar aluno
     */
     public function addAluno($dados = array(), $id=null) {

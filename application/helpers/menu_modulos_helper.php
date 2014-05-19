@@ -22,11 +22,14 @@ function getMenu() {
 				  			  'Professores' => 'generic/modulos/professores',
 				  			  'Turmas' => 'generic/modulos/turmas',
 							  'Senhas dos Alunos' => 'alunos/getSenhasAlunos',
+							  'Área do Aluno' => 'alunos/formAreaAluno',
+				  			 ),
+				  'Relatórios' => 
+				  		array('Alunos cadastrados pela web'=>'alunos/relCadastradoPelaWeb',
 							  'Alunos em potencial' => 'alunos/relAlunosPotenciais',
 							  'Pré-Inscrições' => 'alunos/relAlunosPreInscricao',
 							  'Históricos Escolares' => 'alunos/relHistoricoEscolar',
-							  'Área do Aluno' => 'alunos/formAreaAluno',
-				  			 ),
+							 ),
 				  'Newsletter' => 
 				  		array('Newsletter'=>'usuarios/listarUsuarios'),
 				  'Financeiro' => 
