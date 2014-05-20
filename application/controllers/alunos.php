@@ -230,4 +230,17 @@ class Alunos extends CI_Controller {
 		view_sistema('inicio/home_view',$data);
 	}
 
+	/*
+	  Historico escolar do aluno 
+	*/
+	public function getHistoricoEscolar() {
+		# Configuraçãp
+		$data['config'] = $this->conf->getConfiguracao();
+		# Lista de alunos matriculados com notas/frequencias
+		$data['resultado'] = $this->alu->getAlunosMatriculadosFrequencias();
+
+		$data['pagina'] = 'alunos/historico_escolar';
+		view_sistema('inicio/home_view',$data);
+    }
+
 }

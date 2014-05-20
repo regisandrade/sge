@@ -72,7 +72,7 @@ class Alunos_model extends CI_Model {
     }
 
     /**
-    *
+    * Relação de alunos cadastrados pela web
     */
     public function getCadastradoPelaWeb() {
         $this->db->select('alunos.id,alunos.nome,alunos.email,
@@ -86,6 +86,13 @@ class Alunos_model extends CI_Model {
         $query = $this->db->get();
         #echo ">>> <pre>".print_r($this->db->last_query()); exit;
         return $query->result();
+    }
+
+    /*
+      Buscar os dados do aluno para montar o histórico 
+    */
+    public function getHistoricoEscolar($_id_aluno) {
+
     }
 
 }
