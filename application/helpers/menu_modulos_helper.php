@@ -25,13 +25,12 @@ function getMenu() {
 							  'Área do Aluno' => 'alunos/formAreaAluno',
 				  			 ),
 				  'Relatórios' => 
-				  		array('Alunos cadastrados pela web'=>'alunos/relCadastradoPelaWeb',
-							  'Alunos em potencial' => 'alunos/relAlunosPotenciais',
-							  'Pré-Inscrições' => 'alunos/relAlunosPreInscricao',
+				  		array('Pré-Inscrições' => 'alunos/relCadastradoPelaWeb',
+				  			  'Alunos em potencial' => 'alunos/relAlunosPotenciais',
 							  'Históricos Escolares' => 'alunos/relHistoricoEscolar',
 							 ),
 				  'Newsletter' => 
-				  		array('Newsletter'=>'usuarios/listarUsuarios'),
+				  		array('Newsletter'=>'newsletters/getUsuariosNewsletter'),
 				  'Financeiro' => 
 				  		array('Boletos Emitidos'=>'usuarios/listarUsuarios',
 				  			  'Bancos' => 'generic/modulos/bancos',

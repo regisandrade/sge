@@ -31,8 +31,8 @@ class Alunos_model extends CI_Model {
     /**
     * Verificar se o aluno esta cadastrado, com os campos de e-mail, cpf e curso
     */
-    public function verificarExisteAluno(array $_param) {
-        return = $this->db
+    public function verificarExisteAluno($_param = array()) {
+        return $this->db
                         ->where('cpf', $_param['cpf'])
                         ->where('email', $_param['email'])
                         ->where('id_curso', $_param['id_curso'])
@@ -69,6 +69,23 @@ class Alunos_model extends CI_Model {
     	$dados = array('status' => $_status);
 		$retorno = $this->db->where('id',$_id)->update('alunos',$dados);
 		return ($retorno ? true : false);
+    }
+
+    /**
+    *
+    */
+    public function getCadastradoPelaWeb() {
+        $this->db->select('alunos.id,alunos.nome,alunos.email,
+                          enderecos.cidade,enderecos.uf_endereco,
+                          enderecos.fone_residencial,enderecos.fone_celular,
+                          curso.nome AS nomeCurso');
+        $this->db->from('alunos');
+        $this->db->join('enderecos', 'enderecos.id_aluno = alunos.id','LEFT');
+        $this->db->join('curso', 'curso.id = alunos.id_curso','LEFT');
+        $this->db->where('alunos.web = ', 'Sim');
+        $query = $this->db->get();
+        #echo ">>> <pre>".print_r($this->db->last_query()); exit;
+        return $query->result();
     }
 
 }

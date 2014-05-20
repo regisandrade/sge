@@ -219,8 +219,12 @@ class Alunos extends CI_Controller {
 	}
 
 	function relCadastradoPelaWeb() {
+		# Configuraçãp
+		$data['config'] = $this->conf->getConfiguracao();
 		# Buscar a lista de cursos
 		$data['cursos'] = $this->cur->getCursos();
+		# Lista de alunos
+		$data['alunos'] = $this->alu->getCadastradoPelaWeb();
 
 		$data['pagina'] = 'alunos/relatorios/rel_cadastrados_pela_web';
 		view_sistema('inicio/home_view',$data);
