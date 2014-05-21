@@ -243,4 +243,14 @@ class Alunos extends CI_Controller {
 		view_sistema('inicio/home_view',$data);
     }
 
+    function relAlunosPotenciais() {
+		# Configuraçãp
+		$data['config'] = $this->conf->getConfiguracao();
+		# Lista de alunos
+		$data['alunos'] = $this->alu->getAlunosPotenciais();
+
+		$data['pagina'] = 'alunos/relatorios/rel_alunos_potenciais';
+		view_sistema('inicio/home_view',$data);
+	}
+
 }

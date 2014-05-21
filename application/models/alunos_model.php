@@ -95,4 +95,21 @@ class Alunos_model extends CI_Model {
 
     }
 
+    /*
+      Buscar os dados do aluno com estatus excluído
+    */
+    public function getAlunosPotenciais() {
+        $this->db->select('alunos.id,alunos.nome,alunos.email,
+                          enderecos.cidade,enderecos.uf_endereco,
+                          enderecos.fone_residencial,enderecos.fone_celular,
+                          curso.nome AS nomeCurso');
+        $this->db->from('alunos');
+        $this->db->join('enderecos', 'enderecos.id_aluno = alunos.id','LEFT');
+        $this->db->join('curso', 'curso.id = alunos.id_curso','LEFT');
+        $this->db->where('alunos.status = ', 'Excluído');
+        $query = $this->db->get();
+        #echo ">>> <pre>".print_r($this->db->last_query()); exit;
+        return $query->result();
+    }
+
 }
