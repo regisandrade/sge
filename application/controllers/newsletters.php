@@ -13,7 +13,7 @@ class Newsletters extends CI_Controller {
 	function getUsuariosNewsletter() {
  		$data['config'] = $this->conf->getConfiguracao();
  		$data['resultado'] = $this->news->getUsuariosNewsletter();
-
+ 		#echo "<pre>"; print_r($data); exit;
 		$data['pagina'] = 'newsletters/listar_newsletters';
  		view_sistema('inicio/home_view',$data);
  	}

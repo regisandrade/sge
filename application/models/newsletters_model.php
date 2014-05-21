@@ -6,6 +6,9 @@ class Newsletters_model extends CI_Model {
 	}
 
 	public function getUsuariosNewsletter() {
-		$resultado = $this->db->get("newsletters")->result();
+		return $this->db
+					->order_by("nome")
+					->get("newsletters")->result();
+		#echo ">>> <pre>".print_r($this->db->last_query()); exit;
 	}
 }

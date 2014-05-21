@@ -29,8 +29,8 @@ function getMenu() {
 				  			  'Alunos em potencial' => 'alunos/relAlunosPotenciais',
 							  'Históricos Escolares' => 'alunos/relHistoricoEscolar',
 							 ),
-				  'Newsletter' => 
-				  		array('Newsletter'=>'newsletters/getUsuariosNewsletter'),
+				  'Newsletters' => 
+				  		array('Newsletters'=>'newsletters/getUsuariosNewsletter'),
 				  'Financeiro' => 
 				  		array('Boletos Emitidos'=>'usuarios/listarUsuarios',
 				  			  'Bancos' => 'generic/modulos/bancos',

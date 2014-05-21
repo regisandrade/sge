@@ -8,8 +8,8 @@ echo br();
 			<table class="table table-striped table-bordered dataTable" id="data-table" aria-describedby="data-table_info">
 				<thead>
 					<tr role="row">
-						<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-sort="ascending" aria-label="#: activate to sort column descending">Nome</th>
-						<th class="sorting" role="columnheader" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-label="e-Mail: activate to sort column ascending">e-Mail</th>
+						<th role="columnheader" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-label="#: activate to sort column descending">Nome</th>
+						<th role="columnheader" tabindex="0" aria-controls="data-table" rowspan="1" colspan="1" aria-label="e-Mail: activate to sort column ascending">e-Mail</th>
 					</tr>
 				</thead>
 				<tbody role="alert" aria-live="polite" aria-relevant="all">
