@@ -233,7 +233,7 @@ class Alunos extends CI_Controller {
 	/*
 	  Historico escolar do aluno 
 	*/
-	public function getHistoricoEscolar() {
+	public function relHistoricoEscolar() {
 		# Configuraçãp
 		$data['config'] = $this->conf->getConfiguracao();
 		# Lista de alunos matriculados com notas/frequencias
