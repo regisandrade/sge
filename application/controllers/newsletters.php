@@ -18,4 +18,15 @@ class Newsletters extends CI_Controller {
  		view_sistema('inicio/home_view',$data);
  	}
 
+ 	function exportExcel() {
+ 		$data['config'] = $this->conf->getConfiguracao();
+
+		$this->load->library('export');
+		$sql = $this->news->getUsuariosNewsletter();
+		$this->export->to_excel($sql, 'nameForFile'); 
+
+		$data['pagina'] = 'newsletters/listar_newsletters';
+ 		view_sistema('inicio/home_view',$data);
+ 	}
+
 }

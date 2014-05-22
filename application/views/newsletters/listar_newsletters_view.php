@@ -3,6 +3,7 @@ echo br();
 ?>
 <h5 class="widget-name"><i class="icon-columns"></i>Newsletters</h5>
 <div class="widget">
+	<h6>Exportar para Excel, clicque aqui.</h6>
 	<div class="table-overflow">
 		<div id="data-table_wrapper" class="dataTables_wrapper" role="grid">
 			<table class="table table-striped table-bordered dataTable" id="data-table" aria-describedby="data-table_info">
