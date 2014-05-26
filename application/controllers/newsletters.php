@@ -23,7 +23,7 @@ class Newsletters extends CI_Controller {
 
 		$this->load->library('export');
 		$sql = $this->news->getUsuariosNewsletter();
-		$this->export->to_excel($sql, 'nameForFile'); 
+		$this->export->to_excel($sql, 'lista_de_pessoas'); 
 
 		$data['pagina'] = 'newsletters/listar_newsletters';
  		view_sistema('inicio/home_view',$data);
