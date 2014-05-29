@@ -1,9 +1,5 @@
 <?php 
 $this->load->library('session');
-echo "<pre>";
-print_r($_session);
-echo "</pre>";
-exit;
 verifica_usuario_logado();
 echo br();
 ?>

@@ -3,7 +3,7 @@ echo br();
 ?>
 <h5 class="widget-name"><i class="icon-columns"></i>Newsletters</h5>
 <div class="widget">
-	<h6><a href="<?php echo base_url('index.php')?>/newsletters/exportExcel">Exportar para Excel, clicque aqui.</a></h6>
+	<h6><a title="" style="vertical-align: middle;" class="btn tip" href="<?php echo base_url('index.php')?>/newsletters/exportExcel" data-original-title="Exportar Excel"><i class="icon-download"></i></a>&nbsp;Exportar para Excel</a></h6>
 	<div class="table-overflow">
 		<div id="data-table_wrapper" class="dataTables_wrapper" role="grid">
 			<table class="table table-striped table-bordered dataTable" id="data-table" aria-describedby="data-table_info">

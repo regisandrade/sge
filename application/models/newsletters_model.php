@@ -11,4 +11,12 @@ class Newsletters_model extends CI_Model {
 					->get("newsletters")->result();
 		#echo ">>> <pre>".print_r($this->db->last_query()); exit;
 	}
+
+	public function getUsuariosNewsletterExport() {
+		return $this->db
+					->select('email, nome')
+					->order_by("nome")
+					->get("newsletters")->result();
+		#echo ">>> <pre>".print_r($this->db->last_query()); exit;
+	}
 }
