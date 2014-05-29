@@ -21,7 +21,7 @@ function getMenu() {
 				  			  'Notas & Frequências' => 'notasefrequencias/listarNotasFrequencias',
 				  			  'Professores' => 'generic/modulos/professores',
 				  			  'Turmas' => 'generic/modulos/turmas',
-							  'Senhas dos Alunos' => 'alunos/getSenhasAlunos',
+							  'Senhas dos Alunos' => 'usuariosalunos/listarUsuariosAlunos',
 							  'Área do Aluno' => 'alunos/formAreaAluno',
 				  			 ),
 				  'Relatórios' => 

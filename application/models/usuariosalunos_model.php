@@ -9,9 +9,13 @@ class Usuariosalunos_model extends CI_Model {
     * Retorno todos os usuarios no banco
     */
     public function getUsuariosAlunos() {
-    	$resultado = $this->db->get("usuarios_alunos")->result();
-    	#echo ">>> <pre>".print_r($this->db->last_query()); exit;
-    	return $resultado;
+        $this->db->select('usuarios_alunos.id,alunos.nome,
+                          usuarios_alunos.login, usuarios_alunos.status');
+        $this->db->from('usuarios_alunos');
+        $this->db->join('alunos', 'alunos.id = usuarios_alunos.id_aluno');
+        $query = $this->db->get();
+        #echo ">>> <pre>".print_r($this->db->last_query()); exit;
+        return $query->result();
     }
 
     /**
