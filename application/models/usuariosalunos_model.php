@@ -9,7 +9,7 @@ class Usuariosalunos_model extends CI_Model {
     * Retorno todos os usuarios no banco
     */
     public function getUsuariosAlunos() {
-        $this->db->select('usuarios_alunos.id,alunos.nome,
+        $this->db->select('usuarios_alunos.id,usuarios_alunos.id_aluno,alunos.nome,
                           usuarios_alunos.login, usuarios_alunos.status');
         $this->db->from('usuarios_alunos');
         $this->db->join('alunos', 'alunos.id = usuarios_alunos.id_aluno');
@@ -21,7 +21,7 @@ class Usuariosalunos_model extends CI_Model {
     /**
     * Retorno um usuarios
     */
-    public function getUsuarioAluno($_id, $id_aluno = null) {
+    public function getUsuarioAluno($_id) {
     	return $this->db->where('id', $_id)->get('usuarios_alunos')->row();
     }
 
@@ -63,6 +63,16 @@ class Usuariosalunos_model extends CI_Model {
     	$dados = array('status' => 'Excluído');
 		$retorno = $this->db->where('id',$_id)->update('usuarios_alunos',$dados);
 		return ($retorno ? true : false);
+    }
+
+    /**
+    * Alterar usuario
+    */
+    public function resetarSenha($_id) {
+        $dados   = array('senha' => sha1('mudar123'));
+        $retorno = $this->db->where('id',$_id)->update('usuarios_alunos',$dados);
+        #echo ">>> <pre>".print_r($this->db->last_query()); exit;
+        return ($retorno ? true : false);
     }
 
 }

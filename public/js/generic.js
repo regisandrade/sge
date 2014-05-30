@@ -32,6 +32,17 @@ $(document).on("click", ".btnVoltar", function(e) {
 	window.location = $('.btnVoltar').attr('caminho');
 });
 
+$(document).on("click", ".confirmaResetar a", function(e) {
+    var $nome = $(this).attr("nomeAluno");
+    var $caminho = $(this).attr("caminho");
+    bootbox.confirm("<h5>Resetar Senha do(a) Aluno(a)</h5><hr><br><strong>Atenção</strong><br>A Senha do(a) aluno(a): <strong>"+$nome+"</strong>, será resetada, deseja continuar?","Não","Sim", function(result) {
+      if (result) {
+        //console.log($('.confirma').attr('caminho'));
+        window.location = $caminho;
+      }
+    });
+});
+
 $(function(){
 	$('#datepicker').datepicker({
 		showOtherMonths: true,

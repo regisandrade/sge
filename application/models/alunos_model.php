@@ -29,6 +29,20 @@ class Alunos_model extends CI_Model {
     }
 
     /**
+    * Retorna nome do aluno
+    */
+    public function getNomeAluno($_id) {
+        return $this->db->select('nome')->where('id', $_id)->get('alunos')->row();
+    }
+
+    /**
+    * Retorna e-mail do aluno
+    */
+    public function getEmailAluno($_id) {
+        return $this->db->select('email')->where('id', $_id)->get('alunos')->row();
+    }
+
+    /**
     * Verificar se o aluno esta cadastrado, com os campos de e-mail, cpf e curso
     */
     public function verificarExisteAluno($_param = array()) {

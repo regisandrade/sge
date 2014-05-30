@@ -2,7 +2,9 @@
 echo br(); 
 ?>
 <h5 class="widget-name"><i class="icon-columns"></i>Lista de usuários/alunos</h5>
-
+<?php
+echo isset($msg)?"<br><div class=\"alert alert-success\"><button class=\"close\" data-dismiss=\"alert\" type=\"button\"></button>{$msg}</div>":"";
+?>
 <div class="widget">
 	<div class="table-overflow">
 		<div id="data-table_wrapper" class="dataTables_wrapper" role="grid">
@@ -23,8 +25,8 @@ echo br();
 						<tr class="<?php (++$count%2 ? "odd" : "even") ?>">
 							<td>
 								<ul class="table-controls">
-									<li>
-										<a title="" class="btn tip" href="<?php echo base_url('index.php')?>/usuariosalunos/resetarSenhaAluno/<?php echo $dado->id; ?>" data-original-title="Resetar Senha"><i class="icon-cog"></i></a>
+									<li class="confirmaResetar">
+										<a title="" class="btn tip" nomeAluno="<?php echo $dado->nome?>" caminho="<?php echo base_url('index.php')?>/usuariosalunos/resetarSenhaAluno/<?php echo $dado->id; ?>" data-original-title="Resetar Senha"><i class="icon-cog"></i></a>
 									</li>
 								</ul>
 							</td>
