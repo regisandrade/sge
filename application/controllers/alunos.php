@@ -253,4 +253,12 @@ class Alunos extends CI_Controller {
 		view_sistema('inicio/home_view',$data);
 	}
 
+	function formAreaAluno() {
+		# Configuraçãp
+		$data['config'] = $this->conf->getConfiguracao();
+
+		$data['pagina'] = 'alunos/form_area_aluno';
+		view_sistema('inicio/home_view',$data);
+	}
+
 }

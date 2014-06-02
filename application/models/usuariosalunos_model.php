@@ -75,4 +75,16 @@ class Usuariosalunos_model extends CI_Model {
         return ($retorno ? true : false);
     }
 
+    /**
+    * Login do aluno
+    */
+    public function loginaluno($_login,$_senha) {
+        $retorno = $this->db
+                        ->where('login', $_login)
+                        ->where('senha', sha1($_senha))
+                        ->get('usuarios_alunos')->row();
+        #echo ">>> <pre>".print_r($this->db->last_query()); exit;
+        return ($retorno ? true : false);
+    }
+
 }

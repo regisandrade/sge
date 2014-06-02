@@ -46,4 +46,20 @@ class Usuariosalunos extends CI_Controller {
 		view_sistema('inicio/home_view',$data);
 	}
 
+	/**
+	* Função criada para logar pela área administrativa do sistema.
+	*/
+	function loginAluno() {
+		$retorno = $this->usuAlunos->loginaluno($this->input->post('login'),$this->input->post('senha'));
+		if ($retorno) {
+			# Colocar aqui o caminho da area do aluno
+		} else {
+			# Erro
+			$data['msg'] = "Atenção<br>Usuário/e-Mail ou Senha estão incorretos.";
+			$data['pagina'] = 'alunos/formAreaAluno';
+			view_sistema('inicio/home_view',$data);
+		}
+		
+	}
+
 }
