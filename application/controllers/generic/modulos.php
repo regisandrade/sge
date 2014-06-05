@@ -275,7 +275,7 @@ class Modulos extends CI_Controller{
 
 		array(
 		 'id'=>array('type'=>'pk','label'=>'Id'),
-		 'descricao'=>array('type'=>'varchar','size'=>200,'label'=>'Titulo','class'=>'input-xlarge'),
+		 'titulo'=>array('type'=>'varchar','size'=>200,'label'=>'Titulo','class'=>'input-xlarge'),
 		 'arquivo'=>array('type'=>'file','label'=>'Artigo'),
 		);
 
