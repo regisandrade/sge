@@ -43,6 +43,13 @@ $(document).on("click", ".confirmaResetar a", function(e) {
     });
 });
 
+$(document).on("click", ".aplicar", function(e) {
+  var $caminho = $(this).attr("caminho");
+  alert($caminho);
+  $("#validate").attr('action');
+  $("#validate").submit();
+});
+
 $(function(){
 	$('#datepicker').datepicker({
 		showOtherMonths: true,

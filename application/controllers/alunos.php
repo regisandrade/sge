@@ -131,8 +131,13 @@ class Alunos extends CI_Controller {
 				$data['msg'] = "Erro ao tentar gravar dados da graduação";
 			}
 		}
-		
-		$data['pagina'] = 'alunos/listar_alunos';
+
+		if(isset($_GET['aplicar']) && $_GET['aplicar']=='sim'){
+			$data['pagina'] = 'alunos/form_aluno';
+		}else{
+			$data['pagina'] = 'alunos/listar_alunos';
+		}
+
 		view_sistema('inicio/home_view',$data);
 	}
 
@@ -141,7 +146,7 @@ class Alunos extends CI_Controller {
 		$data['config'] = $this->conf->getConfiguracao();
 
 		# Colocar aqui o código
-		#echo "<pre>"; print_r($_POST);
+		
 		# 1. Gravar os dados do aluno
 		$dadosBasico = array('id_curso' => $_POST['id_curso'],
 							 'nome' => $_POST['nome'],
@@ -214,7 +219,12 @@ class Alunos extends CI_Controller {
 		# Listar os dados
 		$data['resultado'] = $this->alu->getAlunos();
 
-		$data['pagina'] = 'alunos/listar_alunos';
+		if(isset($_GET['aplicar'])&&$_GET['aplicar']=='sim'){
+			$data['pagina'] = 'alunos/form_aluno';
+		}else{
+			$data['pagina'] = 'alunos/listar_alunos';
+		}
+		
 		view_sistema('inicio/home_view',$data);
 	}
 

@@ -187,7 +187,7 @@ echo br();
   ?>
     <div class="form-actions">
       <button class="btn btn-primary" type="submit"><i class="icon-ok"></i>&nbsp;Gravar</button>
-      <button class="btn btn-success" type="button"><i class="icon-star"></i>&nbsp;Aplicar</button>
+      <button class="btn btn-success aplicar" type="button" caminho="<?php echo base_admin("controle/salvar_update/".$this->uri->segment(4))?>"><i class="icon-star"></i>&nbsp;Aplicar</button>
       <button class="btn btn-danger btnVoltar" type="button" caminho="<?php echo base_admin('controle/listar')?>"><i class="icon-remove"></i>&nbsp;Cancelar</button>
     </div>
   </div>
