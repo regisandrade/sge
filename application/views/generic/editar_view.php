@@ -139,7 +139,7 @@ echo br();
       <div class="control-group">
         <label class="control-label"><?php echo $f['label']?>:</label>
         <div class="controls"><textarea rows="10" cols="100" 
-                                        class="tip <?php echo (isset($f['ckeditor']) ? ' texto' : '') . (isset($f['notnull']) ? ' validate[required]': '') ?>" 
+                                        class="tip <?php echo (isset($f['class']) ? $f['class'] : '') . (isset($f['notnull']) ? ' validate[required]': '') ?>" 
                                         name="<?php echo $field?>"
                                         data-original-title="<?php echo $f['label']?>"
                                         data-placement="right"><?php echo $dados->$field?></textarea></div>

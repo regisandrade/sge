@@ -23,7 +23,7 @@
 		'<campo_varchar>'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'<label_ou_nome_campo>','class'=>'<nome_class>'),
 		'<campo_enum>'=>array('type'=>'enum','valor'=>'"SIM","NAO"',DEFAULT=>'SIM','label'=>'<label_ou_nome_campo>'),
 		'<campo_texto_simples>'=>array('type'=>'text','label'=>'<label_ou_nome_campo>'),
-		'<campo_texto_rico_ckeditor>'=>array('type'=>'text','ckeditor'=>1,'label'=>'<label_ou_nome_campo>'),
+		'<campo_texto_rico_ckeditor>'=>array('type'=>'text','class'=>'ckeditor','label'=>'<label_ou_nome_campo>'),
 		'<campo_data>'=>array('type'=>'date','notnull'=>0,'label'=>'<label_ou_nome_campo>'),
 		'<campo_chave_estrangeira>'=>array('type'=>'fk','table_fk'=>'<nome_tabela_estrangeira>','fk_id'=>'<id_tabela_estrangeira>','fk_text'=>'<campo_texto_tabela_estrangeira>','label'=>'<label_ou_nome_campo>'),
 		);
@@ -59,9 +59,9 @@ class Modulos extends CI_Controller{
 			'id_configuracao'=>array('type'=>'pk','label'=>'N°'),
 			'empresa'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'Empresa','class'=>'input-xxlarge'),
 			'slogan'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'Slogan','class'=>'input-xlarge'),
-			'descricao'=>array('type'=>'text','size'=>200,'notnull'=>0,'label'=>'Descrição'),
+			'descricao'=>array('type'=>'text','class'=>'ckeditor','size'=>200,'notnull'=>0,'label'=>'Descrição'),
 			'email'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'E-mail','class'=>'input-xlarge'),
-			'endereco'=>array('type'=>'text','notnull'=>1,'label'=>'Endereço'),
+			'endereco'=>array('type'=>'text','class'=>'ckeditor','notnull'=>1,'label'=>'Endereço'),
 			'telefone_1'=>array('type'=>'varchar','size'=>15,'notnull'=>1,'label'=>'Telefone 1','class'=>'input-medium'),
 			'telefone_2'=>array('type'=>'varchar','size'=>15,'notnull'=>0,'label'=>'Telefone 2','class'=>'input-medium'),
 			'facebook'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'Facebook','class'=>'input-xlarge'),
@@ -93,7 +93,7 @@ class Modulos extends CI_Controller{
 		array(
 		'id_noticia'=>array('type'=>'pk','label'=>'Id'),
 		'titulo'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'Título','class'=>'input-xxlarge'),
-		'texto'=>array('type'=>'text','ckeditor'=>0,'notnull'=>1,'label'=>'Notícia'),
+		'texto'=>array('type'=>'text','class'=>'ckeditor','notnull'=>1,'label'=>'Notícia'),
 		);
 		//Instalando o modulo
 		$this->install();
@@ -139,7 +139,7 @@ class Modulos extends CI_Controller{
 		 'id_foto'=>array('type'=>'pk','label'=>'Id'),
 		 //'nome'=>array('type'=>'varchar','size'=>200,'notnull'=>0,'label'=>'nome'),
 		 'foto'=>array('type'=>'img','label'=>'Foto'),
-		 //'texto'=>array('type'=>'text','ckeditor'=>1,'label'=>'Texto')
+		 //'texto'=>array('type'=>'text','class'=>'ckeditor','label'=>'Texto')
 		);
 
 		//Instalando o modulo
@@ -163,7 +163,7 @@ class Modulos extends CI_Controller{
 		array(
 		'id_empresa'=>array('type'=>'pk','label'=>'Id'),
 		'titulo'=>array('type'=>'varchar','size'=>200,'notnull'=>1,'label'=>'Título','class'=>'input-xxlarge'),
-		'texto'=>array('type'=>'text','ckeditor'=>0,'notnull'=>1,'label'=>'Conteúdo'),
+		'texto'=>array('type'=>'text','class'=>'ckeditor','notnull'=>1,'label'=>'Conteúdo'),
 		);
 		//Instalando o modulo
 		$this->install();
@@ -211,22 +211,22 @@ class Modulos extends CI_Controller{
 			'id_descricao_curso'=>array('type'=>'pk','label'=>'Id'),
 			'codg_curso_descricao'=>array('type'=>'fk','table_fk'=>'curso','fk_id'=>'id','fk_text'=>'nome','label'=>'Curso','notnull'=>1),
 			//'nome'=>array('type'=>'varchar','size'=>200,'label'=>'Nome'),
-			'apresentacao'=>array('type'=>'text','ckeditor'=>1,'label'=>'Apresentação','notnull'=>1),
-			'publico'=>array('type'=>'text','ckeditor'=>1,'label'=>'Público Alvo','notnull'=>1),
-			'datas'=>array('type'=>'text','ckeditor'=>1,'label'=>'Datas Importantes','notnull'=>1),
-			'inscricao'=>array('type'=>'text','ckeditor'=>1,'label'=>'Inscrição','notnull'=>1),
-			'avaliacao'=>array('type'=>'text','ckeditor'=>1,'label'=>'Avaliação','notnull'=>1),
-			'disciplinas'=>array('type'=>'text','ckeditor'=>1,'label'=>'Disciplinas','notnull'=>1),
-			'metodologia'=>array('type'=>'text','ckeditor'=>1,'label'=>'Matodologia','notnull'=>1),
-			'certificados'=>array('type'=>'text','ckeditor'=>1,'label'=>'Certificados','notnull'=>1),
-			'duracao'=>array('type'=>'text','ckeditor'=>1,'label'=>'Duração do Curso','notnull'=>1),
-			'numeroVagas'=>array('type'=>'text','ckeditor'=>1,'label'=>'Número de Vagas','notnull'=>1),
-			'coordenacaogeral'=>array('type'=>'text','ckeditor'=>1,'label'=>'Coordenação Geral','notnull'=>1),
-			'coordenacaoacademica'=>array('type'=>'text','ckeditor'=>1,'label'=>'Coordenação Acadêmica','notnull'=>1),
-			'horario'=>array('type'=>'text','ckeditor'=>1,'label'=>'Horário das Aulas','notnull'=>1),
-			'processo'=>array('type'=>'text','ckeditor'=>1,'label'=>'Processo Seletivo','notnull'=>1),
-			'corpoDocente'=>array('type'=>'text','ckeditor'=>1,'label'=>'Corpo Docente','notnull'=>1),
-			'informacoes'=>array('type'=>'text','ckeditor'=>1,'label'=>'Informações','notnull'=>1),
+			'apresentacao'=>array('type'=>'text','class'=>'ckeditor','label'=>'Apresentação','notnull'=>1),
+			'publico'=>array('type'=>'text','class'=>'ckeditor','label'=>'Público Alvo','notnull'=>1),
+			'datas'=>array('type'=>'text','class'=>'ckeditor','label'=>'Datas Importantes','notnull'=>1),
+			'inscricao'=>array('type'=>'text','class'=>'ckeditor','label'=>'Inscrição','notnull'=>1),
+			'avaliacao'=>array('type'=>'text','class'=>'ckeditor','label'=>'Avaliação','notnull'=>1),
+			'disciplinas'=>array('type'=>'text','class'=>'ckeditor','label'=>'Disciplinas','notnull'=>1),
+			'metodologia'=>array('type'=>'text','class'=>'ckeditor','label'=>'Matodologia','notnull'=>1),
+			'certificados'=>array('type'=>'text','class'=>'ckeditor','label'=>'Certificados','notnull'=>1),
+			'duracao'=>array('type'=>'text','class'=>'ckeditor','label'=>'Duração do Curso','notnull'=>1),
+			'numeroVagas'=>array('type'=>'text','class'=>'ckeditor','label'=>'Número de Vagas','notnull'=>1),
+			'coordenacaogeral'=>array('type'=>'text','class'=>'ckeditor','label'=>'Coordenação Geral','notnull'=>1),
+			'coordenacaoacademica'=>array('type'=>'text','class'=>'ckeditor','label'=>'Coordenação Acadêmica','notnull'=>1),
+			'horario'=>array('type'=>'text','class'=>'ckeditor','label'=>'Horário das Aulas','notnull'=>1),
+			'processo'=>array('type'=>'text','class'=>'ckeditor','label'=>'Processo Seletivo','notnull'=>1),
+			'corpoDocente'=>array('type'=>'text','class'=>'ckeditor','label'=>'Corpo Docente','notnull'=>1),
+			'informacoes'=>array('type'=>'text','class'=>'ckeditor','label'=>'Informações','notnull'=>1),
 		);
 		//Instalando o modulo
 		$this->install();
@@ -301,7 +301,7 @@ class Modulos extends CI_Controller{
 		array(
 			'id'=>array('type'=>'pk','label'=>'Id'),
 			'titulo'=>array('type'=>'varchar','size'=>150,'notnull'=>1,'label'=>'Título','class'=>'input-xlarge'),
-			'descricao'=>array('type'=>'text','ckeditor'=>1,'notnull'=>1,'label'=>'Descrição'),
+			'descricao'=>array('type'=>'text','class'=>'ckeditor','notnull'=>1,'label'=>'Descrição'),
 		);
 
 		//Instalando o modulo
@@ -442,7 +442,7 @@ class Modulos extends CI_Controller{
 			'frequencia'=>array('type'=>'enum','valor'=>'"Diária","Semanal","Mensal","Bimestral","Trimestral","Semestral","Anual"', 'DEFAULT' => 'Diária', 'notnull'=>1, 'label'=>'Frequência'),
 			'data_competencia'=>array('type'=>'varchar','size'=>10,'notnull'=>0,'label'=>'Data Competência','class'=>'input-xlarge'),
 			/*'id_centro_custo'=>array('type'=>'fk','table_fk'=>'centros_custos','fk_id'=>'id','fk_text'=>'nome','label'=>'Centro Custo','notnull'=>0),*/
-			'observacoes'=>array('type'=>'text','ckeditor'=>1,'label'=>'Observações','notnull'=>1),
+			'observacoes'=>array('type'=>'text','class'=>'ckeditor','label'=>'Observações','notnull'=>1),
 			'arquivo'=>array('type'=>'file','label'=>'Arquivo'),
 			
 		);
@@ -714,7 +714,7 @@ class Modulos extends CI_Controller{
 			'id'=>array('type'=>'pk','label'=>'Id'),
 			'id_curso'=>array('type'=>'fk','table_fk'=>'curso','fk_id'=>'id','fk_text'=>'nome','label'=>'Curso','notnull'=>1),
 			'id_aluno'=>array('type'=>'fk','table_fk'=>'alunos','fk_id'=>'id','fk_text'=>'nome','label'=>'Aluno','notnull'=>1, 'naoMostrar'=>true),
-			'depoimento'=>array('type'=>'text','size'=>200,'notnull'=>0,'label'=>'Depoimento'),
+			'depoimento'=>array('type'=>'text','class'=>'ckeditor','size'=>200,'notnull'=>0,'label'=>'Depoimento'),
 			'data_depoimento'=>array('type'=>'date','size'=>10,'notnull'=>1,'label'=>'Data'),
 			'status'=>array('type'=>'enum','valor'=>'"Ativo","Inativo"', 'DEFAULT' => 'Ativo', 'notnull'=>0, 'label'=>'Status'),
 		);

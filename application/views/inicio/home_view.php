@@ -150,7 +150,7 @@ echo meta($metas);
 	<script type="text/javascript" src="<?php echo base_url()?>public/ckeditor/ckeditor.js"></script>
 	<script type="text/javascript">
 	<!--
-	CKEDITOR.replace( 'descricao' );
+	CKEDITOR.replaceAll( 'ckeditor' );
 	// Default setting.
 	CKEDITOR.config.toolbar = [
 	    { name: 'document', items: [ 'Source' ] },
@@ -161,10 +161,6 @@ echo meta($metas);
 		'/',
 		{ name: 'Tabela', items: [ 'Image','Table','HorizontalRule','-','Link', 'Unlink' ] },
 	];
-
-	/*function seta_imagem_ckeditor(img){
-		CKEDITOR.tools.callFunction(1,img);
-	}; */
 
 	//-->
 	</script>
