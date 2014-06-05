@@ -71,6 +71,7 @@ class Modulos extends CI_Controller{
 			'latitude_endereco'=>array('type'=>'varchar','size'=>20,'notnull'=>1,'label'=>'Latitude','class'=>'input-medium'),
 			'longitude_endereco'=>array('type'=>'varchar','size'=>20,'notnull'=>1,'label'=>'Longitude','class'=>'input-medium'),
 			'arquivo'=>array('type'=>'file', 'label'=>'Logo'),
+			'url_area_aluno'=>array('type'=>'varchar','size'=>300,'notnull'=>0,'label'=>'URL área do aluno','class'=>'input-xlarge'),
 		);
 		//Instalando o modulo
 		$this->install();
